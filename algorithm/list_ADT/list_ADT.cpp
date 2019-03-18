@@ -1,5 +1,6 @@
 #include<iostream>
-
+#include<exception>
+#include<stdexcept>
 using namespace std;
 
 template <typename T> 
@@ -45,6 +46,7 @@ class List
         void print();
         Node<T>* getHeader() {return header;}
         Node<T>* getTrailer() {return trailer;}
+        int size() {return _size;}
 };
 // implement the functions of the List
 template <typename T>
@@ -67,6 +69,7 @@ Node<T>* List<T>::insert(Node<T>* r, T const& e)
     Node<T>* x = new Node<T>(e, r->pred, r);
     r->pred->succ = x;
     r->pred = x;
+    _size++;
     return x;
 }
 
@@ -119,6 +122,9 @@ Node<T>* List<T>::getP(int r)
         p = p->succ;
         if (!p->deleted)
             r--;
+        if (p == trailer)
+            throw out_of_range("Overflow!");
+
     }
 
     return p;
@@ -127,6 +133,11 @@ Node<T>* List<T>::getP(int r)
 template <typename T>
 void List<T>::print()
 {
+    if (_size == 0)
+    {
+        cout << "The list is empty." << endl;
+        return;
+    }
     Node<T>* p = header;
     while ((p = p->succ) != trailer)
         if (!p->deleted)
@@ -148,6 +159,11 @@ void PrintLots(List<T>& L, List<T>& P)
     Node<T>* pp = P.getP(1);
     Node<T>* trailerP = P.getTrailer();
     int pre = 0;
+    if (!L.size())
+    {
+        cout << "L is empty." << endl;
+        return;
+    }
     cout << "L: ";
     while (pp != trailerP)
     {
@@ -155,6 +171,15 @@ void PrintLots(List<T>& L, List<T>& P)
         while (0 < offset)
         {
             pl = pl->succ;
+            try
+            {
+                if (pl == L.getTrailer())
+                    throw out_of_range("Overflow!");
+            }catch(out_of_range &e)
+            {
+                cerr << endl << "Index " << pp->data <<" is out of range. " << e.what() << endl;
+                return;
+            }
             if (!pl->deleted)
                 offset--;
         }
@@ -192,7 +217,16 @@ int main()
         {
             int r;
             cin >> r;
-            L.lazeDel(L.getP(r));
+            Node<int>* temp;
+            try
+            {
+                temp = L.getP(r);
+            }catch(out_of_range &e)
+            {
+                cerr << "Index " << r << " is out of range. " << e.what() << endl;
+                continue;
+            }
+            L.lazeDel(temp);
         }
         else if (instruction == "PrintLots")
         {
@@ -208,6 +242,11 @@ int main()
                     break;
             }
             PrintLots(L, P);
+        }
+        else
+        {
+            cout << "Invalide input, please enter again." << endl;
+            continue;
         }
         
 
