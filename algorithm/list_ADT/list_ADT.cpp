@@ -39,8 +39,9 @@ class List
         // operation interfaces
         Node<T>* insert(Node<T>* r, T const& e);// insert as pred
         void push_back(T e) {insert(trailer, e);}
-        T remove(Node<T>* r);
+        Node<T>* remove(Node<T>* r);
         int clear();
+        void clear_mark();
         T lazeDel(Node<T>* r);
         Node<T>* getP(int r);
         void print();
@@ -74,15 +75,15 @@ Node<T>* List<T>::insert(Node<T>* r, T const& e)
 }
 
 template <typename T>
-T List<T>::remove(Node<T>* r)
+Node<T>* List<T>::remove(Node<T>* r)
 {
-    T e = r->data;
     r->pred->succ = r->succ;
     r->succ->pred = r->pred;
+    Node<T>* p = r->succ;
     delete r;
     _size--;
     if (r->deleted) _delNum--;
-    return e;
+    return p;
 }
 
 template <typename T>
@@ -92,6 +93,21 @@ int List<T>::clear()
     while(0 < _size)
         remove(header->succ);
     return oldSize;
+}
+
+template <typename T>
+void List<T>::clear_mark()
+{
+    Node<T>* p = header->succ;
+    while (p != trailer)
+    {
+        if (p->deleted)
+            p = remove(p);
+        else
+            p = p->succ;
+    }
+    _delNum = 0;
+    cout << "remove all nodes marked." << endl;
 }
 
 template <typename T>
@@ -108,8 +124,8 @@ T List<T>::lazeDel(Node<T>* r)
     T e = r->data;
     r->deleted = true;
     _delNum++;
-    if (_size == _delNum)
-        clear();
+    if (_size/2 <= _delNum)
+        clear_mark();
     return e;
 }
 
@@ -144,6 +160,7 @@ void List<T>::print()
             cout << p->data << " ";
     cout << endl;
 }
+
 
 
 
@@ -192,8 +209,19 @@ void PrintLots(List<T>& L, List<T>& P)
 
 
 
+
 int main()
 {
+    cout << "姓名：鲁国锐" << endl;
+    cout << "学号：17020021031" << endl;
+    cout << endl;
+    cout << "instructions:" << endl;
+    cout << "delete: 后跟一数字，执行懒惰删除操作" << endl;
+    cout << "PrintLots: 后跟若干数字，务以空格分隔，以回车结束输入，为链表P的节点值，执行PrintLots操作" << endl;
+    cout << "end: 结束程序" << endl;
+
+    cout << endl << "请输入L中各节点的值，务必以空格分隔，以回车结束输入：" << endl;
+
     List<int> L;
 
     while (1)
