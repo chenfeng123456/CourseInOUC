@@ -1,6 +1,6 @@
 \documentclass[UTF8]{ctexart}
 
-
+%固定图片位置
 \usepackage{float}
 
 \usepackage{tikz,mathpazo}
@@ -93,6 +93,15 @@
 
 \pagestyle{plain}
 
+%跨页表格
+\usepackage{multirow}
+\usepackage{longtable,booktabs}
+\usepackage{supertabular}
+\usepackage{makecell}
+
+%调整itemize等的间距
+\usepackage{enumitem}
+
 
 \usepackage{graphicx}
 
@@ -127,73 +136,129 @@ linkcolor=black
 	}
 	\section{问题分析}
 	\subsection{题目描述}
-	\indent 祖玛是一款曾经风靡全球的游戏，其玩法是：在一条轨道上初始排列着若干个彩色珠子，其中任意三个相邻的珠子不会完全同色。此后，你可以发射珠子到轨道上并加入原有序列中。一旦有三个或更多同色的珠子变成相邻，它们就会立即消失。这类消除现象可能会连锁式发生，其间你将暂时不能发射珠子。
-
-\indent 开发商最近准备为玩家写一个游戏过程的回放工具。他们已经在游戏内完成了过程记录的功能，而回放功能的实现则委托你来完成。
-
-\indent 游戏过程的记录中，首先是轨道上初始的珠子序列，然后是玩家接下来所做的一系列操作。你的任务是，在各次操作之后及时计算出新的珠子序列。
-	\subsubsection{输入}
-	\indent 第一行是一个由大写字母$’A’~’Z’$组成的字符串，表示轨道上初始的珠子序列，不同的字母表示不同的颜色。
-
-\indent 第二行是一个数字$n$，表示整个回放过程共有$n$次操作。
-
-\indent 接下来的$n$行依次对应于各次操作。每次操作由一个数字$k$和一个大写字母$\sum$描述，以空格分隔。其中，$\sum$为新珠子的颜色。若插入前共有$m$颗珠子，则$k\in[0, m]$表示新珠子嵌入之后（尚未发生消除之前）在轨道上的位序。
-	\subsubsection{输出}
-	\indent 输出共$n$行，依次给出各次操作（及可能随即发生的消除现象）之后轨道上的珠子序列。
-
-\indent 如果轨道上已没有珠子，则以“$-$”表示。
-	\subsubsection{样例}
+	\indent 自己编写$list$ $ADT$,调试并完成下面内容。注：本次作业不允许使用$c++$标准模版库。
+	\begin{itemize}[leftmargin=60pt]
+	
+	\item 任务一：
 	\begin{itemize}
-	\item 输入
-		\begin{itemize}
-			\item[ ]ACCBA
-			\item[ ]5
-			\item[ ]1 B
-			\item[ ]0 A
-			\item[ ]2 B
-			\item[ ]4 C
-			\item[ ]0 A
-		\end{itemize}
-	\item 输出
-		\begin{itemize}
-			\item[ ]ABCCBA
-			\item[ ]AABCCBA
-			\item[ ]AABBCCBA
-			\item[ ]-
-			\item[ ]A	
-		\end{itemize}
+		\item[$\circ$] 实现$PrintLots(L,P)$,并分析运行时间。
+		\item[$\circ$] 有两个链表$L$和$P$, 他们包含以升序排列的整数。操作$PrintLots(L,P)$将打印$L$中那些由$P$所指定位置上的元素。如：$P={1,3,4,6}$, 则，$L$中第$1$，第$3$，第$4$，第$6$个元素被打印出来。
+	\end{itemize}
+		
+
+	\item 任务二：懒惰删除
+	\begin{itemize}
+		\item[$\circ$] 列出懒惰删除的优点和缺点
+		\item[$\circ$] 编写实现
+		
+		不同于我们已经给出的删除方法，另一种是使用懒惰删除（$lazy\ deletion$）。为了删除一个元素，我们只标记上该元素被删除。表中被删除和非被删除元素的个数作为数据结构的一部分被保留。如果被删除元素和非被删除元素一样多，我们遍历整个表，对所有被标记的节点执行标准的删除算法。
+	\end{itemize}			
 	\end{itemize}
 	
+
 	\subsection{问题分析}
 	\indent 根据题目，我们需要解决的问题有：
-	\begin{itemize}
-	\item[ ] 
-	\begin{enumerate}
-	\item 如何在插入后找出字符串中三个以上连续字符的位置；
-	\item 如何在进行消除后找出字符串中三个以上连续字符的位置；
+	\begin{enumerate}[leftmargin=50pt]
+
+	\item 编写$Node$和$List$类，包括实现$List$中一系列必须的成员函数，如：构造函数、析构函数、$insert$函数、$remove$函数等（见\ref{desigh_class}节）；
+	\item 设计输入输出流程（见\ref{design_input_and_output}节）；
+	\item 实现$PrintLots$函数（见\ref{PrintLots}节）和$lazy\ deletion$函数（见\ref{lazy_del}节）及其相关的部分函数；
+	\item 分析$PrintLots$的时间复杂度（见\ref{time_of_PrintLots}节）；
+	\item 分析懒惰删除的有点和缺点（见\ref{adv_and_disadv_of_lazy_deletion}节）。
 	\end{enumerate}
-	\end{itemize}	
 	
-	\indent 至于消除的问题可以直接用模板库的函数来解决，所以不在我们要考虑的范围之内。	
-	
+
 	
 	\section{解决方案}
-	\indent 首先这道题需要注意的一点是，\textbf{给定的输入中可能有三个以上连续重复的字符}，但根据以往玩游戏的经验，它并不会自动消除，而是需要人为地往里面再添加一个相同字符。所以我们不能每次都对整个字符串进行遍历。事实上，我们也不需要对整个字符串遍历，因为每次可能会出现消除的地方只会是插入后的位置以及消除后的“接口”位置。再进一步考虑，由于消除后后面的元素会向前填补，所以插入位置和消除后的“接口”处可以用同一个下标来表示。所以我们只用反复地考查插入位置附近是否有三个及以上连续相同字符并在符合条件的情况下进行消除。
-	
-	\indent 由此我们引出了解决本题时需要实现的两个函数：一个是$find$函数，用于考察插入位置附近是否有连续相同字符，返回该字符串的终止位置；一个是$ablat$，用于在符合条件时对find函数找出的字符串进行消除，并返回找出的字符串是否符合条件以确定是否需要再次调用$find$函数进行考察。
-	
-	\indent 首先我们来看一看$find$函数。为了实现其功能，我们需要对其传入参数插入位置的下标$start$以及目标字符串$balls$。我们再定义两个变量$left$和$right$，分别用来表示连续相同字符序列的起始下标和\textbf{终止下标的下一位}。我们先从$start$开始向左遍历，如果前一个元素等于当前元素，则令$left$减一；再从$start$开始向右遍历，如果下一个元素等于当前元素，则令$right$加一。注意不论是向左还是向右遍历，都不能超出字符串边界。另外还有一个小问题，我们调用$find$函数是为了找出满足条件的子序列的两头，我们可以直接返回$right$来输出末尾的下标，但起始的怎么办？如果是用一个数组来存放两个下标未免太不划算，所以这里我们在传参时直接传入$start$的引用，并在函数结束前把$left$的值赋给$start$即可。
-	
-	\indent 接下来我们再来看看$ablat$函数。为了实现其功能，我们需要传入起始下标$start$、终止下标$end$以及目标字符串$balls$。我们在定义一个变量$flag$，并令：
-	\begin{align}
-	flag = ((end - start) \geq 3) \label{flag}
-	\end{align}
-	
-	\indent 公式\ref{flag}的目的是用来判断$find$函数找出的字符串是否满足条件。如果是，则进行消除。最后再返回$flag$给主函数判断此次调用是否进行了消除操作，如果是，则还需调用$find$函数再次对$start$附近进行考查；反之则进入到下一次的插入操作当中去。
-	
-	\indent 到此算法的主要部分就分析完毕了，其余内容相对简单，在此不加赘述。
-	
-	\indent 另外在具体的实现上，我用了$vector$和$list$两种模板库进行实现（分别见list\ref{vec_code}和list\ref{list_code}）。其中$vector$版我参照课本\cite{data_structure}实现了它的部分函数，并在清华大学的$Open\ Judge$上提交通过。而$list$版还未实现，所以还未经$Open\ Judge$的检验，在此只给出它的代码。
+		\subsection{编写$Node$类和$List$类}\label{desigh_class}
+			\indent 我们首先要写$Node$类，它的属性包括值$val$、指向前驱的指针$pred$、指向后继的指针$succ$以及在本题中需额外设置的一个属性$deleted$，用以表示该节点是否被标记为删除。其构造函数相对简单，在此不做赘述。
+			
+			\indent 接下来是$List$类，它的属性包括头指针$header$、尾指针$trailer$、长度$\_size$（不包括头指针和尾指针）和被标记为删除的元素个数$\_delNum$。至于其成员函数，由于数量较多，我们只用一表格列出，并做简要说明。
+			\begin{center}
+			\begin{longtable}[H]{|c|c|c|c|}
+            \caption{$List$成员函数}
+            \label{functions}
+			\\
+			\hline
+			\textbf{函数名}&\textbf{输入}&\textbf{输出}&\textbf{说明} \\
+			\hline
+			\endfirsthead
+			
+			\hline
+			\textbf{函数名}&\textbf{输入}&\textbf{输出}&\textbf{说明} \\
+			\hline
+			\endhead
+			
+			\hline
+			\multicolumn{4}{|c|}{\textsl{下页继续}} \\
+			\hline
+			\endfoot
+			
+			\hline
+			\endlastfoot
+			
+			\hline
+			构造函数&无&无&初始化整个链表，建立头结点和尾节点 \\			
+				
+			\hline
+			析构函数&无&无&删除链表，释放内存 \\			
+			
+			\hline
+			$insert$&指针$r$，值$e$&该节点的指针&在$r$所指向的节点之前插入一个节点 \\
+			
+			\hline
+			$push\_back$&值$e$&无&在尾节点之前插入一个结点 \\
+			\hline
+			
+			$remove$&指针$r$&被删除节点下一个节点的指针&\makecell{删除$r$指向的节点} \\
+			\hline
+			
+			$clear$&无&被删除元素的个数&清空链表（不包括头结点和尾节点）\\
+			\hline
+			
+			$clear\_mark$&无&无&\makecell{调用$remove$函数清除所有被标记为\\已删除的节点} \\
+			\hline
+			
+			$lazeDel$&指针$r$&被删除元素的值&\makecell{用懒惰删除的方式删除$r$指向的节点} \\
+			\hline
+			
+			$getP$&序号（从$1$开始计数）&指向序号所对应的节点的指针&将输入的序号转换为指针，方便后续的操作 \\
+			\hline 
+			
+			$print$&无&无&\makecell{输出链表中所有节点的值\\（不包括头结点和尾节点）} \\
+			\hline
+			
+			$getHeader$&无&头指针&返回头指针 \\
+			\hline
+			
+			$getTrailer$&无&尾指针&返回尾指针 \\
+			\hline 
+			
+			$size$&无&\makecell{链表长度\\（不包括头结点和尾节点）}&返回链表长度（不包括头结点和尾节点） \\
+			\hline
+
+			\end{longtable}			
+			\end{center}
+		
+		
+		\subsection{设计输入输出流程}\label{design_input_and_output}
+		\indent 我们首先输入链表$L$各节点的值，这些值以空格分隔，以回车结束。然后通过三条指令来控制这个程序的流程：
+			\begin{itemize}[leftmargin=50pt]
+			\item $delete$：执行懒惰删除操作，后跟一数字表示要删除节点的序号；
+			\item $PrintLots$：调用$PrintLots$函数，后跟一组以空格分隔的数字，表示链表$P$中各节点的元素；
+			\item $end$：结束整个程序。
+			\end{itemize}
+			
+		\indent 每次执行完$delete$或$PrintsLots$后，把$L$中各节点的值输出一遍。其中在执行$PrintLots$时还会把$P$以及$L$中对应于$P$所表示的序号的节点值输出一遍，分别以“$P：$”和“$L：$”开头。
+		
+		\subsection{实现$PrintLots$函数}\label{PrintLots}
+		\indent 有了表\ref{functions}中的各个函数，我们实现$PrintLots$就会轻松不少。
+		
+		\indent 首先我们要检查$L$是否为空，若为空则直接结束函数的调用。若不为空，我们开始执行输出操作。这里定义了两个指针$pl$和$pp$，分别初始化为指向$L$的头节点和$P$的第一个节点。同时为了避免在得到$P$中节点的值后要从头开始遍历$L$，我们还需定义两个整型变量$pre$和$offset$。其中$pre$中记录的是$P$中前一个节点的值，而$offset$中记录的则是$pl$需要向后移动的位数。每次我们令$pp$向后移动一位，然后用$pp$指向的节点中的值减去$pre$，所得结果赋给$offset$，然后令$pl$向后移$offset$位，输出其对应节点中的值。
+		
+		\indent 另外在执行输出操作时我们还要不断检查$pl$是否越界。如果发现$pl$指向了尾节点，立马抛出异常并结束整个函数。
+		\subsection{实现$lazy\ deletion$函数}\label{lazy_del}
+		\indent 这个函数实现起来相对简单。我们只需要把传入指针对应的节点中$deleted$属性置为$true$即可。同时还要将链表中的$\_delNum$加一。然后判断$\frac{\_size}{2} \leq \_delNum$是否成立。若成立，则执行$clear_mark$函数，将链表中所有$deleted$为$true$的节点删除，并把$\_delNum$值$0$。
 	\section{算法设计}
 	见下页图\ref{PrintsLots_and_lazeDel}、图\ref{main}。
 
@@ -505,18 +570,37 @@ int main()
 	\end{lstlisting}
 	
 	\section{结果分析}
-	
+	\subsection{结果展示}
+	\newpage
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=18cm, height=23cm]{list_res.png} 
 	\caption{结果} 
 	\label{res}
 \end{figure}
-\newpage
 
+
+	\subsection{$PrintLots$运行时间}\label{time_of_PrintLots}
+	\indent 由于我们在执行输出操作时引入$pre$和$offset$两个变量从而避免了对$L$的重复遍历。因此，即使在最坏情况下，即需要输出$L$中的最后一个元素时，我们也只需令$pl$向后移动$L.\_size$次，所需时间与$L$的长度成正比。故其时间复杂度为$O(N)$。
 	
+	\subsection{懒惰删除的优点和缺点}\label{adv_and_disadv_of_lazy_deletion}
+	\indent 懒惰删除的优点：
+	\begin{itemize}[leftmargin=50pt]
+	\item 减少删除节点时所需的时间；
+	\item 避免频繁地对内存进行操作；
+	\item 简化代码复杂程度；
+	\item 在对被删除位置进行插入时\textbf{可能}会减少时间。
+	\end{itemize}
+	
+	\indent 懒惰删除的缺点：
+	\begin{itemize}[leftmargin=50pt]
+	\item 会占用更多的空间；
+	\item 由于在链表中由于并没有真正删除节点，所以会增减遍历链表所需的时间；
+	\end{itemize}
 	\section{总结体会}
-	\indent 第一次做这道题时我是用$list$做的，因为一开始觉得$list$删除元素只需常数时间。但在实现过程中发现$list$在无法像$vector$那样在常数时间内访问任意一个元素，只能通过迭代器一个一个往后找，所以到最后两种实现方式的时间复杂度应该相差不多。但用$list$实现由于大量操作都是通过迭代器来实现的且迭代器之间不能进行算数操作，这使得它实现起来要更为复杂一些。
+	\indent 在完成这次作业的过程中，由于一开始没有加入检查指针是否越界的代码，导致在调试过程中因指针越界使得电脑死机了，从而不得不强制关机重启。这次的教训让我更深刻地明白了检查指针越界的重要性，同时还促使我去学习了如何在$C++$中捕获异常并输出错误信息。
+	\indent 另外还没有完全解决的一点是，因为我不想在输入链表的值之前还要输入长度，所以采取的做法是当检测到输入数字后跟的是回车时就跳出循环。但如果在输入回车之前不小心多输入了空格，
+并在输入回车后输入命令，也会使电脑几乎陷入死机状态。我暂时还没想出是什么原因导致的，也没有很好的解决方法。
 
 \bibliography{ref.bib}
 \end{document}
