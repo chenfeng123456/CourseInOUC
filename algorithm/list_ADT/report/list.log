@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  21 MAR 2019 20:54
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  23 MAR 2019 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1112,6 +1112,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box54
 )
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -1546,7 +1550,7 @@ LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count173
 \c@MaxMatrixCols=\count174
-\dotsspace@=\muskip17
+\dotsspace@=\muskip18
 \c@parentequation=\count175
 \dspbrk@lvl=\count176
 \tag@help=\toks36
@@ -1717,6 +1721,7 @@ Package hyperref Info: Option `unicode' set `true' on input line 4319.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 )
+Package hyperref Info: Option `hyperfootnotes' set `true' on input line 4319.
 Package hyperref Info: Hyper figures OFF on input line 4443.
 Package hyperref Info: Link nesting OFF on input line 4448.
 Package hyperref Info: Hyper index ON on input line 4451.
@@ -1738,11 +1743,6 @@ tly
 (rerunfilecheck)             and the loading of the package is aborted.
 ))
 \c@Hy@tempcnt=\count195
-
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen327
 \Fld@menulength=\count196
@@ -1780,55 +1780,65 @@ Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 114.
+(hyperref)                setting the option has no effect on input line 117.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 114.
+Package hyperref Info: Option `colorlinks' set `true' on input line 117.
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
+\TX@col@width=\dimen330
+\TX@old@table=\dimen331
+\TX@old@col=\dimen332
+\TX@target=\dimen333
+\TX@delta=\dimen334
+\TX@cols=\count270
+\TX@ftn=\toks44
+)
 (/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2016/02/10 v3.3.4 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count270
-\l__xeCJK_listings_flag_int=\count271
+\l__xeCJK_listings_max_char_int=\count271
+\l__xeCJK_listings_flag_int=\count272
 )
 (./list.aux)
 \openout1 = `list.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 125.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 125.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 130.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 130.
  (/usr/share/texmf/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Try loading font information for EU1+ppl on input line 125.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Try loading font information for EU1+ppl on input line 130.
 
-LaTeX Font Info:    No file EU1ppl.fd. on input line 125.
+LaTeX Font Info:    No file EU1ppl.fd. on input line 130.
 
 
 LaTeX Font Warning: Font shape `EU1/ppl/m/n' undefined
-(Font)              using `EU1/lmr/m/n' instead on input line 125.
+(Font)              using `EU1/lmr/m/n' instead on input line 130.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 125.
+LaTeX Info: Redefining \selectfont on input line 130.
  ABD: EveryShipout initializing macros
-\c@lstlisting=\count272
+\c@lstlisting=\count273
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1865,39 +1875,39 @@ LaTeX Info: Redefining \selectfont on input line 125.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring ON on input line 125.
-LaTeX Info: Redefining \ref on input line 125.
-LaTeX Info: Redefining \pageref on input line 125.
-LaTeX Info: Redefining \nameref on input line 125.
+Package hyperref Info: Link coloring ON on input line 130.
+LaTeX Info: Redefining \ref on input line 130.
+LaTeX Info: Redefining \pageref on input line 130.
+LaTeX Info: Redefining \nameref on input line 130.
 (./list.out) (./list.out)
 \@outlinefile=\write4
 \openout4 = `list.out'.
 
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 127.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 132.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 127
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 132
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 127
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 132
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 127
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 132
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 127
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 132
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -1905,7 +1915,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 
 LaTeX Font Warning: Font shape `EU1/ppl/bx/n' undefined
-(Font)              using `EU1/ppl/m/n' instead on input line 128.
+(Font)              using `EU1/ppl/m/n' instead on input line 133.
 
 (./list.toc)
 \tf@toc=\write5
@@ -1916,63 +1926,63 @@ LaTeX Font Warning: Font shape `EU1/ppl/bx/n' undefined
 ]
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 141.
 
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 141.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 178.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 173.
+(hyperref)                removing `math shift' on input line 178.
 
 
-Overfull \hbox (39.95435pt too wide) in alignment at lines 178--185
+Overfull \hbox (39.95435pt too wide) in alignment at lines 183--190
  [] [] [] [] 
  []
 
-
-Overfull \hbox (39.95435pt too wide) in alignment at lines 185--190
- [] [] [] [] 
- []
-
-
-LaTeX Font Warning: Font shape `EU1/ppl/m/sl' undefined
-(Font)              using `EU1/ppl/m/n' instead on input line 193.
-
-LaTeX Font Info:    Font shape `EU1/FandolSong-Regular(0)/m/sl' in size <10.539
-37> not available
-(Font)              Font shape `EU1/FandolSong-Regular(0)/m/it' tried instead o
-n input line 193.
 
 Overfull \hbox (39.95435pt too wide) in alignment at lines 190--195
  [] [] [] [] 
  []
 
 
-Overfull \hbox (39.95435pt too wide) in alignment at lines 195--198
+LaTeX Font Warning: Font shape `EU1/ppl/m/sl' undefined
+(Font)              using `EU1/ppl/m/n' instead on input line 198.
+
+LaTeX Font Info:    Font shape `EU1/FandolSong-Regular(0)/m/sl' in size <10.539
+37> not available
+(Font)              Font shape `EU1/FandolSong-Regular(0)/m/it' tried instead o
+n input line 198.
+
+Overfull \hbox (39.95435pt too wide) in alignment at lines 195--200
  [] [] [] [] 
  []
 
 
-Overfull \hbox (39.95435pt too wide) in alignment at lines 198--240
+Overfull \hbox (39.95435pt too wide) in alignment at lines 200--203
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 240
+Overfull \hbox (39.95435pt too wide) in alignment at lines 203--245
+ [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 245
  []
 
 [2]
@@ -1981,24 +1991,24 @@ Missing character: There is no ： in font pplr7t!
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 254.
+(hyperref)                removing `math shift' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 254.
+(hyperref)                removing `math shift' on input line 259.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
+(hyperref)                removing `math shift' on input line 265.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 260.
+(hyperref)                removing `math shift' on input line 265.
 
 [3]
 File: list_ADT.pdf Graphic file (type QTm)
  <use  "list_ADT.pdf" >
-Overfull \hbox (68.57176pt too wide) in paragraph at lines 267--268
+Overfull \hbox (68.57176pt too wide) in paragraph at lines 272--273
  [][] 
  []
 
@@ -2009,11 +2019,40 @@ Overfull \vbox (12.98889pt too high) has occurred while \output is active []
 [5]
 File: list_ADT_main.pdf Graphic file (type QTm)
  <use  "list_ADT_main.pdf" >
-Overfull \hbox (68.6015pt too wide) in paragraph at lines 276--277
+Overfull \hbox (68.6015pt too wide) in paragraph at lines 281--282
  [][] 
  []
 
-[6] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[6]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 289.
+
+*************************************************
+* fontspec warning: "script-not-exist"
+* 
+* Font 'FandolFang-Regular' does not contain script 'CJK'.
+*************************************************
+\g__fontspec_family_FandolFang-Regular_int=\count274
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 290
+.
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
+File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'FandolFang-Regular(0)' created for font 'FandolFang-Regular'
+. with options [Script={CJK},Extension={.otf},AutoFakeBold={4}].
+. 
+. This font family consists of the following NFSS series/shapes:
+. - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT:"
+. - 'small caps'  (m/sc) with NFSS spec.: - 'bold' (bx/n) with NFSS spec.:
+. <->"[FandolFang-Regular.otf]/OT:embolden=4;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+.................................................
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -2026,21 +2065,21 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 LaTeX Font Info:    Font shape `EU1/FandolSong-Regular(0)/m/sl' in size <9.0337
 4> not available
 (Font)              Font shape `EU1/FandolSong-Regular(0)/m/it' tried instead o
-n input line 501.
+n input line 507.
  [11] [12]
 File: list_res.png Graphic file (type QTm)
  <use  "list_res.png" >
-Overfull \hbox (11.6625pt too wide) in paragraph at lines 577--578
+Overfull \hbox (11.6625pt too wide) in paragraph at lines 583--584
  [][] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 583.
+(hyperref)                removing `math shift' on input line 589.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 583.
+(hyperref)                removing `math shift' on input line 589.
 
 [13] (./list.bbl (./list.brf)
 \tf@brf=\write6
@@ -2052,23 +2091,23 @@ LaTeX Font Warning: Font shape `EU1/ppl/m/it' undefined
 (Font)              using `EU1/ppl/m/n' instead on input line 7.
 
 ) [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 606.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 606.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
  (./list.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 606.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 606.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 612.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 612.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 606.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 612.
  ) 
 Here is how much of TeX's memory you used:
- 40633 strings out of 493638
- 801485 string characters out of 6146795
- 928956 words of memory out of 5000000
- 43481 multiletter control sequences out of 15000+600000
- 15646 words of font info for 71 fonts, out of 8000000 for 9000
+ 40765 strings out of 493638
+ 804445 string characters out of 6146795
+ 929465 words of memory out of 5000000
+ 43599 multiletter control sequences out of 15000+600000
+ 21348 words of font info for 90 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,11n,77p,10410b,2004s stack positions out of 5000i,500n,10000p,200000b,80000s
 

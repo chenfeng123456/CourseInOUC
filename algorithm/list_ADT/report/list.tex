@@ -3,6 +3,9 @@
 %固定图片位置
 \usepackage{float}
 
+%插入超链接
+\usepackage{url}
+
 \usepackage{tikz,mathpazo}
 \usetikzlibrary{shapes.geometric, arrows}
 \usetikzlibrary{calc}
@@ -106,12 +109,14 @@
 \usepackage{graphicx}
 
 %超链接
-\usepackage[linkcolor=yellow,citecolor=red,backref=page]{hyperref}
+\usepackage[linkcolor=yellow,citecolor=red,backref=page,hyperfootnotes=true]{hyperref}
 \hypersetup{
 bookmarks=true,
 colorlinks=true,
 linkcolor=black
 }
+\usepackage{tabularx} %This package must be placed after package {hyperref}, otherwise footnote marks are NOT treated as hyperlinks.
+
 
 %引入了一些改进的数学环境，如align
 \usepackage{amsmath}
@@ -281,7 +286,8 @@ linkcolor=black
 
 
 
-	\section{编程实现}
+	\section{编程实现\protect \footnotemark[1]}
+	\footnotetext[1]{代码也可从该网址得到：\url{https://github.com/chenfeng123456/CourseInOUC/blob/master/algorithm/list_ADT/list_ADT.cpp}}
 
 	\begin{lstlisting}[language=C++,caption={list\_ADT代码},label={vec_code}]
 #include<iostream>
