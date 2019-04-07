@@ -9,7 +9,7 @@ y
 plot(x, y, 'r*', 'MarkerSize', 5)
 set(gca, 'XLim', [left, right])
 hold on
-lenx = length(x)
+lenx = length(x);
 w = ones(1, lenx);
 for i = 1 : lenx
     for j = 1 : lenx
