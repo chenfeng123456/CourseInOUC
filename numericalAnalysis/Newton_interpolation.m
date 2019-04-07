@@ -35,5 +35,5 @@ for x_i = left : (right-left)/num : right
 end
 
 plot(left:(right-left)/num:right, Nx, 'LineWidth', 1)
-hold off;
+
   

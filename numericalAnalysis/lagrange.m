@@ -44,7 +44,7 @@ for x_i = left : (right-left)/num : right
     j = j + 1;
 end
 plot(left:(right-left)/num:right, Lx, 'LineWidth', 1)
-hold off;
+
 
 
 
