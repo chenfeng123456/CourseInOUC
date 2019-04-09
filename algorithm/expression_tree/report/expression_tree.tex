@@ -265,20 +265,21 @@ linkcolor=black
 		\subsection{实现$lazy\ deletion$函数}\label{lazy_del}
 		\indent 这个函数实现起来相对简单。我们只需要把传入指针对应的节点中$deleted$属性置为$true$即可。同时还要将链表中的$\_delNum$加一。然后判断$\frac{\_size}{2} \leq \_delNum$是否成立。若成立，则执行$clear_mark$函数，将链表中所有$deleted$为$true$的节点删除，并把$\_delNum$值$0$。
 	\section{算法设计}
-	见下页图\ref{PrintsLots_and_lazeDel}、图\ref{main}。
+	见图\ref{to RPN}、图\ref{main}。
+
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=20cm, height=25cm]{list_ADT.pdf} 
-	\caption{$PrintLots$和$lazeDel$函数流程图} 
-	\label{PrintsLots_and_lazeDel}
+	\includegraphics[width=20cm, height=19cm]{to_RPN.pdf} 
+	\caption{$to_RPN$函数流程图} 
+	\label{to RPN}
 \end{figure}
 
 
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=20cm, height=23cm]{list_ADT_main.pdf} 
+	\includegraphics[width=20cm, height=23cm]{expression_tree_main.pdf} 
 	\caption{$main$函数流程图} 
 	\label{main}
 \end{figure}
@@ -287,292 +288,237 @@ linkcolor=black
 
 
 	\section{编程实现\protect \footnotemark[1]}
-	\footnotetext[1]{代码也可从该网址得到：\url{https://github.com/chenfeng123456/CourseInOUC/blob/master/algorithm/list_ADT/list_ADT.cpp}}
+	\footnotetext[1]{代码也可从该网址得到：\url{https://github.com/chenfeng123456/CourseInOUC/blob/master/algorithm/expression_tree/expression_tree.cpp}}
 
-	\begin{lstlisting}[language=C++,caption={list\_ADT代码},label={vec_code}]
-#include<iostream>
-#include<exception>
-#include<stdexcept>
+	\begin{lstlisting}[language=C++,caption={expression\_tree代码},label={expression_tree_code}]
+#include <iostream>
+#include <string>
+#include <stack>
+#include <vector>
+#include <typeinfo>
+#include <map>
+
+
 using namespace std;
+#define N_OPTR 9
+typedef enum { ADD, SUB, MUL, DIV, POW, FAC, L_P, R_P, EOE } Operator;
+//             +    -    *    /    ^    !    (    )    \0
 
-template <typename T> 
+const char pri[N_OPTR][N_OPTR] =
+{
+'>',   '>',   '<',   '<',   '<',   '<',   '<',   '>',   '>',
+'>',   '>',   '<',   '<',   '<',   '<',   '<',   '>',   '>',
+'>',   '>',   '>',   '>',   '<',   '<',   '<',   '>',   '>',
+'>',   '>',   '>',   '>',   '<',   '<',   '<',   '>',   '>',
+'>',   '>',   '>',   '>',   '>',   '<',   '<',   '>',   '>',
+'>',   '>',   '>',   '>',   '>',   '>',   ' ',   '>',   '>',
+'<',   '<',   '<',   '<',   '<',   '<',   '<',   '=',   ' ',
+' ',   ' ',   ' ',   ' ',   ' ',   ' ',   ' ',   ' ',   ' ',
+'<',   '<',   '<',   '<',   '<',   '<',   '<',   ' ',   '='
+};
+
+
+#define IsRoot ( !((x).parent))
+#define IsLc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->lc))
+#define IsRc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->rc))
+//#define FromParentTo(x) (IsRoot(x)
+
+char order(string a, string b)
+{
+static map<string, int> symbols;
+symbols["+"] = ADD;
+symbols["-"] = SUB;
+symbols["*"] = MUL;
+symbols["/"] = DIV;
+symbols["^"] = POW;
+symbols["!"] = FAC;
+symbols["("] = L_P;
+symbols[")"] = R_P;
+symbols["\0"] = EOE;
+
+return pri[symbols[a]][symbols[b]];
+}
+
+template <typename T>
 class Node
 {
-    public:
-        // member variables
-        T data;
-        Node<T>* pred;
-        Node<T>* succ;
-        bool deleted;
-        // constructors
-        Node() : data(0), pred(NULL), succ(NULL){}
-        Node(T e, Node<T>* p=NULL, Node<T>* s=NULL) : data(e), pred(p), succ(s), deleted(false) {}
-        // operation interface
-        //Node<T>* insertAsPred(T const& e);
-        //Node<T>* insertAsSucc(T const& e);
+public:
+T data;
+Node<T> *parent;
+Node<T> *lc;
+Node<T> *rc;
+int height;
+
+Node() : parent(NULL), lc(NULL), rc(NULL), height(0) {}
+Node(T e, Node<T> *p=NULL, Node<T> *l=NULL, Node<T> *r=NULL, int h=0) :
+data(e), parent(p), lc(l), rc(r), height(h) {}
+Node<T> *insertAsLc(Node<T> *e);
+Node<T> *insertAsRc(Node<T> *e);
 };
-
-
-template <typename T> 
-class List
-{
-    private:
-        int _size;
-        Node<T>* header;
-        Node<T>* trailer;
-        int _delNum;
-    public:
-        // constructors
-        List();
-
-        // destructor
-        ~List();
-
-        // operation interfaces
-        Node<T>* insert(Node<T>* r, T const& e);// insert as pred
-        void push_back(T e) {insert(trailer, e);}
-        Node<T>* remove(Node<T>* r);
-        int clear();
-        void clear_mark();
-        T lazeDel(Node<T>* r);
-        Node<T>* getP(int r);
-        void print();
-        Node<T>* getHeader() {return header;}
-        Node<T>* getTrailer() {return trailer;}
-        int size() {return _size;}
-};
-// implement the functions of the List
 template <typename T>
-List<T>::List()
+Node<T>* Node<T>::insertAsLc(Node<T> *e)
 {
-    header = new Node<T>;
-    trailer = new Node<T>;
-    header->succ = trailer;
-    header->pred = NULL;
-    trailer->pred = header;
-    trailer->succ = NULL;
-    _size = 0;
-    _delNum = 0;
+lc = e;
+e->parent = this;
+return e;
 }
-
 template <typename T>
-Node<T>* List<T>::insert(Node<T>* r, T const& e)
+Node<T>* Node<T>::insertAsRc(Node<T> *e)
 {
-    // insert as pred
-    Node<T>* x = new Node<T>(e, r->pred, r);
-    r->pred->succ = x;
-    r->pred = x;
-    _size++;
-    return x;
-}
-
-template <typename T>
-Node<T>* List<T>::remove(Node<T>* r)
-{
-    r->pred->succ = r->succ;
-    r->succ->pred = r->pred;
-    Node<T>* p = r->succ;
-    delete r;
-    _size--;
-    if (r->deleted) _delNum--;
-    return p;
-}
-
-template <typename T>
-int List<T>::clear()
-{
-    int oldSize = _size;
-    while(0 < _size)
-        remove(header->succ);
-    return oldSize;
-}
-
-template <typename T>
-void List<T>::clear_mark()
-{
-    Node<T>* p = header->succ;
-    while (p != trailer)
-    {
-        if (p->deleted)
-            p = remove(p);
-        else
-            p = p->succ;
-    }
-    _delNum = 0;
-    cout << "remove all nodes marked." << endl;
-}
-
-template <typename T>
-List<T>::~List()
-{
-    clear();
-    delete header;
-    delete trailer;
-}
-
-template <typename T>
-T List<T>::lazeDel(Node<T>* r)
-{
-    T e = r->data;
-    r->deleted = true;
-    _delNum++;
-    if (_size/2 <= _delNum)
-        clear_mark();
-    return e;
-}
-
-template <typename T>
-Node<T>* List<T>::getP(int r)
-{
-    Node<T>* p = header;
-    while (0 < r)
-    {
-        p = p->succ;
-        if (!p->deleted)
-            r--;
-        if (p == trailer)
-            throw out_of_range("Overflow!");
-
-    }
-
-    return p;
-}
-
-template <typename T>
-void List<T>::print()
-{
-    if (_size == 0)
-    {
-        cout << "The list is empty." << endl;
-        return;
-    }
-    Node<T>* p = header;
-    while ((p = p->succ) != trailer)
-        if (!p->deleted)
-            cout << p->data << " ";
-    cout << endl;
+rc = e;
+e->parent = this;
+return e;
 }
 
 
 
-
-// implement PrintLots
 template <typename T>
-void PrintLots(List<T>& L, List<T>& P)
+void travPost(Node<T> *x)
 {
-    cout << "P: ";
-    P.print();
-    // pl points to the header of L 
-    // and pp points to the first element of P
-    Node<T>* pl = L.getP(0);
-    Node<T>* pp = P.getP(1);
-    Node<T>* trailerP = P.getTrailer();
-    int pre = 0;
-    if (!L.size())
-    {
-        cout << "L is empty." << endl;
-        return;
-    }
-    cout << "L: ";
-    while (pp != trailerP)
-    {
-        int offset = pp->data - pre;
-        while (0 < offset)
-        {
-            pl = pl->succ;
-            try
-            {
-                if (pl == L.getTrailer())
-                    throw out_of_range("Overflow!");
-            }catch(out_of_range &e)
-            {
-                cerr << endl << "Index " << pp->data <<" is out of range. " << e.what() << endl;
-                return;
-            }
-            if (!pl->deleted)
-                offset--;
-        }
-        cout << pl->data << " ";
-        pre = pp->data;
-        pp = pp->succ;
-    }
-    cout << endl;
+if (!x) return;
+travPost(x->lc);
+travPost(x->rc);
+cout << x->data << " ";
+}
+
+bool isdigit(string s)
+{
+if ((s[0] >= '0' && s[0] <= '9') || (s[0] >= 'a' && s[0] <= 'z'))
+return true;
+return false;
+}
+
+vector<string>& toRPN(vector<string> s)
+{
+static vector<string> RPN;
+//stack<string> opnd;
+stack<string> optr;
+optr.push("\0");
+int i = 0;
+while (!optr.empty())
+{
+//cout << endl;
+//cout << "i = " << i << endl;
+//cout << "RPN = " << RPN << endl;
+//cout << "optr.size() = " << optr.size() << endl;
+if (i >= s.size())
+break;
+if (isdigit(s[i]))
+{
+RPN.push_back(s[i]);
+i++;
+}
+else
+{
+switch (order(optr.top(), s[i]))
+{
+case '<':
+{
+//cout << '<' << endl;
+optr.push(s[i]);
+i++;
+break;
+}
+case '=':
+{
+//cout << '=' << endl;
+optr.pop();
+i++;
+break;
+}
+case '>':
+{
+//cout << '>' << endl;
+string op = optr.top();
+optr.pop();
+RPN.push_back(op);
+//i++;
+break;
+}
+}
+}
+}
+
+return RPN;
 }
 
 
+template <typename T>
+void rm(Node<T> *x)
+{
+if (!x) return;
+rm(x->lc);
+rm(x->rc);
+delete x;
+}
+
+template <typename T>
+void remove(Node<T> *x)
+{
+if (x->parent)
+{
+if (x == x->parent->lc)
+x->parent->lc = NULL;
+if (x == x->parent->rc)
+x->parent->rc = NULL;
+}
+rm(x);
+}
 
 
 int main()
 {
-    cout << "姓名：鲁国锐" << endl;
-    cout << "学号：17020021031" << endl;
-    cout << endl;
-    cout << "instructions:" << endl;
-    cout << "delete: 后跟一数字，执行懒惰删除操作" << endl;
-    cout << "PrintLots: 后跟若干数字，务以空格分隔，以回车结束输入，为链表P的节点值，执行PrintLots操作" << endl;
-    cout << "end: 结束程序" << endl;
 
-    cout << endl << "请输入L中各节点的值，务必以空格分隔，以回车结束输入：" << endl;
+vector<string> s;
 
-    List<int> L;
-
-    while (1)
-    {
-        int data;
-        char c;
-        cin >> data;
-        cin.get(c);
-        L.push_back(data);
-        if (c == '\n')
-            break;
-    }
-  
-    while(1)
-    {
-        string instruction;
-        cin >> instruction;
-        if (instruction == "end")
-            break;
-        else if (instruction == "delete")
-        {
-            int r;
-            cin >> r;
-            Node<int>* temp;
-            try
-            {
-                temp = L.getP(r);
-            }catch(out_of_range &e)
-            {
-                cerr << "Index " << r << " is out of range. " << e.what() << endl;
-                continue;
-            }
-            L.lazeDel(temp);
-        }
-        else if (instruction == "PrintLots")
-        {
-            List<int> P;
-            while (1)
-            {
-                int data;
-                char c;
-                cin >> data;
-                cin.get(c);
-                P.push_back(data);
-                if (c == '\n')
-                    break;
-            }
-            PrintLots(L, P);
-        }
-        else
-        {
-            cout << "Invalide input, please enter again." << endl;
-            continue;
-        }
-        
-
-        L.print();
-    }
+string c;
+while(cin >> c)
+{
+s.push_back(c);
 }
+s.push_back("\0");
+vector<string> RPN = toRPN(s);
+
+for (int i=0; i < RPN.size(); i++)
+cout << RPN[i] << " ";
+cout << endl;
+
+stack<Node<string>*> tr;
+for (int i=0; i < RPN.size(); i++)
+{
+string temp_op = RPN[i];
+Node<string> *p = new Node<string>(temp_op);
+if (isdigit(temp_op))
+tr.push(p);
+else
+{
+//cout << RPN[i] << "   " << tr.size() << endl;
+Node<string> *r = tr.top();
+tr.pop();
+// For unary operator such as "!".
+// If they are placed at the second place
+// then we shouldn't perform the operation
+// of top() or pop() on the tr. Otherwise,
+// it will be runtime error.
+Node<string> *l;
+if (!tr.empty())
+l = tr.top();
+if (temp_op != "!")
+{
+tr.pop();
+}
+p->insertAsRc(r);
+if (temp_op != "!") p->insertAsLc(l);
+tr.push(p);
+}
+}
+
+//cout << "tr.size() = " << tr.size() << endl;
+travPost(tr.top());
+cout << endl;
+return 0;
+}
+
 	\end{lstlisting}
 	
 	\section{结果分析}
@@ -580,11 +526,31 @@ int main()
 	\newpage
 \begin{figure}[H]
 	\centering 
-	\includegraphics[width=18cm, height=23cm]{list_res.png} 
-	\caption{结果} 
-	\label{res}
+	\includegraphics[scale=0.85]{res1.png} 
+	\caption{结果1} 
+	\label{res1}
 \end{figure}
 
+\begin{figure}[H]
+	\centering 
+	\includegraphics[scale=0.85]{res2.png} 
+	\caption{结果2} 
+	\label{res2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[scale=0.85]{res3.png} 
+	\caption{结果3} 
+	\label{res3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[scale=0.85]{res4.png} 
+	\caption{结果4} 
+	\label{res4}
+\end{figure}
 
 	\subsection{$PrintLots$运行时间}\label{time_of_PrintLots}
 	\indent 由于我们在执行输出操作时引入$pre$和$offset$两个变量从而避免了对$L$的重复遍历。因此，即使在最坏情况下，即需要输出$L$中的最后一个元素时，我们也只需令$pl$向后移动$L.\_size$次，所需时间与$L$的长度成正比。故其时间复杂度为$O(N)$。
