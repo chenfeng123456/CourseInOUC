@@ -4,6 +4,7 @@
 #include <vector>
 #include <typeinfo>
 #include <map>
+#include <stdio.h>
 
 
 using namespace std;
@@ -41,9 +42,15 @@ char order(string a, string b)
     symbols["!"] = FAC;
     symbols["("] = L_P;
     symbols[")"] = R_P;
-    symbols["\0"] = EOE;
+    symbols["\\0"] = EOE;
 
-    return pri[symbols[a]][symbols[b]];
+    char res = '\0';
+    if (symbols.find(a) != symbols.end() && symbols.find(b) != symbols.end())
+        res = pri[symbols[a]][symbols[b]];
+    else
+        throw "Illegal expresssion!";
+
+    return res;
 }
 
 template <typename T>
@@ -90,26 +97,22 @@ void travPost(Node<T> *x)
 
 bool isdigit(string s)
 {
-    if ((s[0] >= '0' && s[0] <= '9') || (s[0] >= 'a' && s[0] <= 'z'))
-        return true;
-    return false;
+    int i = 0;
+    while ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || s[i] == '.')
+    {
+            i++;
+    }
+    return (i == s.length());
 }
 
-vector<string>& toRPN(vector<string> s)
+vector<string> toRPN(vector<string> s)
 {
-    static vector<string> RPN;
-    //stack<string> opnd;
+    vector<string> RPN;
     stack<string> optr;
-    optr.push("\0");
+    optr.push("\\0");
     int i = 0;
     while (!optr.empty())
     {
-        //cout << endl;
-        //cout << "i = " << i << endl;
-        //cout << "RPN = " << RPN << endl;
-        //cout << "optr.size() = " << optr.size() << endl;
-        if (i >= s.size())
-            break;
         if (isdigit(s[i]))
         {
             RPN.push_back(s[i]);
@@ -117,30 +120,39 @@ vector<string>& toRPN(vector<string> s)
         }
         else
         {
-            switch (order(optr.top(), s[i]))
+            char r;
+            try
+            {
+               r = order(optr.top(), s[i]);
+            }catch(const char* msg)
+            {
+                throw "Illegal expression!";
+                return RPN;
+            }
+            switch (r)
             {
                 case '<':
                 {
-                    //cout << '<' << endl;
                     optr.push(s[i]);
                     i++;
                     break;
                 }
                 case '=':
                 {
-                    //cout << '=' << endl;
                     optr.pop();
                     i++;
                     break;
                 }
                 case '>':
                 {
-                    //cout << '>' << endl;
                     string op = optr.top();
                     optr.pop();
                     RPN.push_back(op);
-                    //i++;
                     break;
+                }
+                default :
+                {
+                     throw "Illegal expression!";
                 }
              }
         }
@@ -175,17 +187,37 @@ void remove(Node<T> *x)
 
 int main()
 {
+    cout << "姓名：鲁国锐" << endl;
+    cout << "学号：17020021031" << endl;
+    cout << endl;
 
     vector<string> s;
-
-    string c;
-    while(cin >> c)
+    vector<string> RPN;
+    while(1)
     {
-        s.push_back(c);
-    }
-    s.push_back("\0");
-    vector<string> RPN = toRPN(s);
+        string c;
+        while(cin >> c)
+        {
+            s.push_back(c);
+        }
+        s.push_back("\\0");
 
+        try
+        {
+            RPN = toRPN(s);
+        }catch(const char* msg)
+        {
+            cerr << msg <<endl;
+            cin.clear();
+            cin.sync();
+            s.clear();
+            continue;
+        }
+        break;
+    }
+
+
+    cout << "后缀表达式：            ";
     for (int i=0; i < RPN.size(); i++)
         cout << RPN[i] << " ";
     cout << endl;
@@ -199,7 +231,6 @@ int main()
             tr.push(p);
         else
         {
-            //cout << RPN[i] << "   " << tr.size() << endl;
             Node<string> *r = tr.top();
             tr.pop();
             // For unary operator such as "!".
@@ -220,7 +251,7 @@ int main()
         }
     }
 
-    //cout << "tr.size() = " << tr.size() << endl;
+    cout << "对表达式树进行后序遍历：";
     travPost(tr.top());
     cout << endl;
     return 0;
