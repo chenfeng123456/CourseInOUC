@@ -68,6 +68,7 @@ public:
         data(e), parent(p), lc(l), rc(r), height(h) {}
     Node<T> *insertAsLc(Node<T> *e);
     Node<T> *insertAsRc(Node<T> *e);
+    //~Node(){if(!parent) {remove(this);cout << "All nodes have been removed" << endl;}}
 };
 template <typename T>
 Node<T>* Node<T>::insertAsLc(Node<T> *e)
@@ -168,6 +169,7 @@ void rm(Node<T> *x)
     if (!x) return;
     rm(x->lc);
     rm(x->rc);
+    cout << x->data << " has been removed" << endl;
     delete x;
 }
 
@@ -254,5 +256,7 @@ int main()
     cout << "对表达式树进行后序遍历：";
     travPost(tr.top());
     cout << endl;
+    remove(tr.top());
+
     return 0;
 }
