@@ -121,7 +121,7 @@ linkcolor=black
 %引入了一些改进的数学环境，如align
 \usepackage{amsmath}
 
-\title{数据结构：list ADT}
+\title{数据结构：表达式树}
 \author{姓名：鲁国锐 \protect\newline
 \and 学号：17020021031 \\
 \and 专业：电子信息科学与技术}
@@ -141,137 +141,95 @@ linkcolor=black
 	}
 	\section{问题分析}
 	\subsection{题目描述}
-	\indent 自己编写$list$ $ADT$,调试并完成下面内容。注：本次作业不允许使用$c++$标准模版库。
-	\begin{itemize}[leftmargin=60pt]
+	\indent 表达式树的树叶是操作数（$operand$）,而其他的节点为操作符（$operator$）。比如下面 的示例：
 	
-	\item 任务一：
+	代表：中缀表达式:$(a+b)*(c*(d+e))$以及相应的后缀表达式：$ab+cde+**$。
+	
+	作业要求输入一个中缀表达式，构建其相应的表达式树，并输出验证。
 	\begin{itemize}
-		\item[$\circ$] 实现$PrintLots(L,P)$,并分析运行时间。
-		\item[$\circ$] 有两个链表$L$和$P$, 他们包含以升序排列的整数。操作$PrintLots(L,P)$将打印$L$中那些由$P$所指定位置上的元素。如：$P={1,3,4,6}$, 则，$L$中第$1$，第$3$，第$4$，第$6$个元素被打印出来。
-	\end{itemize}
+		\item 样例输入：(a+b)*(c*(d+e)
 		
+		\item 样例输出：（格式可修改为更加美观的图形化输出）
 
-	\item 任务二：懒惰删除
-	\begin{itemize}
-		\item[$\circ$] 列出懒惰删除的优点和缺点
-		\item[$\circ$] 编写实现
-		
-		不同于我们已经给出的删除方法，另一种是使用懒惰删除（$lazy\ deletion$）。为了删除一个元素，我们只标记上该元素被删除。表中被删除和非被删除元素的个数作为数据结构的一部分被保留。如果被删除元素和非被删除元素一样多，我们遍历整个表，对所有被标记的节点执行标准的删除算法。
-	\end{itemize}			
+				$\times$
+			
+			$+$                   $\times$
+			
+			$a$      $b$      $c$      $+$
+			
+			$d$     $e$
+	
 	\end{itemize}
+	
+	
+	请测试至少三组不同输入。
+	
+	提示：先将中缀表达式转换为后缀表达式，然后结合栈（stack）构造表达式树。
+	
 	
 
 	\subsection{问题分析}
 	\indent 根据题目，我们需要解决的问题有：
 	\begin{enumerate}[leftmargin=50pt]
-
-	\item 编写$Node$和$List$类，包括实现$List$中一系列必须的成员函数，如：构造函数、析构函数、$insert$函数、$remove$函数等（见\ref{desigh_class}节）；
-	\item 设计输入输出流程（见\ref{design_input_and_output}节）；
-	\item 实现$PrintLots$函数（见\ref{PrintLots}节）和$lazy\ deletion$函数（见\ref{lazy_del}节）及其相关的部分函数；
-	\item 分析$PrintLots$的时间复杂度（见\ref{time_of_PrintLots}节）；
-	\item 分析懒惰删除的有点和缺点（见\ref{adv_and_disadv_of_lazy_deletion}节）。
+	\item 设计输入输出流程并对输入表达式的合法性进行检查（见\ref{input and output}节）；
+	\item 实现函数$to\_RPN$将中缀表达式转换为后缀表达式（见\ref{fun to RPN}节）；
+	\item 用后缀表达式构建表达式树（见\ref{con tree}节）。
 	\end{enumerate}
 	
 
 	
 	\section{解决方案}
-		\subsection{编写$Node$类和$List$类}\label{desigh_class}
-			\indent 我们首先要写$Node$类，它的属性包括值$val$、指向前驱的指针$pred$、指向后继的指针$succ$以及在本题中需额外设置的一个属性$deleted$，用以表示该节点是否被标记为删除。其构造函数相对简单，在此不做赘述。
-			
-			\indent 接下来是$List$类，它的属性包括头指针$header$、尾指针$trailer$、长度$\_size$（不包括头指针和尾指针）和被标记为删除的元素个数$\_delNum$。至于其成员函数（参考教材\cite{data_structure}），由于数量较多，我们只用一表格列出，并做简要说明。
-			\begin{center}
-			\begin{longtable}[H]{|c|c|c|c|}
-            \caption{$List$成员函数}
-            \label{functions}
-			\\
-			\hline
-			\textbf{函数名}&\textbf{输入}&\textbf{输出}&\textbf{说明} \\
-			\hline
-			\endfirsthead
-			
-			\hline
-			\textbf{函数名}&\textbf{输入}&\textbf{输出}&\textbf{说明} \\
-			\hline
-			\endhead
-			
-			\hline
-			\multicolumn{4}{|c|}{\textsl{下页继续}} \\
-			\hline
-			\endfoot
-			
-			\hline
-			\endlastfoot
-			
-			\hline
-			构造函数&无&无&初始化整个链表，建立头结点和尾节点 \\			
+		\subsection{设计输入输出流程}\label{input and output}
+		\indent 因为考虑到操作数可能是多位数，所以方便起见我们用$string$来表示操作数和运算符，并将它们存在一个$vector$中。而为了能够将每一个$string$分开，我们规定所有的操作数和运算符之间必须用空格分隔。
+		
+		\indent 对于输出，根据表达式树的特性：\textbf{对其进行后序遍历并输出得到的是一个后缀表达式}，我们可以先将得到的后缀表达式输出一遍，再对构造好的表达式树后序遍历输出一次，稍微调整一下缩进，使输出的两个表达式对齐，可以很方便地检查二者是否一致。
+		
+		\indent 为了使程序能够正常运行并退出，我们还要对输入进行检查以确保它的合法性，防止在程序执行过程中出现数组越界等情况。不过时间有限，这里我主要考虑了以下几种情况：
+		\begin{enumerate}
+			\item 输入中有非法字符；
+			\item 两字符之间没有加空格；
+			\item 括号未匹配。
+		\end{enumerate}
+		\indent 由于我们再判断两个运算符的优先级时用到了数组，所以以上三种情况可能会导致数组的下标越界。至于解决方案因为涉及到将中缀表达式转换为后缀表达式的方法，我们放在下一节中介绍。
+	
+		\subsection{将中缀表达式转换为后缀表达式}\label{fun to RPN}
+		
+		\indent 关于怎么将中缀表达式转换为后缀表达式的算法，课本\cite{data_structure}上有比较详细的介绍，但在这里我们仍需要对其进行修改和补充以适应我们自己的要求。
+		
+		\indent 在开始实现$to\_RPN$函数前我们首先要实现一个比较运算符之间优先级的函数$order$。这里我们借鉴课本\cite{data_structure}上的做法，用一个枚举类型的变量将各个运算符的英文表示换成数字。然后用一个二维数组来表示两个运算符之间的优先级关系。为了方便把原始的运算符跟其英文表示对应起来，这里我们还用了一个$map$把它们一一对应起来。这样我们在比较两个运算符时，只需要把它们作为$key$值传入$map$得到其英文表示对应的数字，再将数字作为下标传给数组来搜寻二者的优先级关系即可。
 				
-			\hline
-			析构函数&无&无&删除链表，释放内存 \\			
-			
-			\hline
-			$insert$&指针$r$，值$e$&该节点的指针&在$r$所指向的节点之前插入一个节点 \\
-			
-			\hline
-			$push\_back$&值$e$&无&在尾节点之前插入一个结点 \\
-			\hline
-			
-			$remove$&指针$r$&被删除节点下一个节点的指针&\makecell{删除$r$指向的节点} \\
-			\hline
-			
-			$clear$&无&被删除元素的个数&清空链表（不包括头结点和尾节点）\\
-			\hline
-			
-			$clear\_mark$&无&无&\makecell{调用$remove$函数清除所有被标记为\\已删除的节点} \\
-			\hline
-			
-			$lazeDel$&指针$r$&被删除元素的值&\makecell{用懒惰删除的方式删除$r$指向的节点} \\
-			\hline
-			
-			$getP$&序号（从$1$开始计数）&指向序号所对应的节点的指针&将输入的序号转换为指针，方便后续的操作 \\
-			\hline 
-			
-			$print$&无&无&\makecell{输出链表中所有节点的值\\（不包括头结点和尾节点）} \\
-			\hline
-			
-			$getHeader$&无&头指针&返回头指针 \\
-			\hline
-			
-			$getTrailer$&无&尾指针&返回尾指针 \\
-			\hline 
-			
-			$size$&无&\makecell{链表长度\\（不包括头结点和尾节点）}&返回链表长度（不包括头结点和尾节点） \\
-			\hline
+		\indent 到这里我们就可以阐述一下\ref{input and output}节中提到的第一种和第二种情况的解决方法了。如果输入中有非法字符，那么我们在$map$中是找不到对应的$key$值的，所以我们在对原始运算符进行转换之前要先在$map$中查找一遍，若没有这个$key$值，需要抛出一个异常，终止函数的进行并让用户重新输入。而对于第二种情况，操作数和运算符因为中间缺少空格而连在了一起，我们在对这个了“连体儿”进行判断时，认为它是操作符，显然作为运算符它是不合法的，这样就把第二种情况化归成了第一种情况。
+		
+		\indent 接下来就是中缀表达式转后缀表达式的具体算法了。这里我们需要借用一个运算符栈$optr$。首先我们从前往后遍历存放中缀表达式的$vector$，若：
+		\begin{enumerate}
+			\item 当前扫到的是操作数，直接将它接到要返回的结果$RPN$后面；
+			\item 当前扫到的是运算符，则开始判断$optr$栈顶运算符和当前运算符之间的优先级关系，若：
+			\begin{enumerate}
+				\item 栈顶运算符优先级低于当前运算符，将当前运算符压入栈中，令下标$i$增一，开始访问下一元素；
+				\item 栈顶运算符优先级与当前运算符一样，弹出栈顶元素，令下标$i$增一，开始访问下一元素；
+				\item 栈顶运算符优先级高于当前运算符，弹出栈顶元素并把它接入$RPN$，此时不能令下标自增，而是要继续比较当前运算符与栈中下一运算符的优先级关系。
+				\item 不是以上任何一种情况，说明两个本不可能相邻的运算符碰到了一起，这就是\ref{input and output}节中所说的第三种情况：括号未匹配。注意这里右括号以及空字符的优先级是最低的，而左括号的优先级是最高的，所以其它任何栈顶运算符遇到了右括号或空字符都会被弹出，任何当前运算符遇到左括号都会被压入。如果括号正常匹配的话，左括号或右括号是不会遇到空字符的，而一旦遇到，则说明括号一定没有匹配上。因此我们在数组中给这些情况赋一个其它的值，以便检查括号的匹配情况。
+			\end{enumerate}
+		\indent 注意这里我们以空字符表示表达式的开始与结束，所以我们在一开始先将一个空字符入栈，同时给输入的最后接上一个空字符。这样我们重复以上操作直至最后两个空字符相遇，栈内的被弹出，同时输入也已遍历到了最后，整个转换过程就此结束，返回的$RPN$即为后缀表达式。
+		\end{enumerate}
 
-			\end{longtable}			
-			\end{center}
 		
 		
-		\subsection{设计输入输出流程}\label{design_input_and_output}
-		\indent 我们首先输入链表$L$各节点的值，这些值以空格分隔，以回车结束。然后通过三条指令来控制这个程序的流程：
-			\begin{itemize}[leftmargin=50pt]
-			\item $delete$：执行懒惰删除操作，后跟一数字表示要删除节点的序号；
-			\item $PrintLots$：调用$PrintLots$函数，后跟一组以空格分隔的数字，表示链表$P$中各节点的元素；
-			\item $end$：结束整个程序。
-			\end{itemize}
-			
-		\indent 每次执行完$delete$或$PrintsLots$后，把$L$中各节点的值输出一遍。其中在执行$PrintLots$时还会把$P$以及$L$中对应于$P$所表示的序号的节点值输出一遍，分别以“$P：$”和“$L：$”开头。
+		\subsection{构建表达式树}\label{con tree}
+		\indent 仔细分析一下我们可以发现，\textbf{构建表达式树的过程其实和后缀表达式求值的过程是一样的}。表达式树中的每一个含运算符的节点都可视作是它的两个孩子用它进行运算后的结果。所以我们直接按照后缀表达式求值的过程来构建表达式树即可。
 		
-		\subsection{实现$PrintLots$函数}\label{PrintLots}
-		\indent 有了表\ref{functions}中的各个函数，我们实现$PrintLots$就会轻松不少。
+		\indent 我们从前往后遍历得到的后缀表达式，如果当前元素是操作数，用其构建一个节点压入辅助栈中；如果当前元素是运算符，则弹出一个或两个元素（视该运算符是单目还是双目而定），分别作为右孩子和左孩子接在以当前元素构建的节点上，再将新构建的节点压回栈中。注意先弹出的接为右孩子，后弹出的接为左孩子。如此反复直至遍历完整个后缀表达式，此时栈中应当还剩下一个元素，即为表达式树的根节点。我们对其进行后序遍历并输出，得到的结果应与后缀表达式一致。
 		
-		\indent 首先我们要检查$L$是否为空，若为空则直接结束函数的调用。若不为空，我们开始执行输出操作。这里定义了两个指针$pl$和$pp$，分别初始化为指向$L$的头节点和$P$的第一个节点。同时为了避免在得到$P$中节点的值后要从头开始遍历$L$，我们还需定义两个整型变量$pre$和$offset$。其中$pre$中记录的是$P$中前一个节点的值，而$offset$中记录的则是$pl$需要向后移动的位数。每次我们令$pp$向后移动一位，然后用$pp$指向的节点中的值减去$pre$，所得结果赋给$offset$，然后令$pl$向后移$offset$位，输出其对应节点中的值。
 		
-		\indent 另外在执行输出操作时我们还要不断检查$pl$是否越界。如果发现$pl$指向了尾节点，立马抛出异常并结束整个函数。
-		\subsection{实现$lazy\ deletion$函数}\label{lazy_del}
-		\indent 这个函数实现起来相对简单。我们只需要把传入指针对应的节点中$deleted$属性置为$true$即可。同时还要将链表中的$\_delNum$加一。然后判断$\frac{\_size}{2} \leq \_delNum$是否成立。若成立，则执行$clear_mark$函数，将链表中所有$deleted$为$true$的节点删除，并把$\_delNum$值$0$。
+	
 	\section{算法设计}
-	见图\ref{to RPN}、图\ref{main}。
+	见图\ref{to RPN}、图\ref{main}\footnote{为使流程图相对简洁，未在其中画出捕获异常的过程。}。
 
 
 \begin{figure}[H]
 	\centering 
 	\includegraphics[width=20cm, height=19cm]{to_RPN.pdf} 
-	\caption{$to_RPN$函数流程图} 
+	\caption{$to\_RPN$函数流程图} 
 	\label{to RPN}
 \end{figure}
 
@@ -297,6 +255,7 @@ linkcolor=black
 #include <vector>
 #include <typeinfo>
 #include <map>
+#include <stdio.h>
 
 
 using namespace std;
@@ -334,9 +293,15 @@ symbols["^"] = POW;
 symbols["!"] = FAC;
 symbols["("] = L_P;
 symbols[")"] = R_P;
-symbols["\0"] = EOE;
+symbols["\\0"] = EOE;
 
-return pri[symbols[a]][symbols[b]];
+char res = '\0';
+if (symbols.find(a) != symbols.end() && symbols.find(b) != symbols.end())
+res = pri[symbols[a]][symbols[b]];
+else
+throw "Illegal expresssion!";
+
+return res;
 }
 
 template <typename T>
@@ -354,6 +319,7 @@ Node(T e, Node<T> *p=NULL, Node<T> *l=NULL, Node<T> *r=NULL, int h=0) :
 data(e), parent(p), lc(l), rc(r), height(h) {}
 Node<T> *insertAsLc(Node<T> *e);
 Node<T> *insertAsRc(Node<T> *e);
+//~Node(){if(!parent) {remove(this);cout << "All nodes have been removed" << endl;}}
 };
 template <typename T>
 Node<T>* Node<T>::insertAsLc(Node<T> *e)
@@ -383,26 +349,22 @@ cout << x->data << " ";
 
 bool isdigit(string s)
 {
-if ((s[0] >= '0' && s[0] <= '9') || (s[0] >= 'a' && s[0] <= 'z'))
-return true;
-return false;
+int i = 0;
+while ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || s[i] == '.')
+{
+i++;
+}
+return (i == s.length());
 }
 
-vector<string>& toRPN(vector<string> s)
+vector<string> toRPN(vector<string> s)
 {
-static vector<string> RPN;
-//stack<string> opnd;
+vector<string> RPN;
 stack<string> optr;
-optr.push("\0");
+optr.push("\\0");
 int i = 0;
 while (!optr.empty())
 {
-//cout << endl;
-//cout << "i = " << i << endl;
-//cout << "RPN = " << RPN << endl;
-//cout << "optr.size() = " << optr.size() << endl;
-if (i >= s.size())
-break;
 if (isdigit(s[i]))
 {
 RPN.push_back(s[i]);
@@ -410,30 +372,39 @@ i++;
 }
 else
 {
-switch (order(optr.top(), s[i]))
+char r;
+try
+{
+r = order(optr.top(), s[i]);
+}catch(const char* msg)
+{
+throw "Illegal expression!";
+return RPN;
+}
+switch (r)
 {
 case '<':
 {
-//cout << '<' << endl;
 optr.push(s[i]);
 i++;
 break;
 }
 case '=':
 {
-//cout << '=' << endl;
 optr.pop();
 i++;
 break;
 }
 case '>':
 {
-//cout << '>' << endl;
 string op = optr.top();
 optr.pop();
 RPN.push_back(op);
-//i++;
 break;
+}
+default :
+{
+throw "Illegal expression!";
 }
 }
 }
@@ -468,17 +439,37 @@ rm(x);
 
 int main()
 {
+cout << "姓名：鲁国锐" << endl;
+cout << "学号：17020021031" << endl;
+cout << endl;
 
 vector<string> s;
-
+vector<string> RPN;
+while(1)
+{
 string c;
 while(cin >> c)
 {
 s.push_back(c);
 }
-s.push_back("\0");
-vector<string> RPN = toRPN(s);
+s.push_back("\\0");
 
+try
+{
+RPN = toRPN(s);
+}catch(const char* msg)
+{
+cerr << msg <<endl;
+cin.clear();
+cin.sync();
+s.clear();
+continue;
+}
+break;
+}
+
+
+cout << "后缀表达式：            ";
 for (int i=0; i < RPN.size(); i++)
 cout << RPN[i] << " ";
 cout << endl;
@@ -492,7 +483,6 @@ if (isdigit(temp_op))
 tr.push(p);
 else
 {
-//cout << RPN[i] << "   " << tr.size() << endl;
 Node<string> *r = tr.top();
 tr.pop();
 // For unary operator such as "!".
@@ -513,17 +503,21 @@ tr.push(p);
 }
 }
 
-//cout << "tr.size() = " << tr.size() << endl;
+cout << "对表达式树进行后序遍历：";
 travPost(tr.top());
 cout << endl;
+remove(tr.top());
+
 return 0;
 }
 
+
+
 	\end{lstlisting}
-	
+
 	\section{结果分析}
 	\subsection{结果展示}
-	\newpage
+
 \begin{figure}[H]
 	\centering 
 	\includegraphics[scale=0.85]{res1.png} 
@@ -552,27 +546,24 @@ return 0;
 	\label{res4}
 \end{figure}
 
-	\subsection{$PrintLots$运行时间}\label{time_of_PrintLots}
-	\indent 由于我们在执行输出操作时引入$pre$和$offset$两个变量从而避免了对$L$的重复遍历。因此，即使在最坏情况下，即需要输出$L$中的最后一个元素时，我们也只需令$pl$向后移动$L.\_size$次，所需时间与$L$的长度成正比。故其时间复杂度为$O(N)$。
+\begin{figure}[H]
+	\centering 
+	\includegraphics[scale=0.85]{res5.png} 
+	\caption{结果5} 
+	\label{res5}
+\end{figure}
+
+	\subsection{分析}\label{time_of_PrintLots}
+	\indent 从最后一张图中可以看出，仍有部分非法输入的情况代码无法分别出来，它们并不会导致诸如数组越界这样的错误，程序可以正常运行、退出，加之时间有限，我没有再去单独考虑这些情况。
 	
-	\subsection{懒惰删除的优点和缺点}\label{adv_and_disadv_of_lazy_deletion}
-	\indent 懒惰删除的优点：
-	\begin{itemize}[leftmargin=50pt]
-	\item 减少删除节点时所需的时间；
-	\item 避免频繁地对内存进行操作；
-	\item 简化代码复杂程度；
-	\item 在对被删除位置进行插入时\textbf{可能}会减少时间。
-	\end{itemize}
-	
-	\indent 懒惰删除的缺点：
-	\begin{itemize}[leftmargin=50pt]
-	\item 会占用更多的空间；
-	\item 由于在链表中由于并没有真正删除节点，所以会增减遍历链表所需的时间；
-	\end{itemize}
+
 	\section{总结体会}
-	\indent 在完成这次作业的过程中，由于一开始没有加入检查指针是否越界的代码，导致在调试过程中因指针越界使得电脑死机了，从而不得不强制关机重启。这次的教训让我更深刻地明白了检查指针越界的重要性，同时还促使我去学习了如何在$C++$中捕获异常并输出错误信息。
-	\indent 另外还没有完全解决的一点是，因为我不想在输入链表的值之前还要输入长度，所以采取的做法是当检测到输入数字后跟的是回车时就跳出循环。但如果在输入回车之前不小心多输入了空格，
-并在输入回车后输入命令，也会使电脑几乎陷入死机状态。我暂时还没想出是什么原因导致的，也没有很好的解决方法。
+	\indent 在完成此次作业的过程中遇到了很多问题，其中有两个比较隐蔽的$bug$，不太容易发现，在此稍作总结。
+	\subsection{被忽略的空字符}
+	\indent 在实现$to\_RPN$的过程中，我发现数组总会越界，找了很久的原因，最后发现是栈内和输入末端的空字符没有起作用。分析其原因大概是由于$string$本质上是一个字符数组，而我将一个空字符作为一个字符串，系统在扫到空字符的时候就停止了，所以导致最后比较优先级时会出现意外的结果。
+	
+	\subsection{循环析构}
+	\indent 对于树或者链表的析构，应当放在树类或链表类中进行。因为如果把析构函数放在节点类中的话，程序最后要释放每一个节点，调用其析构函数，而在析构函数中又会对节点自身进行$delete$操作，从而再次触发对析构函数的调用，形成死循环。所以$delete$操作必须放在节点外进行。
 
 \bibliography{ref.bib}
 \end{document}

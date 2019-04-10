@@ -2,14 +2,14 @@
 \contentsline {subsection}{\numberline {1.1}题目描述}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}问题分析}{2}{subsection.1.2}
 \contentsline {section}{\numberline {2}解决方案}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}编写$Node$类和$List$类}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}设计输入输出流程}{3}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}实现$PrintLots$函数}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}实现$lazy\ deletion$函数}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.1}设计输入输出流程}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}将中缀表达式转换为后缀表达式}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}构建表达式树}{3}{subsection.2.3}
 \contentsline {section}{\numberline {3}算法设计}{4}{section.3}
 \contentsline {section}{\numberline {4}编程实现\footnotemark [1]}{6}{section.4}
-\contentsline {section}{\numberline {5}结果分析}{10}{section.5}
-\contentsline {subsection}{\numberline {5.1}结果展示}{10}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}$PrintLots$运行时间}{13}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}懒惰删除的优点和缺点}{13}{subsection.5.3}
-\contentsline {section}{\numberline {6}总结体会}{13}{section.6}
+\contentsline {section}{\numberline {5}结果分析}{11}{section.5}
+\contentsline {subsection}{\numberline {5.1}结果展示}{11}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}分析}{14}{subsection.5.2}
+\contentsline {section}{\numberline {6}总结体会}{14}{section.6}
+\contentsline {subsection}{\numberline {6.1}被忽略的空字符}{14}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}循环析构}{14}{subsection.6.2}

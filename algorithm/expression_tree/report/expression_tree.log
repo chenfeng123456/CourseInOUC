@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  9 APR 2019 21:08
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  10 APR 2019 21:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1893,98 +1893,26 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 Package hyperref Warning: Option `colorlinks' has already been used,
 (hyperref)                setting the option has no effect on input line 141.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 178.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 178.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 178.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 178.
-
-
-Overfull \hbox (40.66675pt too wide) in alignment at lines 183--190
- [] [] [] [] 
- []
-
-
-Overfull \hbox (40.66675pt too wide) in alignment at lines 190--195
- [] [] [] [] 
- []
-
-
-LaTeX Font Warning: Font shape `TU/ppl/m/sl' undefined
-(Font)              using `TU/ppl/m/n' instead on input line 198.
-
-LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not avail
-able
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
-198.
-
-Overfull \hbox (40.66675pt too wide) in alignment at lines 195--200
- [] [] [] [] 
- []
-
-
-Overfull \hbox (40.66675pt too wide) in alignment at lines 200--203
- [] [] [] [] 
- []
-
-
-Overfull \hbox (40.66675pt too wide) in alignment at lines 203--245
- [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 245
- []
-
 [2]
-Missing character: There is no ： in font pplr7t!
-Missing character: There is no ： in font pplr7t!
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 265.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 265.
-
-[3]
 File: to_RPN.pdf Graphic file (type pdf)
 <use to_RPN.pdf>
 
-Overfull \hbox (68.58661pt too wide) in paragraph at lines 273--274
+Overfull \hbox (68.58661pt too wide) in paragraph at lines 231--232
  [][] 
  []
 
+[3]
 File: expression_tree_main.pdf Graphic file (type pdf)
 <use expression_tree_main.pdf>
 
-Overfull \hbox (68.6154pt too wide) in paragraph at lines 282--283
+Overfull \hbox (68.6154pt too wide) in paragraph at lines 240--241
  [][] 
  []
 
 [4] [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 290.
+(hyperref)                removing `\@ifnextchar' on input line 248.
 
 \g__fontspec_family_FangSong_int=\count338
 .................................................
@@ -2015,7 +1943,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
 
-Underfull \hbox (badness 2173) in paragraph at lines 291--291
+Underfull \hbox (badness 2173) in paragraph at lines 249--249
 [][]\TU/SimSun(0)/m/n/7.52812 代 码 也 可 从 该 网 址 得 到：| [][]$[][][][][] [] [] [] []
 [][][][][] [] [][][] [] [][][][][][][][][][][][][][] [] [][][][][][][][][][][] 
 [] [][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][][][][][][] [] []
@@ -2030,27 +1958,31 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (d:/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-) [6] [7] [8]
-[9] [10]
+)
+
+LaTeX Font Warning: Font shape `TU/ppl/m/sl' undefined
+(Font)              using `TU/ppl/m/n' instead on input line 264.
+
+[6] [7] [8]
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <9.03374> not availa
+ble
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
+442.
+ [9] [10]
 File: res1.png Graphic file (type bmp)
 <res1.png>
 File: res2.png Graphic file (type bmp)
 <res2.png>
+ [11]
 File: res3.png Graphic file (type bmp)
 <res3.png>
- [11]
 File: res4.png Graphic file (type bmp)
 <res4.png>
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 555.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 555.
-
-[12] (./expression_tree.bbl (./expression_tree.brf)
+ [12]
+File: res5.png Graphic file (type bmp)
+<res5.png>
+ [13] (./expression_tree.bbl
+(./expression_tree.brf)
 \tf@brf=\write6
 \openout6 = `expression_tree.brf'.
 
@@ -2059,29 +1991,29 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Font Warning: Font shape `TU/ppl/m/it' undefined
 (Font)              using `TU/ppl/m/n' instead on input line 7.
 
-) [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
+) [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 569.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 569.
  (./expression_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 578.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 578.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 569.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 569.
 Package rerunfilecheck Info: File `expression_tree.out' has not changed.
-(rerunfilecheck)             Checksum: 5969EE841CAFB05BE4B18CBA6FE45C51.
+(rerunfilecheck)             Checksum: 114F4BE57846BA4E59597898397BC4E7.
 Package rerunfilecheck Info: File `expression_tree.brf' has not changed.
-(rerunfilecheck)             Checksum: 19971C4C6DD1074624904BA336490F0F.
+(rerunfilecheck)             Checksum: 2EE46755D74D55EDA72BF32DD23D9FC0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 578.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 569.
  ) 
 Here is how much of TeX's memory you used:
- 37074 strings out of 494145
- 760839 string characters out of 6167698
- 1082056 words of memory out of 5000000
- 40425 multiletter control sequences out of 15000+600000
- 547956 words of font info for 95 fonts, out of 8000000 for 9000
+ 37148 strings out of 494145
+ 763873 string characters out of 6167698
+ 1080408 words of memory out of 5000000
+ 40497 multiletter control sequences out of 15000+600000
+ 547964 words of font info for 96 fonts, out of 8000000 for 9000
  704 hyphenation exceptions out of 8191
- 55i,11n,68p,10421b,1983s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,8n,68p,10421b,1983s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on expression_tree.pdf (13 pages).
+Output written on expression_tree.pdf (14 pages).
