@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  11 APR 2019 11:03
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  11 APR 2019 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1893,27 +1893,6 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 Package hyperref Warning: Option `colorlinks' has already been used,
 (hyperref)                setting the option has no effect on input line 141.
 
-[2]
-File: to_RPN.pdf Graphic file (type pdf)
-<use to_RPN.pdf>
-
-Overfull \hbox (68.58661pt too wide) in paragraph at lines 232--233
- [][] 
- []
-
-[3]
-File: expression_tree_main.pdf Graphic file (type pdf)
-<use expression_tree_main.pdf>
-
-Overfull \hbox (68.6154pt too wide) in paragraph at lines 241--242
- [][] 
- []
-
-[4] [5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 249.
-
 \g__fontspec_family_FangSong_int=\count338
 .................................................
 . fontspec info: "no-font-shape"
@@ -1942,6 +1921,26 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 . <->"FangSong/OT:script=hani;language=DFLT;"
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
+[2] [3]
+File: to_RPN.pdf Graphic file (type pdf)
+<use to_RPN.pdf>
+
+Overfull \hbox (68.58661pt too wide) in paragraph at lines 232--233
+ [][] 
+ []
+
+File: expression_tree_main.pdf Graphic file (type pdf)
+<use expression_tree_main.pdf>
+
+Overfull \hbox (68.58943pt too wide) in paragraph at lines 241--242
+ [][] 
+ []
+
+[4] [5]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 249.
+
 
 Underfull \hbox (badness 2173) in paragraph at lines 250--250
 [][]\TU/SimSun(0)/m/n/7.52812 代 码 也 可 从 该 网 址 得 到：| [][]$[][][][][] [] [] [] []
@@ -1961,18 +1960,16 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 
 LaTeX Font Warning: Font shape `TU/ppl/m/sl' undefined
-(Font)              using `TU/ppl/m/n' instead on input line 265.
+(Font)              using `TU/ppl/m/n' instead on input line 266.
 
-[6] [7] [8]
+[6] [7] [8] [9]
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <9.03374> not availa
 ble
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
-443.
- [9] [10]
+464.
+ [10]
 File: res1.png Graphic file (type bmp)
 <res1.png>
-File: res2.png Graphic file (type bmp)
-<res2.png>
  [11]
 File: res3.png Graphic file (type bmp)
 <res3.png>
@@ -1981,6 +1978,8 @@ File: res4.png Graphic file (type bmp)
  [12]
 File: res5.png Graphic file (type bmp)
 <res5.png>
+File: res2.png Graphic file (type bmp)
+<res2.png>
  [13] (./expression_tree.bbl
 (./expression_tree.brf)
 \tf@brf=\write6
@@ -1992,11 +1991,11 @@ LaTeX Font Warning: Font shape `TU/ppl/m/it' undefined
 (Font)              using `TU/ppl/m/n' instead on input line 7.
 
 ) [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 570.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 570.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 596.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 596.
  (./expression_tree.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 570.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 570.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 596.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 596.
 Package rerunfilecheck Info: File `expression_tree.out' has not changed.
 (rerunfilecheck)             Checksum: 114F4BE57846BA4E59597898397BC4E7.
 Package rerunfilecheck Info: File `expression_tree.brf' has not changed.
@@ -2005,14 +2004,14 @@ Package rerunfilecheck Info: File `expression_tree.brf' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 570.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 596.
  ) 
 Here is how much of TeX's memory you used:
- 37148 strings out of 494145
- 763873 string characters out of 6167698
- 1080408 words of memory out of 5000000
- 40497 multiletter control sequences out of 15000+600000
- 547964 words of font info for 96 fonts, out of 8000000 for 9000
+ 37203 strings out of 494145
+ 766374 string characters out of 6167698
+ 1075059 words of memory out of 5000000
+ 40551 multiletter control sequences out of 15000+600000
+ 547972 words of font info for 97 fonts, out of 8000000 for 9000
  704 hyphenation exceptions out of 8191
  55i,8n,68p,10421b,1983s stack positions out of 5000i,500n,10000p,200000b,80000s
 

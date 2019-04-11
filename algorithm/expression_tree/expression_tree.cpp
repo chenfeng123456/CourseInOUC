@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <map>
 #include <stdio.h>
+#include <algorithm>
 
 
 using namespace std;
@@ -30,6 +31,9 @@ const char pri[N_OPTR][N_OPTR] =
 #define IsLc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->lc))
 #define IsRc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->rc))
 //#define FromParentTo(x) (IsRoot(x)
+
+
+int MAX_LEN = 0;
 
 char order(string a, string b)
 {
@@ -169,7 +173,7 @@ void rm(Node<T> *x)
     if (!x) return;
     rm(x->lc);
     rm(x->rc);
-    cout << x->data << " has been removed" << endl;
+    //cout << x->data << " has been removed" << endl;
     delete x;
 }
 
@@ -184,6 +188,22 @@ void remove(Node<T> *x)
             x->parent->rc = NULL;
     }
     rm(x);
+}
+
+template <typename T>
+void printTree(Node<T> *root, int depth)
+{
+    if (root == NULL)
+    {
+        cout << endl;
+        return;
+    }
+    printTree(root->rc, depth+1);
+    for (int i=0; i < depth; i++)
+        for (int j=0; j < MAX_LEN; j++)
+            cout << "   ";
+    cout << root->data;
+    printTree(root->lc, depth+1);
 }
 
 
@@ -228,6 +248,7 @@ int main()
     for (int i=0; i < RPN.size(); i++)
     {
         string temp_op = RPN[i];
+        MAX_LEN = (MAX_LEN > temp_op.length()) ? MAX_LEN : temp_op.length();
         Node<string> *p = new Node<string>(temp_op);
         if (isdigit(temp_op))
             tr.push(p);
@@ -256,6 +277,7 @@ int main()
     cout << "对表达式树进行后序遍历：";
     travPost(tr.top());
     cout << endl;
+    printTree(tr.top(), 0);
     remove(tr.top());
 
     return 0;

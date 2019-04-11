@@ -7,8 +7,8 @@
 \contentsline {subsection}{\numberline {2.3}构建表达式树}{3}{subsection.2.3}
 \contentsline {section}{\numberline {3}算法设计}{4}{section.3}
 \contentsline {section}{\numberline {4}编程实现\footnotemark [1]}{6}{section.4}
-\contentsline {section}{\numberline {5}结果分析}{11}{section.5}
-\contentsline {subsection}{\numberline {5.1}结果展示}{11}{subsection.5.1}
+\contentsline {section}{\numberline {5}结果分析}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}结果展示}{12}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}分析}{14}{subsection.5.2}
 \contentsline {section}{\numberline {6}总结体会}{14}{section.6}
 \contentsline {subsection}{\numberline {6.1}被忽略的空字符}{14}{subsection.6.1}

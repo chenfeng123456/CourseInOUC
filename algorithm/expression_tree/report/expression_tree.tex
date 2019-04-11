@@ -182,7 +182,7 @@ linkcolor=black
 		\subsection{设计输入输出流程}\label{input and output}
 		\indent 因为考虑到操作数可能是多位数，所以方便起见我们用$string$来表示操作数和运算符，并将它们存在一个$vector$中。而为了能够将每一个$string$分开，我们规定所有的操作数和运算符之间必须用空格分隔。
 		
-		\indent 对于输出，根据表达式树的特性：\textbf{对其进行后序遍历并输出得到的是一个后缀表达式}，我们可以先将得到的后缀表达式输出一遍，再对构造好的表达式树后序遍历输出一次，稍微调整一下缩进，使输出的两个表达式对齐，可以很方便地检查二者是否一致。
+		\indent 对于输出，根据表达式树的特性：\textbf{对其进行后序遍历并输出得到的是一个后缀表达式}，我们可以先将得到的后缀表达式输出一遍，再对构造好的表达式树后序遍历输出一次，稍微调整一下缩进，使输出的两个表达式对齐，可以很方便地检查二者是否一致。至于以树状形式输出，由于每个操作数不等长，所以直接以层序输出再调整缩进的话会非常复杂。后来受到网上一篇博文\footnote{博文网址（\textbf{注意该博文中贴出的代码是有问题的}）：\url{https://blog.csdn.net/qiaoge134/article/details/12857851}}的启发，\textbf{我们只需要将树旋转$90^{\circ}$}，就可以完美地解决这个问题。具体算法很简单，在此不做过多叙述，但要稍微强调一下，由于我输入的操作数长度可能不同，故对该博文的算法做了一些改动：把原先的输出$depth$个空格换成了输出$depth \times MAX\_LEN$个空格，这里的$MAX\_LEN$表示树中最长元素的长度。其余的细节见图\ref{main}。
 		
 		\indent 为了使程序能够正常运行并退出，我们还要对输入进行检查以确保它的合法性，防止在程序执行过程中出现数组越界等情况。不过时间有限，这里我主要考虑了以下几种情况：
 		\begin{enumerate}
@@ -257,6 +257,7 @@ linkcolor=black
 #include <typeinfo>
 #include <map>
 #include <stdio.h>
+#include <algorithm>
 
 
 using namespace std;
@@ -282,6 +283,9 @@ const char pri[N_OPTR][N_OPTR] =
 #define IsLc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->lc))
 #define IsRc(x) ( ! IsRoot(x) && ( &(x) == (x).parent->rc))
 //#define FromParentTo(x) (IsRoot(x)
+
+
+int MAX_LEN = 0;
 
 char order(string a, string b)
 {
@@ -421,6 +425,7 @@ void rm(Node<T> *x)
 if (!x) return;
 rm(x->lc);
 rm(x->rc);
+//cout << x->data << " has been removed" << endl;
 delete x;
 }
 
@@ -435,6 +440,22 @@ if (x == x->parent->rc)
 x->parent->rc = NULL;
 }
 rm(x);
+}
+
+template <typename T>
+void printTree(Node<T> *root, int depth)
+{
+if (root == NULL)
+{
+cout << endl;
+return;
+}
+printTree(root->rc, depth+1);
+for (int i=0; i < depth; i++)
+for (int j=0; j < MAX_LEN; j++)
+cout << "   ";
+cout << root->data;
+printTree(root->lc, depth+1);
 }
 
 
@@ -479,6 +500,7 @@ stack<Node<string>*> tr;
 for (int i=0; i < RPN.size(); i++)
 {
 string temp_op = RPN[i];
+MAX_LEN = (MAX_LEN > temp_op.length()) ? MAX_LEN : temp_op.length();
 Node<string> *p = new Node<string>(temp_op);
 if (isdigit(temp_op))
 tr.push(p);
@@ -507,10 +529,12 @@ tr.push(p);
 cout << "对表达式树进行后序遍历：";
 travPost(tr.top());
 cout << endl;
+printTree(tr.top(), 0);
 remove(tr.top());
 
 return 0;
 }
+
 
 
 
@@ -521,41 +545,43 @@ return 0;
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[scale=0.85]{res1.png} 
+	\includegraphics[scale=0.8]{res1.png} 
 	\caption{结果1} 
 	\label{res1}
 \end{figure}
 
+
+
 \begin{figure}[H]
 	\centering 
-	\includegraphics[scale=0.85]{res2.png} 
+	\includegraphics[scale=0.8]{res3.png} 
 	\caption{结果2} 
 	\label{res2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[scale=0.85]{res3.png} 
+	\includegraphics[scale=0.8]{res4.png} 
 	\caption{结果3} 
 	\label{res3}
 \end{figure}
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[scale=0.85]{res4.png} 
+	\includegraphics[scale=0.8]{res5.png} 
 	\caption{结果4} 
 	\label{res4}
 \end{figure}
 
 \begin{figure}[H]
 	\centering 
-	\includegraphics[scale=0.85]{res5.png} 
+	\includegraphics[scale=0.8]{res2.png} 
 	\caption{结果5} 
 	\label{res5}
 \end{figure}
 
 	\subsection{分析}\label{time_of_PrintLots}
-	\indent 从最后一张图中可以看出，仍有部分非法输入的情况代码无法分辨出来，但因为它们并不会导致诸如数组越界这样的错误，程序可以正常运行、退出，再加之时间有限，故没有再去单独考虑这些情况。
+	\indent 从图\ref{res4}中可以看出，仍有部分非法输入的情况代码无法分辨出来，但因为它们并不会导致诸如数组越界这样的错误，程序可以正常运行、退出，再加之时间有限，故没有再去单独考虑这些情况。
 	
 
 	\section{总结体会}
