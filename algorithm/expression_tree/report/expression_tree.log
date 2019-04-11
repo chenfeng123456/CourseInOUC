@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  11 APR 2019 21:24
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.10.22)  11 APR 2019 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1990,7 +1990,7 @@ File: res2.png Graphic file (type bmp)
 LaTeX Font Warning: Font shape `TU/ppl/m/it' undefined
 (Font)              using `TU/ppl/m/n' instead on input line 7.
 
-) [14]
+[14]) [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 596.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 596.
  (./expression_tree.aux)
@@ -2015,4 +2015,4 @@ Here is how much of TeX's memory you used:
  704 hyphenation exceptions out of 8191
  55i,8n,68p,10421b,1983s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on expression_tree.pdf (14 pages).
+Output written on expression_tree.pdf (15 pages).
