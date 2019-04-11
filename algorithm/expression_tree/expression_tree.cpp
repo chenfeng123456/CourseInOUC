@@ -200,8 +200,12 @@ void printTree(Node<T> *root, int depth)
     }
     printTree(root->rc, depth+1);
     for (int i=0; i < depth; i++)
+    {
         for (int j=0; j < MAX_LEN; j++)
-            cout << "   ";
+            cout << " ";
+        cout << "   ";
+    }
+
     cout << root->data;
     printTree(root->lc, depth+1);
 }
