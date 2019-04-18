@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  18 APR 2019 20:10
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  18 APR 2019 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1659,6 +1659,26 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box75
 \enitdp@description=\count191
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip72
+\subfigcapskip=\skip73
+\subfigcaptopadj=\dimen326
+\subfigbottomskip=\skip74
+\subfigcapmargin=\dimen327
+\subfiglabelskip=\skip75
+\c@subfigure=\count192
+\c@lofdepth=\count193
+\c@subtable=\count194
+\c@lotdepth=\count195
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip76
+\subfig@bottom=\skip77
+)
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
@@ -1704,14 +1724,14 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen326
-\Hy@linkcounter=\count192
-\Hy@pagecounter=\count193
+\@linkdim=\dimen328
+\Hy@linkcounter=\count196
+\Hy@pagecounter=\count197
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count194
+\Hy@SavedSpaceFactor=\count198
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1742,12 +1762,12 @@ Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
 tly
 (rerunfilecheck)             and the loading of the package is aborted.
 ))
-\c@Hy@tempcnt=\count195
+\c@Hy@tempcnt=\count199
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen327
-\Fld@menulength=\count196
-\Field@Width=\dimen328
-\Fld@charsize=\dimen329
+\XeTeXLinkMargin=\dimen329
+\Fld@menulength=\count266
+\Field@Width=\dimen330
+\Fld@charsize=\dimen331
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1757,9 +1777,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count197
-\c@Item=\count198
-\c@Hfootnote=\count199
+\Hy@abspage=\count267
+\c@Item=\count268
+\c@Hfootnote=\count269
 )
 
 Package hyperref Message: Driver (autodetected): hxetex.
@@ -1772,73 +1792,73 @@ Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 )
 \pdfm@box=\box76
-\c@Hy@AnnotLevel=\count266
-\HyField@AnnotCount=\count267
-\Fld@listcount=\count268
-\c@bookmark@seq@number=\count269
-\Hy@SectionHShift=\skip72
+\c@Hy@AnnotLevel=\count270
+\HyField@AnnotCount=\count271
+\Fld@listcount=\count272
+\c@bookmark@seq@number=\count273
+\Hy@SectionHShift=\skip78
 )
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 117.
+(hyperref)                setting the option has no effect on input line 118.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 117.
+Package hyperref Info: Option `colorlinks' set `true' on input line 118.
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
-\TX@col@width=\dimen330
-\TX@old@table=\dimen331
-\TX@old@col=\dimen332
-\TX@target=\dimen333
-\TX@delta=\dimen334
-\TX@cols=\count270
+\TX@col@width=\dimen332
+\TX@old@table=\dimen333
+\TX@old@col=\dimen334
+\TX@target=\dimen335
+\TX@delta=\dimen336
+\TX@cols=\count274
 \TX@ftn=\toks44
 )
 (/usr/share/texlive/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2016/02/10 v3.3.4 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count271
-\l__xeCJK_listings_flag_int=\count272
+\l__xeCJK_listings_max_char_int=\count275
+\l__xeCJK_listings_flag_int=\count276
 )
 (./the_art_of_compression.aux)
 \openout1 = `the_art_of_compression.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 130.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 130.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 131.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 131.
  (/usr/share/texmf/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Try loading font information for EU1+ppl on input line 130.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Try loading font information for EU1+ppl on input line 131.
 
-LaTeX Font Info:    No file EU1ppl.fd. on input line 130.
+LaTeX Font Info:    No file EU1ppl.fd. on input line 131.
 
 
 LaTeX Font Warning: Font shape `EU1/ppl/m/n' undefined
-(Font)              using `EU1/lmr/m/n' instead on input line 130.
+(Font)              using `EU1/lmr/m/n' instead on input line 131.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 130.
+LaTeX Info: Redefining \selectfont on input line 131.
  ABD: EveryShipout initializing macros
-\c@lstlisting=\count273
+\c@lstlisting=\count277
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1875,39 +1895,39 @@ LaTeX Info: Redefining \selectfont on input line 130.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring ON on input line 130.
-LaTeX Info: Redefining \ref on input line 130.
-LaTeX Info: Redefining \pageref on input line 130.
-LaTeX Info: Redefining \nameref on input line 130.
+Package hyperref Info: Link coloring ON on input line 131.
+LaTeX Info: Redefining \ref on input line 131.
+LaTeX Info: Redefining \pageref on input line 131.
+LaTeX Info: Redefining \nameref on input line 131.
 (./the_art_of_compression.out) (./the_art_of_compression.out)
 \@outlinefile=\write4
 \openout4 = `the_art_of_compression.out'.
 
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 132.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 133.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 132
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 133
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 132
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 133
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 132
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 133
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 132
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 133
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -1915,7 +1935,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 
 LaTeX Font Warning: Font shape `EU1/ppl/bx/n' undefined
-(Font)              using `EU1/ppl/m/n' instead on input line 133.
+(Font)              using `EU1/ppl/m/n' instead on input line 134.
 
 (./the_art_of_compression.toc)
 \tf@toc=\write5
@@ -1926,126 +1946,126 @@ LaTeX Font Warning: Font shape `EU1/ppl/bx/n' undefined
 ]
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 141.
+(hyperref)                setting the option has no effect on input line 142.
 
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 141.
+(hyperref)                setting the option has no effect on input line 142.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `math shift' on input line 157.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 156.
+(hyperref)                removing `math shift' on input line 157.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 169.
+(hyperref)                removing `math shift' on input line 170.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 169.
+(hyperref)                removing `math shift' on input line 170.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 169.
+(hyperref)                removing `math shift' on input line 170.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 169.
+(hyperref)                removing `math shift' on input line 170.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 183.
+(hyperref)                removing `math shift' on input line 186.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 183.
+(hyperref)                removing `math shift' on input line 186.
 
 [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 193.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 193.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 193.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 193.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
+(hyperref)                removing `math shift' on input line 195.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
+(hyperref)                removing `math shift' on input line 195.
 
 
-Overfull \hbox (10.28448pt too wide) in paragraph at lines 201--202
+Overfull \hbox (10.28448pt too wide) in paragraph at lines 204--205
 []\EU1/FandolSong-Regular(0)/m/n/10.53937 除 了 分 割 外 我 们 还 需 要 调 用 $\OML/zplm/m/
-it/10.53937 stats$ \EU1/FandolSong-Regular(0)/m/n/10.53937 类，|  来 帮 我 们 计 算 处 改
+it/10.53937 stats$ \EU1/FandolSong-Regular(0)/m/n/10.53937 类，|  来 帮 我 们 计 算 出 该
  矩 形 范 围 内 $\OML/zplm/m/it/10.53937 RGB$ \EU1/FandolSong-Regular(0)/m/n/10.5393
 7 通 道 的 平 均 值，|  记 录 在 $\OML/zplm/m/it/10.53937 RGBAPixel$
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 208.
+(hyperref)                removing `math shift' on input line 211.
 
 [3]
 File: buildTree.pdf Graphic file (type QTm)
  <use  "buildTree.pdf" >
-Overfull \hbox (68.57245pt too wide) in paragraph at lines 219--220
+Overfull \hbox (68.59402pt too wide) in paragraph at lines 222--223
  [][] 
  []
 
 File: prune.pdf Graphic file (type QTm)
 <use  "prune.pdf" >
-Overfull \hbox (68.61295pt too wide) in paragraph at lines 228--229
+Overfull \hbox (68.61295pt too wide) in paragraph at lines 231--232
  [][] 
  []
 
 [4] [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 236.
+(hyperref)                removing `\@ifnextchar' on input line 239.
 
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'FandolFang-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_FandolFang-Regular_int=\count274
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 237
+\g__fontspec_family_FandolFang-Regular_int=\count278
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 240
 .
 (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2063,13 +2083,6 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 . - 'bold small caps'  (bx/sc) with NFSS spec.: 
 .................................................
 
-Underfull \hbox (badness 2173) in paragraph at lines 237--237
-[][]\EU1/FandolSong-Regular(0)/m/n/7.52812 代 码 也 可 从 该 网 址 得 到：| [][]$[][][][][
-] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][][][][][] [] [][][][][]
-[][][][][][] [] [][][][] [] [][][][][][] [] [][][][][][][][][] [] [][][][][][][
-][][][] [] [][][][] [] [][][][][][][][][][] [] [][][][] []
- []
-
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -2081,42 +2094,54 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 
 LaTeX Font Warning: Font shape `EU1/ppl/m/sl' undefined
-(Font)              using `EU1/ppl/m/n' instead on input line 240.
+(Font)              using `EU1/ppl/m/n' instead on input line 243.
 
 [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+File: remb.png Graphic file (type QTm)
+ <use  "remb.png" >
+File: prunedremb.png Graphic file (type QTm)
 
-LaTeX Warning: Reference `res4' on page 16 undefined on input line 805.
+<use  "prunedremb.png" >
+File: rosa.png Graphic file (type QTm)
+ <use  "rosa.png" >
+File: prunedrosa.png Graphic file (type QTm)
+ <use  "prunedrosa.png" >
+File: stanley-totem-poles.png Graphic file (type QTm)
 
-[16]
-Overfull \hbox (26.59389pt too wide) in paragraph at lines 815--816
+<use  "stanley-totem-poles.png" >
+File: prunedstanleytotem.png Graphic file (type QTm)
+ <use  "prunedstanleytotem.png" > [16]
+File: ubc-totem-poles.png Graphic file (type QTm)
+
+<use  "ubc-totem-poles.png" >
+File: prunedubctotem.png Graphic file (type QTm)
+ <use  "prunedubctotem.png" > [17]
+Overfull \hbox (35.97968pt too wide) in paragraph at lines 896--897
 []\EU1/FandolSong-Regular(0)/m/n/10.53937 还 有 一 点 就 是 有 时 候 把 变 量 名 取 得 太 相 似 会
  使 得 在 打 代 码 的 过 程 中 经 常 会 把 它 们 写 反。|  比 如 在 实 现 $\OML/zplm/m/it/10.53937 rend
-er[]elper$
+er[]helper$
  []
 
 No file the_art_of_compression.bbl.
-[17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
+[18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 899.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 899.
  (./the_art_of_compression.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 818.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 818.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 899.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 899.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 818.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 899.
  ) 
 Here is how much of TeX's memory you used:
- 40870 strings out of 493638
- 806204 string characters out of 6146795
- 1062674 words of memory out of 5000000
- 43712 multiletter control sequences out of 15000+600000
+ 41043 strings out of 493638
+ 808661 string characters out of 6146795
+ 1066720 words of memory out of 5000000
+ 43870 multiletter control sequences out of 15000+600000
  21332 words of font info for 88 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,9n,77p,10428b,2004s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on the_art_of_compression.pdf (17 pages).
+Output written on the_art_of_compression.pdf (18 pages).

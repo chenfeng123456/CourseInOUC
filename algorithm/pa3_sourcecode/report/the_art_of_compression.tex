@@ -107,6 +107,7 @@
 
 
 \usepackage{graphicx}
+\usepackage{subfigure}
 
 %超链接
 \usepackage[linkcolor=yellow,citecolor=red,backref=page,hyperfootnotes=true]{hyperref}
@@ -141,7 +142,7 @@ linkcolor=black
 	}
 	\section{问题分析}
 	\subsection{题目描述}
-	\indent 本次任务要求对图像进行有针对性的模糊化，即对颜色多样性越低的地方模糊程度越大，颜色多样性越高的地方模糊程度越低。具体而言，我们的任务就是将给定的代码补全，使其能够正常运行并输出正确的结果。
+	\indent 本次任务要求对图像进行有针对性的模糊化，即颜色多样性越低的地方模糊程度越大，颜色多样性越高的地方模糊程度越低。具体而言，我们的任务就是将给定的代码补全，使其能够正常运行并输出正确的结果。
 
 	\subsection{问题分析}
 	\indent 根据题目及代码，我们需要解决的问题有：
@@ -154,19 +155,19 @@ linkcolor=black
 	
 	\section{解决方案}
 		\subsection{$stats$}\label{stats}
-		\indent $stats$这个类是专门用来辅助构建二叉树的。更具体的说，是为了让我们能够在常数时间内算出给定范围的矩形内所有元素的和、平方和、平均值以及多样性分数。
+		\indent $stats$这个类是专门用来辅助构建二叉树的。更具体的说，是为了让我们能够在常数时间内算出给定范围的矩形内所有元素的和、平方和、平均值以及多样性分数（$variability\ score$）。
 		
 			\subsubsection{构造函数}
-			\indent 这里需要我们初始化的成员变量是六个$vector$，其中的第$y$行第$x$列的元素代表的是对应的$PNG$通道中以$(0,0$为左上角、以$(x, y)$为右下角的所有元素之和或平方和。为减少计算量，这里我们采取“\textbf{动态规划}”的思想，可以得到状态转移方程：
+			\indent 这里需要我们初始化的成员变量是六个$vector$，其中的第$y$行第$x$列的元素代表的是对应的$PNG$通道中以$(0,0)$为左上角、以$(x, y)$为右下角的矩形中所有元素之和或平方和。为减少计算量，这里我们采取“\textbf{动态规划}”的思想，可以得到状态转移方程：
 			\begin{align}
 			dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] + im.getPixel(j, i) \label{construction}
 			\end{align}
 			
 			\indent 由于$dp[i-1][j-1]$是$dp[i-1][j]$和$dp[i][j-1]$都包含的部分，相加的时候被算了两次，所以需要减掉一个。\textbf{另外值得注意的一点是，整个工程中涉及到的所有有关坐标的变量或函数，其第一个值代表的是横坐标，即横向的偏移量，对应过来相当于是列下标；而第二个值是纵坐标，即纵向的偏移量，对应过来是行下标。所以这里我们在调用$getPixel$函数是要把$i$、$j$交换位置。}
 			
-			\indent 当然，方程\ref{construction}在第一行和第一列上是不成立的，在程序中会导致越界，所以这里我们先单独把第一行和第一列的值填上，在从$(1, 1)$开始执行\ref{construction}式。
+			\indent 当然，方程\ref{construction}在第一行和第一列上是不成立的，在程序中会导致越界，所以这里我们先单独把第一行和第一列的值填上，再从$(1, 1)$开始执行\ref{construction}式。
 				
-			\subsubsection{$getSum$和$getSumsp$函数}
+			\subsubsection{$getSum$和$getSumsq$函数}
 			\indent 有了那六个$vector$作为辅助，这两个函数实现起来就会轻松许多。这里我们直接给出公式：	
 			\begin{align}
 			&given\ ul(x1, y1),\ lr(x2, y2): \\			
@@ -178,7 +179,9 @@ linkcolor=black
 		    sum(ul, lr) = dp[y2][x2] - dp[y2][x1-1] \label{sum_first_row}
 		    \end{align}
 
-            参照\ref{construction}式和\ref{sum_first_row}式我们能得出$ul$在第一列或原点上的表达式。
+            \indent 参照\ref{construction}式和\ref{sum_first_row}式我们能得出$ul$在第一列或原点上的表达式。
+            
+            \indent $getSumsq$原理同$getSum$。
             
             \subsubsection{$getScore$函数}
             \indent 根据文档中给出的等式：
@@ -188,25 +191,25 @@ linkcolor=black
             
             \indent 再结合$getSum$和$getSumsp$函数，我们可以在$O(1)$时间内算出其多样性分数。
             \subsubsection{$getArea$和$getAvg$函数}  
-            \indent 这里的$getArea$函数其实是为$getAvg$服务的。我们先用$getSum$求出对应通道中像素值的和，在将其除以$getArea$返回的数量即得平均值。平均值仍然分$r$、$g$、$b$三个通道，用一个$RGBAPixel$存放。\textbf{注意这里的$RGBAPixel$类中还定义了一个透明度通道，但这里我们不会涉及到它，直接遵循默认设定将其置为1即可}。      		    
+            \indent 这里的$getArea$函数其实是为$getAvg$服务的。我们先用$getSum$求出对应通道中像素值的和，再将其除以$getArea$返回的数量即得平均值。平均值仍然分$r$、$g$、$b$三个通道，用一个$RGBAPixel$存放。\textbf{注意这里的$RGBAPixel$类中还定义了一个透明度通道，但这里我们不会涉及到它，直接遵循默认设定将其置为1即可}。      		    
 		\subsection{$twoDTree$}\label{twoDTree}
 		
 		\indent 这一块是整个算法最核心的部分。其中构造函数和剪枝函数是最关键的两个部分，我们重点来看一看这两个函数的设计。
 		
 		\subsubsection{构造函数}
-		\indent 这里构造的策略并没有采用$K-D$树中“深度为偶数垂直分割，深度为奇数水平分割”的策略，而是对当前矩形的长宽进行比较，若长大于宽，水平分隔；反之则垂直分割。这里我还专门在$Node$里面加了一个成员变量$flag$来记录对于当前矩形是做的垂直分割还是水平分割。现在想想其实这个变量完全没必要，因为$Node$中本身就有$upLeft$和$lowRight$这两个对组，我们只需要简单算一下当前矩形的长和宽就可以知道是做的什么分割了。
+		\indent 这里并没有采用$K-D$树中“深度为偶数垂直分割，深度为奇数水平分割”的构造策略，而是对当前矩形的长宽进行比较，若长大于宽，水平分隔；反之则垂直分割。这里我还专门在$Node$里面加了一个成员变量$flag$来记录对当前矩形是做的垂直分割还是水平分割。现在想想其实这个变量完全没必要，因为$Node$中本身就有$upLeft$和$lowRight$这两个对组，我们只需要简单算一下当前矩形的长和宽就可以知道是做的什么分割了。
 		
-		\indent 在做分割时，我们用一个对组来记录坐标，沿着一条边走，计算被过这个点的垂线所分成的两个小矩形的多样性分数\textbf{之和}。以垂直分割为例，设左上角的坐标为$(x1, y1)$，右下角的坐标为$(x2, y2)$，我们另一个点$i$的初始坐标为$(x1, y2)$，让其沿$y = y2$这条直线向右移动，同时令另一个点$j$的初始坐标为$(x1+1, y1)$，沿着$y = y1$向右移动。那么在移动的过程中$i$始终是左边矩形的右下角，而$j$始终是右边矩形的左上角。在此过程中我们不断计算两个矩形的多样性大小。\textbf{而考虑到两个矩形的多样性分数可能不会同时达到最小，所以这里我们取令二者之和最小的分割方式}。然后再递归地进行下去，直至当前矩形的左上角坐标等于右下角，即矩形中只有一个元素时，停止递归，并返回当前节点的指针。
+		\indent 在做分割时，我们用一个对组来记录坐标，沿着一条边走，计算被过这个点的垂线所分成的两个小矩形的多样性分数\textbf{之和}。以垂直分割为例，设左上角的坐标为$(x1, y1)$，右下角的坐标为$(x2, y2)$，我们令一个点$i$的初始坐标为$(x1, y2)$，让其沿$y = y2$这条直线向右移动，同时令另一个点$j$的初始坐标为$(x1+1, y1)$，沿着$y = y1$向右移动。这样在移动的过程中$i$始终是左边矩形的右下角，而$j$始终是右边矩形的左上角。在此过程中我们不断计算两个矩形的多样性分数。\textbf{而考虑到两个矩形的多样性分数可能不会同时达到最小，所以这里我们取令二者之和最小的分割方式}。然后再递归地进行下去，直至当前矩形的左上角坐标等于右下角，即矩形中只有一个元素时，停止递归，并返回当前节点的指针。
 		
-		\indent 除了分割外我们还需要调用$stats$类，来帮我们计算处改矩形范围内$RGB$通道的平均值，记录在$RGBAPixel$类型的成员变量$avg$中，另外我还额外给节点类增加了一个变量$split\_value$，用来记录分割的位置。
+		\indent 除了分割外我们还需要调用$stats$类，来帮我们计算出该矩形范围内$RGB$通道的平均值，记录在$RGBAPixel$类型的成员变量$avg$中，另外我还额外给节点类增加了一个变量$split\_value$，用来记录分割的位置。
 		
 		\subsubsection{剪枝函数}
 		\indent 这里我们再明确一下剪枝的要求：\textcolor[rgb]{0.8,0.1,0.1}{给定两个值$percent$和$tolerance$，我们对某一棵子树计算其根节点与每一个叶节点$avg$之差的平方（注意这里要把三个通道的值都加起来），如果计算出来的值大于$tolerance$且这样的叶节点数量占总数的比例大于$percent$，我们就要给这个子树剪枝，即只保留根节点}。
 		
-		\indent 但对每一个节点都执行一次遍历子树的操作计算成本太高，我们希望能够对每个节点只遍历一次。所以这里我们用$vector$来作为函数的返回值。当碰到叶节点时，我们将叶节点放入一个向量中返回；而对于其它节点，先进行递归得到左右子树的叶节点，将两个向量合并之后在开始判断是否需要剪枝，最后再返回合并后的向量即可。
+		\indent 但对每一个节点都执行一次遍历子树的操作计算成本太高，我们希望能够对每个节点只遍历一次。所以这里我们用$vector$来作为函数的返回值。当碰到叶节点时，我们将叶节点放入一个向量中返回；而对于其它节点，先进行递归得到左右子树的叶节点，将两个向量合并之后再开始判断是否需要剪枝，最后返回合并后的向量即可。
 		
 		\subsubsection{$render$函数、$copy$函数和$clear$函数}
-		\indent 在$render$函数中，我们要实例化一个$PNG$对象，然后根据每一个像素的坐标	的坐标在构建好的二叉树中找到相应的节点，把该节点的$avg$赋值过来即可。
+		\indent 在$render$函数中，我们要实例化一个$PNG$对象，然后根据每一个像素的坐标	在构建好的二叉树中找到相应的节点，把该节点的$avg$赋值过来即可。
 		
 		\indent $copy$函数和$clear$函数比较简单，在此不做赘述。	
 	
@@ -234,7 +237,7 @@ linkcolor=black
 
 
 	\section{编程实现\protect \footnotemark[1]}
-	\footnotetext[1]{代码也可从该网址得到：\url{https://github.com/chenfeng123456/CourseInOUC/blob/master/algorithm/expression_tree/expression_tree.cpp}}
+	\footnotetext[1]{完整的代码：\url{https://github.com/chenfeng123456/CourseInOUC/tree/master/algorithm/pa3_sourcecode}}
 
 	\begin{lstlisting}[language=C++,caption={stats.cpp},label={stats.cpp}]
 #include "stats.h"
@@ -769,6 +772,84 @@ twoDtree::Node* twoDtree::copy_helper(const Node *r)
 	\section{结果分析}
 	\subsection{结果展示}
 
+
+\begin{figure}[H]
+\centering
+\subfigure[原图1]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{remb.png}
+%\caption{原图1}
+\end{minipage}%
+}%
+\subfigure[结果1]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{prunedremb.png}
+%\caption{结果1}
+\end{minipage}
+}
+
+\subfigure[原图2]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{rosa.png}
+%\caption{原图2}
+\end{minipage}%
+}%
+\subfigure[结果2]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{prunedrosa.png}
+%\caption{结果2}
+\end{minipage}
+}
+
+\subfigure[原图3]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{stanley-totem-poles.png}
+%\caption{原图3}
+\end{minipage}
+}
+\subfigure[结果3]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{prunedstanleytotem.png}
+%\caption{结果3}
+\label{res3}
+\end{minipage}
+}
+
+\caption{测试结果}
+\label{res123}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subfigure[原图4]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{ubc-totem-poles.png}
+%\caption{原图3}
+\end{minipage}
+}
+\subfigure[结果4]{
+\begin{minipage}{0.45\linewidth}
+\centering
+\includegraphics[width=6cm, height=6cm]{prunedubctotem.png}
+%\caption{结果3}
+\label{res4-4}
+\end{minipage}
+}
+
+\caption{测试结果}
+\label{res4}
+\end{figure}
+
+
+
+
 %\begin{figure}[H]
 %	\centering 
 %	\includegraphics[scale=0.8]{res1.png} 
@@ -802,17 +883,17 @@ twoDtree::Node* twoDtree::copy_helper(const Node *r)
 
 
 	\subsection{分析}\label{time_of_PrintLots}
-	\indent 从图\ref{res4}中可以看出，
+	\indent 可以看出，我的结果跟标准结果（报告中未给出）还是有差异的。图\ref{res3}对背景的模糊程度比标准结果要大，而图\ref{res4-4}的模糊程度比标准结果要小。
 	
-	\indent 这里我所采取的分割方式能保证我们最后一定能把矩形分成一个一个像素。而采取“深度为偶数垂直分割，深度为奇数水平分割”的策略则有可能导致分到一定程度时当前矩形只剩一行（或一列）而深度却刚好是奇数（或偶数），无端增加了考虑的复杂性，并且也没有理论能表明这样分割一定能达到更好的效果，因此我觉得并没有必要局限于$K-D$树的分割方式。
+	\indent 这里我所采取的分割方式能保证我们最后一定能把矩形分成一个一个像素。而采取“深度为偶数垂直分割，深度为奇数水平分割”的策略则有可能导致分到一定程度时当前矩形只剩一行（或一列）而深度却刚好是奇数（或偶数），无端增加了考虑的复杂性，而且也没有理论能表明这样分割一定能达到更好的效果，因此我觉得并没有必要局限于$K-D$树的分割方式。
 	
-	\indent 关于剪枝函数虽然我们用向量作为辅助使得只需要对每一个节点访问一次，但在递归返回的过程中，由于$vector$是在函数内部定义的，在函数结束后变量会被自动销毁，所以我们不能直接返回它的引用。这就导致了在函数返回时采用的是“值传递”，再加上需要合并向量，这就又增加了计算的成本。粗略计算仅对向量进行赋值和合并所需的时间复杂度就已经是一个与$2^{depth}\times depth$成正比的函数了(每个节点的度数为$0$或$2$），再加上删除和访问，这一块的开销其实相当大。
+	\indent 关于剪枝函数虽然我们用向量作为辅助使得只需要对每一个节点访问一次，但在递归返回的过程中，由于$vector$是在函数内部定义的，在函数结束后变量会被自动销毁，所以我们不能直接返回它的引用。这就导致了在函数返回时采用的是“值传递”，再加上需要合并向量，这就又增加了计算的成本。粗略计算仅对向量进行赋值和合并所需的时间复杂度就已经是一个与$2^{height}\times height$成正比的函数了(每个节点的度数为$0$或$2$），再加上删除和访问，这一块的开销其实相当大。但再仔细考虑一下，$2^{height}$代表的其实是所有叶节点的数量（其实是大于等于叶节点数量），显然$2^{height}\times height$要小于$n^2$，所以总体而言这么做还是值得的。
 		
 
 	\section{总结体会}
-	\indent 在完成这次作业的过程中，因为代码的不规范除了很多错误。其中印象比较深的是在剪枝时我一开始是把节点作为$vector$的元素，但由于$Node$类中没有写复制构造函数（我花了好长时间才发现这一点），导致程序运行时除了很多奇怪的报错。另外就是在删除一个节点后\textbf{把指向该节点的指针置为$NULL$}，如果不这样做的话，该指针不为空且指向一片已经被销毁的区域，会导致一些不可预计的后果。
+	\indent 在完成这次作业的过程中，因为代码的不规范出了很多错误。其中印象比较深的是在剪枝时我一开始是把节点作为$vector$的元素，但由于$Node$类中没有写复制构造函数（我花了好长时间才发现这一点），导致程序运行时出了很多奇怪的报错。另外就是在删除一个节点后\textbf{必须把指向该节点的指针置为$NULL$}，如果不这样做的话，该指针不为空且指向一片已经被销毁的区域，会导致一些不可预计的后果。
 	
-	\indent 还有一点就是有时候把变量名取得太相似会使得在打代码的过程中经常会把它们写反。比如在实现$render_helper$函数时，递归中我用$r$来指代当前节点，结果有几处把$r$跟整棵树的根节点$root$写反了，\textcolor[rgb]{1,0,0}{程序可以正常运行并退出（这是最可怕的的！)}，但结果就是不对，导致我在这上面浪费了很多时间，$render_helper$函数也是我用时最多的一个函数。
+	\indent 还有一点就是有时候把变量名取得太相似会使得在打代码的过程中经常会把它们写反。比如在实现$render\_helper$函数时，递归中我用$r$来指代当前节点，结果有几处把$r$跟整棵树的根节点$root$写反了，程序可以正常运行并退出（\textcolor[rgb]{1,0,0}{这是最可怕的的！})，但结果就是不对，导致我在这上面浪费了很多时间，$render\_helper$函数也是我用时最多的一个函数。
 
 \bibliography{ref.bib}
 \end{document}
