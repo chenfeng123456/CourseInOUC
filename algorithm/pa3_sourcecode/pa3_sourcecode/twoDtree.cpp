@@ -40,7 +40,7 @@ twoDtree & twoDtree::operator=(const twoDtree & rhs){
 }
 
 twoDtree::twoDtree(PNG & imIn){ /* your code here */ 
-    im = imIn;
+    //im = imIn;
     stats s(imIn);
     height = imIn.height();
     width = imIn.width();
@@ -209,8 +209,8 @@ PNG twoDtree::render(){
             RGBAPixel* p = image.getPixel(x, y);
             cout << "x = " << x << " , y = " << y << endl;
             RGBAPixel* other = render_helper(x, y, root);
-            cout << "*****" << endl;
-            cout << "(x,y)=" << *im.getPixel(x, y) << endl;
+            //cout << "*****" << endl;
+            //cout << "(x,y)=" << *im.getPixel(x, y) << endl;
             p->r = other->r; p->g = other->g; p->b = other->b; p->a = other->a;
             cout << "r = " << (int)p->r << "   g = " << (int)p->g << "   b = " << (int)p->b << endl << endl;
             /*
@@ -258,7 +258,7 @@ vector<int> twoDtree::prune_helper(Node *p, double const pct, int const tol)
             num++;
             if (num > threshold)
             {
-                cout << (p->left == NULL) << " , " << (p->right == NULL) << endl;
+                // cout << (p->left == NULL) << " , " << (p->right == NULL) << endl;
                 remove(p);
                 break;
             }
@@ -311,7 +311,7 @@ void twoDtree::remove(Node *root)
 void twoDtree::copy(const twoDtree & orig){
 	/* your code here */
     root = copy_helper(orig.root);
-    im = orig.im;
+    //im = orig.im;
     height = orig.height;
     width = orig.width;
 

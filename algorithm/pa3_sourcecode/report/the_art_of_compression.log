@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  18 APR 2019 21:34
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2018.10.16)  22 APR 2019 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1818,7 +1818,11 @@ Package: xeCJK-listings 2016/02/10 v3.3.4 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count275
 \l__xeCJK_listings_flag_int=\count276
 )
-(./the_art_of_compression.aux)
+(./the_art_of_compression.aux
+
+LaTeX Warning: Label `twoDTree.cpp' multiply defined.
+
+)
 \openout1 = `the_art_of_compression.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
@@ -2096,52 +2100,56 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 LaTeX Font Warning: Font shape `EU1/ppl/m/sl' undefined
 (Font)              using `EU1/ppl/m/n' instead on input line 243.
 
-[6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
 File: remb.png Graphic file (type QTm)
- <use  "remb.png" >
-File: prunedremb.png Graphic file (type QTm)
 
-<use  "prunedremb.png" >
+<use  "remb.png" >
+File: prunedremb.png Graphic file (type QTm)
+ <use  "prunedremb.png" >
 File: rosa.png Graphic file (type QTm)
  <use  "rosa.png" >
 File: prunedrosa.png Graphic file (type QTm)
- <use  "prunedrosa.png" >
+
+<use  "prunedrosa.png" >
 File: stanley-totem-poles.png Graphic file (type QTm)
-
-<use  "stanley-totem-poles.png" >
+ <use  "stanley-totem-poles.png" >
 File: prunedstanleytotem.png Graphic file (type QTm)
- <use  "prunedstanleytotem.png" > [16]
-File: ubc-totem-poles.png Graphic file (type QTm)
 
-<use  "ubc-totem-poles.png" >
+<use  "prunedstanleytotem.png" > [21]
+File: ubc-totem-poles.png Graphic file (type QTm)
+ <use  "ubc-totem-poles.png" >
 File: prunedubctotem.png Graphic file (type QTm)
- <use  "prunedubctotem.png" > [17]
-Overfull \hbox (35.97968pt too wide) in paragraph at lines 896--897
+
+<use  "prunedubctotem.png" > [22]
+Overfull \hbox (35.97968pt too wide) in paragraph at lines 1136--1137
 []\EU1/FandolSong-Regular(0)/m/n/10.53937 还 有 一 点 就 是 有 时 候 把 变 量 名 取 得 太 相 似 会
  使 得 在 打 代 码 的 过 程 中 经 常 会 把 它 们 写 反。|  比 如 在 实 现 $\OML/zplm/m/it/10.53937 rend
 er[]helper$
  []
 
 No file the_art_of_compression.bbl.
-[18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 899.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 899.
+[23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1139.
  (./the_art_of_compression.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 899.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 899.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1139.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1139.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 899.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1139.
  ) 
 Here is how much of TeX's memory you used:
  41043 strings out of 493638
  808661 string characters out of 6146795
- 1066720 words of memory out of 5000000
+ 1104759 words of memory out of 5000000
  43870 multiletter control sequences out of 15000+600000
  21332 words of font info for 88 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,9n,77p,10428b,2004s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on the_art_of_compression.pdf (18 pages).
+Output written on the_art_of_compression.pdf (23 pages).

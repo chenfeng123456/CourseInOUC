@@ -141,7 +141,7 @@ public:
 
    /* =============== end of public PA3 FUNCTIONS =========================*/
     
-   PNG im;
+   //PNG im;
 private:
    /*
     * Private member variables.
