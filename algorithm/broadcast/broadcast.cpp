@@ -32,52 +32,57 @@ int main()
         towns[t2][t1] = 1;
     }
 
-    //find the first town which is not isolated
     int start = 1;
-    for (; start <= n; start++)
+    while(start <= n)
     {
-        if (linked(towns, start))
-            break;
-    }
-    if (start > n)
-    {
-        cout << "start > n" << endl;
-        cout << 1 << endl;
-        return 0;
-    }
-    //cout << "start = " << start << endl;
-
-    int wave = 1;
-    status[start] = wave;
-    queue<int> q;
-    q.push(start);
-    while (!q.empty())
-    {
-        wave = -wave;
-        int v = q.front();
-        q.pop();
-        //cout << endl << "v = " << v << endl;
-
-        for (int u = 1; u <= n; u++)
-        {
-            if (towns[v][u])
+	    //find the first town which is not isolated
+	    for (; start <= n; start++)
+	    {
+		    if (linked(towns, start) && (status[start] == 0))
             {
-                if (status[u] == status[v])
-                {
-                    //cout << "status[" << u << "] = " << status[u] << endl;
-                    //cout << "status[" << v << "] = " << status[v] << endl;
-                    cout << -1 << endl;
-                    return 0;
-                }
-                else if (status[u] == 0)
-                {
-                    q.push(u);
-                    status[u] = wave;
-                }
+                //cout << status[start] << endl;
+                break;
             }
         }
-    }
+	    if (start > n)
+	    {
+		    //cout << "start > n" << endl;
+		    cout << 1 << endl;
+		    return 0;
+	    }
+	    //cout << "start = " << start << endl;
 
+	    int wave = 1;
+	    status[start] = wave;
+	    queue<int> q;
+	    q.push(start);
+	    while (!q.empty())
+	    {
+		    wave = -wave;
+		    int v = q.front();
+		    q.pop();
+		//cout << endl << "v = " << v << endl;
+
+		    for (int u = 1; u <= n; u++)
+		    {
+		        if (towns[v][u])
+		        {
+		            if (status[u] == status[v])
+		            {
+		                //cout << "status[" << u << "] = " << status[u] << endl;
+		                //cout << "status[" << v << "] = " << status[v] << endl;
+		                cout << -1 << endl;
+		                return 0;
+		            }
+		            else if (status[u] == 0)
+		            {
+		                q.push(u);
+		                status[u] = wave;
+		            }
+		        }
+		    }
+	    }
+    }
     cout << 1 << endl;
 
     return 0;
