@@ -28,6 +28,6 @@ function I = successive_split_half(f, a, b, e)
     plot(0 : N, E);
     grid on
     hold on
-    xlabel('The power of 2 (x in 2^x)')
+    xlabel('log_2N')
     ylabel('abs(T - T0)')
     
