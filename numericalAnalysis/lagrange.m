@@ -6,6 +6,7 @@ end
 
 x
 y
+format long e 
 plot(x, y, 'r*', 'MarkerSize', 5)
 set(gca, 'XLim', [left, right])
 hold on
@@ -17,7 +18,8 @@ for i = 1 : lenx
             continue;
         end
         w(i) = w(i) * (x(i) - x(j));
-        fprintf("w(%d) = %f    x(i) = %f\n", i, w(i), x(i));
+        fprintf("%f - %f = %f   ", x(i), x(j), x(i)-x(j))
+        fprintf("w(%d) = %f    x(%d) = %f\n", i, w(i), i, x(i));
     end
 end
 
@@ -40,7 +42,7 @@ for x_i = left : (right-left)/num : right
         i = i + 1;
     end
     %Lx(j) = L;
-    fprintf("Lx(%f) = %f     j = %d\n", x_i, Lx(j), j);
+    %fprintf("Lx(%f) = %f     j = %d\n", x_i, Lx(j), j);
     j = j + 1;
 end
 plot(left:(right-left)/num:right, Lx, 'LineWidth', 1)

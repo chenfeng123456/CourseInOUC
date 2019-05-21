@@ -6,9 +6,9 @@ end
 
 x
 y
-plot(x, y, 'r*', 'MarkerSize', 5)
-set(gca, 'XLim', [left, right])
-hold on
+%plot(x, y, 'r*', 'MarkerSize', 5)
+%set(gca, 'XLim', [left, right])
+%hold on
 lenx = length(x);
 
 offset = 1;
