@@ -1,0 +1,17 @@
+function x = intenal_bisection(a, b, epsilon, f)
+% you should define the function manually in f.m file
+% a, b --> [a, b]
+% epsilon --> tolerance error
+
+m = 0;
+while ( abs(b - a) > epsilon )
+    m = a + (b - a) / 2;
+    if f(m) == 0
+        break;
+    end
+    if ( sign( f(a) ) * sign( f(b) ) > 0)
+        a = m;
+    else
+        
+    end
+end

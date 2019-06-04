@@ -1,5 +1,8 @@
 function lagrange(x, y, left, right, num)
 % Lagrange polynomial
+% (x, y) --> sample points
+% [left, right] --> the interval of interpolation
+% num --> points of interpolation
 if nargin < 5
     num = 100;
 end
@@ -7,7 +10,7 @@ end
 x
 y
 format long e 
-plot(x, y, 'r*', 'MarkerSize', 5)
+plot(x, y, '*','MarkerSize', 5)
 set(gca, 'XLim', [left, right])
 hold on
 lenx = length(x);
@@ -46,8 +49,3 @@ for x_i = left : (right-left)/num : right
     j = j + 1;
 end
 plot(left:(right-left)/num:right, Lx, 'LineWidth', 1)
-
-
-
-
-        
