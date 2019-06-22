@@ -4,7 +4,7 @@ function x = intenal_bisection(a, b, epsilon, f)
 % epsilon --> tolerance error
 
 while ( 1 )
-    fprintf("a = %f,   b = %f\n", a, b);
+    %fprintf("a = %f,   b = %f\n", a, b);
     m = a + (b - a) / 2;
     if f(m) == 0
         x = m;
