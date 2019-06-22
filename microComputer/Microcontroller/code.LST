@@ -1,0 +1,283 @@
+C51 COMPILER V9.01   CODE                                                                  06/20/2019 00:00:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE CODE
+OBJECT MODULE PLACED IN code.OBJ
+COMPILER INVOKED BY: F:\Keil\C51\BIN\C51.EXE code.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include<intrins.h>
+   3           
+   4          /*  数据端接口定义 */
+   5          sbit  LSH = P2^0;     //列数时钟
+   6          sbit  LDS = P2^1;     //输入
+   7          sbit  LST = P2^2;     //列寄存器
+   8           
+   9          sbit  HSH = P2^3;     //行数时钟
+  10          sbit  HDS = P2^4;     //输入
+  11          sbit  HST = P2^5;     //行寄存器时钟
+  12           
+  13          int hang_flag=1;
+  14          int lie_flag=0;
+  15          
+  16          unsigned int sel[17]={0x7fff,0xbfff,0xdfff,0xefff,0xf7ff,0xfbff,0xfdff,0xfeff,
+  17                                                  0xff7f,0xffbf,0xffdf,0xffef,0xfff7,0xfffb,0xfffd,0xfffe,0xffff};
+  18           
+  19          char code hanzi_hang[272] =
+  20          {
+  21          0x08,0x00, 0x1f,0xe0, 0x20,0x20, 0x7f,0xf8, 0xa1,0x08, 0x3f,0xf8, 0x21,0x08, 0x3f,0xf8,
+  22          0x00,0x00, 0xff,0xfe, 0x00,0x00, 0x1f,0xf0, 0x10,0x10, 0x1f,0xf0, 0x10,0x10, 0x1f,0xf0,//鲁
+  23          0x00,0x00,
+  24          0x00,0x00, 0x7f,0xfc, 0x40,0x04, 0x40,0x04, 0x5f,0xf4, 0x41,0x04, 0x41,0x04, 0x4f,0xe4,
+  25          0x41,0x04, 0x41,0x44, 0x41,0x24, 0x5f,0xf4, 0x40,0x04, 0x40,0x04, 0x7f,0xfc, 0x00,0x00,//国
+  26          0x00,0x00,
+  27          0x22,0x08, 0x21,0x08, 0x39,0x10, 0x40,0x20, 0x43,0xf8, 0x7a,0x08, 0xa2,0x08, 0x22,0x08,
+  28          0xfb,0xf8, 0x20,0xa0, 0x20,0xa0, 0x29,0x20, 0x31,0x24, 0x22,0x24, 0x04,0x1c, 0x08,0x00,//锐
+  29          0x00,0x00,
+  30          0x00,0x00, 0x7f,0xE0, 0x00,0x20, 0x00,0x20, 0x10,0x20, 0x10,0x20, 0x10,0x20, 0x1f,0xfc,
+  31          0x00,0x04, 0x00,0x04, 0x00,0x04, 0xff,0xe4, 0x00,0x04, 0x00,0x04, 0x00,0x14, 0x00,0x08,//马
+  32          0x00,0x00,
+  33          0x10,0x20, 0x10,0x20, 0x10,0xfc, 0x2e,0x24, 0x23,0xfe, 0x62,0x24, 0x64,0xfc, 0xa4,0x20,
+  34          0x2e,0xfc, 0x22,0x20, 0x22,0x20, 0x2b,0xfe, 0x24,0x20, 0x26,0x20, 0x29,0xfe, 0x30,0x00,//健
+  35          0x00,0x00,
+  36          0x01,0x00, 0x00,0x80, 0x3f,0xfe, 0x20,0x80, 0x2f,0xf8, 0x20,0x88, 0x3f,0xfe, 0x20,0x88,
+  37          0x2f,0xf8, 0x28,0x80, 0x24,0xc4, 0x22,0xa8, 0x44,0x90, 0x48,0x88, 0x92,0x86, 0x01,0x00,//康
+  38          0x00,0x00,
+  39          0x10,0x50, 0x10,0x48, 0x3c,0x40, 0x20,0x5c, 0x41,0xe0, 0xbc,0x40, 0x10,0x5e, 0x11,0xe0,
+  40          0xfc,0x44, 0x10,0x48, 0x10,0x30, 0x10,0x22, 0x14,0x52, 0x18,0x8a, 0x13,0x06, 0x00,0x02,//钱
+  41          0x00,0x00,
+  42          0x00,0x00, 0x7f,0xfe, 0x40,0x02, 0x82,0x04, 0x02,0x00, 0x3f,0xf8, 0x04,0x00, 0x09,0x00,
+  43          0x11,0x00, 0x3f,0xf8, 0x01,0x00, 0x01,0x00, 0xff,0xfe, 0x01,0x00, 0x01,0x00, 0x01,0x00,//军
+  44          0x00,0x00,
+  45          };
+  46           
+  47          char code hanzi_lie[272] =
+  48          {
+  49          0x08,0x40, 0x10,0x40, 0x3f,0x40, 0x55,0x5f, 0xd5,0x55, 0x55,0x55, 0x55,0x55, 0x5f,0x55,
+  50          0x55,0x55, 0x55,0x55, 0x75,0x55, 0x15,0x5f, 0x1f,0x40, 0x00,0x40, 0x00,0x40, 0x00,0x00,//鲁
+  51          0x00,0x00,
+  52          0x00,0x00, 0x7f,0xfe, 0x40,0x02, 0x40,0x02, 0x40,0x02, 0x49,0x12, 0x49,0x12, 0x4f,0xf2,
+  53          0x49,0x12, 0x49,0x52, 0x40,0x22, 0x40,0x02, 0x40,0x02, 0x7f,0xfe, 0x00,0x00, 0x00,0x00,//国
+  54          0x00,0x00,
+  55          0x02,0x80, 0x1c,0x80, 0xe7,0xfc, 0x24,0x88, 0x24,0x91, 0x00,0x02, 0x8f,0x84, 0x68,0x98,
+C51 COMPILER V9.01   CODE                                                                  06/20/2019 00:00:22 PAGE 2   
+
+  56          0x08,0xe0, 0x08,0x80, 0x18,0xfc, 0x28,0x82, 0xcf,0x82, 0x00,0x0e, 0x00,0x00, 0x00,0x00,//锐
+  57          0x00,0x00,
+  58          0x00,0x10, 0x40,0x10, 0x40,0x10, 0x43,0x10, 0x41,0x10, 0x41,0x10, 0x41,0x10, 0x41,0x10,
+  59          0x41,0x10, 0x41,0x10, 0x7f,0x12, 0x01,0x01, 0x01,0x02, 0x01,0xfc, 0x00,0x00, 0x00,0x00,//马
+  60          0x00,0x00,
+  61          0x01,0x00, 0x06,0x00, 0x1f,0xff, 0xe0,0x01, 0x10,0x92, 0x13,0x8c, 0x1c,0xf4, 0x08,0x12,
+  62          0x2a,0x92, 0x2a,0x92, 0xff,0xfe, 0x2a,0x92, 0x2a,0x92, 0x3e,0x92, 0x08,0x12, 0x00,0x00,//健
+  63          0x00,0x00,
+  64          0x00,0x02, 0x00,0x0c, 0x3f,0xf0, 0x21,0x02, 0x2a,0xc4, 0x2a,0xa8, 0x2a,0x92, 0xaa,0x81,
+  65          0x7f,0xfe, 0x2a,0xa0, 0x2a,0x90, 0x2a,0x88, 0x2f,0x94, 0x22,0x22, 0x22,0x02, 0x00,0x00,//康
+  66          0x00,0x00,
+  67          0x04,0x80, 0x08,0x80, 0x34,0x80, 0xe7,0xfe, 0x24,0x84, 0x24,0x88, 0x00,0x02, 0x09,0x02,
+  68          0x09,0x04, 0xff,0xc8, 0x09,0x30, 0x92,0x28, 0x52,0x44, 0x12,0x82, 0x02,0x1f, 0x00,0x00,//钱
+  69          0x00,0x00,
+  70          0x20,0x08, 0x60,0x08, 0x44,0x48, 0x44,0xc8, 0x45,0x48, 0x46,0x48, 0x5c,0x48, 0x45,0xff,
+  71          0x44,0x48, 0x44,0x48, 0x44,0x48, 0x44,0x48, 0x44,0x48, 0x50,0x08, 0x60,0x08, 0x00,0x00,//军
+  72          0x00,0x00,
+  73          };  
+  74          
+  75          // 上下滚动
+  76          void send_data_H_hang(unsigned int dat);  /*  发送行数据端数据函数  */
+  77          void send_data_L_hang(unsigned int dat);  /*  发送列选通端数据函数  */
+  78          void display_hang(int a);                 //每一次显示什么东西
+  79          
+  80          // 左右滚动
+  81          void send_data_H_lie(unsigned int dat);  /*  发送行数据端数据函数  */
+  82          void send_data_L_lie(unsigned int dat);  /*  发送列选通端数据函数  */
+  83          void display_lie(int a);                 //每一次显示什么东西
+  84          
+  85          void delay(unsigned int m);
+  86           
+  87           
+  88          void main()
+  89          {
+  90   1        unsigned int j=0,num;
+  91   1        EA = 1;     //开总中断
+  92   1        EX0 = 1;    //开外部中断0
+  93   1        EX1 = 1;
+  94   1        IT0 = 1;    //选择电平负跳变触发方式，
+  95   1        IT1 = 1; 
+  96   1              while(1)
+  97   1              {
+  98   2                      num=9;
+  99   2                      while(num--)
+ 100   2                      {
+ 101   3                          if (lie_flag == 0)
+ 102   3                              {
+ 103   4                                  display_hang(j);
+ 104   4                          }
+ 105   3                              else if(hang_flag == 0)
+ 106   3                              {
+ 107   4                                  display_lie(j);
+ 108   4                              }
+ 109   3                              delay(10);
+ 110   3      
+ 111   3                  }
+ 112   2                      if ( (hang_flag==1&&lie_flag==0) || (lie_flag == 1 && hang_flag == 0) )
+ 113   2                      {
+ 114   3                          j=j+2;
+ 115   3                  }
+ 116   2                      else if ( (hang_flag == -1 && lie_flag == 0) || (lie_flag == -1 && hang_flag == 0) )
+ 117   2                      {
+C51 COMPILER V9.01   CODE                                                                  06/20/2019 00:00:22 PAGE 3   
+
+ 118   3                          j = j - 2;
+ 119   3                              if(j>270)
+ 120   3                                  j=270;
+ 121   3                      }
+ 122   2                      
+ 123   2                      
+ 124   2              }
+ 125   1      }
+ 126                    
+ 127          void send_data_L_hang(unsigned int dat)
+ 128          {
+ 129   1          unsigned char i;
+ 130   1          
+ 131   1          for(i=0;i<8;i++)
+ 132   1          {
+ 133   2              LSH = 0;
+ 134   2              LDS = dat&0x80;       //temp<<=1;
+ 135   2              dat = dat<<1;               //ds = CY;
+ 136   2              LSH = 1;
+ 137   2          }
+ 138   1                      LST = 0;
+ 139   1          _nop_();
+ 140   1          _nop_();
+ 141   1          LST = 1;
+ 142   1      }
+ 143           
+ 144          void send_data_H_hang(unsigned int dat)
+ 145          {
+ 146   1          int i; 
+ 147   1          for(i=0;i<16;i++)
+ 148   1          {
+ 149   2                                
+ 150   2              HSH = 0;
+ 151   2              HDS = dat&0x8000;
+ 152   2              dat =dat<<1;
+ 153   2              HSH = 1;
+ 154   2          }   
+ 155   1                      HST = 0;
+ 156   1          _nop_();
+ 157   1          HST = 1;
+ 158   1      }
+ 159          void delay(unsigned int m)
+ 160          {
+ 161   1          unsigned char i;
+ 162   1          for(;m>0;m--)
+ 163   1          {
+ 164   2              for(i=0;i<124;i++)
+ 165   2                              {}
+ 166   2          }
+ 167   1      }
+ 168           
+ 169          void display_hang( int a)
+ 170          {
+ 171   1          unsigned char i;
+ 172   1              unsigned int x;
+ 173   1          for(i=0;i<16;i++)
+ 174   1          {
+ 175   2              send_data_H_hang(sel[i]);
+ 176   2                      x=a+2*i;//展示第几个字符
+ 177   2                      if(a+2*i>270)
+ 178   2                              x=(a+2*i)%272;
+ 179   2                      send_data_L_hang(hanzi_hang[x]);
+C51 COMPILER V9.01   CODE                                                                  06/20/2019 00:00:22 PAGE 4   
+
+ 180   2                      send_data_L_hang(hanzi_hang[x+1]);
+ 181   2                      delay(1);         
+ 182   2          }
+ 183   1      }
+ 184          
+ 185          
+ 186          void send_data_L_lie(unsigned int dat)
+ 187          {
+ 188   1          unsigned char i;
+ 189   1          
+ 190   1          for(i=0;i<16;i++)
+ 191   1          {
+ 192   2              LSH = 0;
+ 193   2              LDS = dat&0x8000;       //temp<<=1;
+ 194   2              dat = dat<<1;               //ds = CY;
+ 195   2              LSH = 1;
+ 196   2          }
+ 197   1                      LST = 0;
+ 198   1          _nop_();
+ 199   1          _nop_();
+ 200   1          LST = 1;
+ 201   1      }
+ 202          
+ 203          void send_data_H_lie(unsigned int dat)
+ 204          {
+ 205   1          int i; 
+ 206   1          for(i=0;i<8;i++)
+ 207   1          {
+ 208   2                                
+ 209   2              HSH = 0;
+ 210   2              HDS = dat&0x80;
+ 211   2              dat =dat<<1;
+ 212   2              HSH = 1;
+ 213   2          }   
+ 214   1                      HST = 0;
+ 215   1          _nop_();
+ 216   1          HST = 1;
+ 217   1      }
+ 218          
+ 219          void display_lie( int a)
+ 220          {
+ 221   1          unsigned char i;
+ 222   1              unsigned int x;
+ 223   1          for(i=0;i<16;i++)
+ 224   1          {
+ 225   2              send_data_L_lie(~sel[i]);
+ 226   2                  x=a+2*i;//展示第几个字符
+ 227   2                      if(a+2*i>270)
+ 228   2                              x=(a+2*i)%272;
+ 229   2                      send_data_H_lie(~hanzi_lie[x]);
+ 230   2                      send_data_H_lie(~hanzi_lie[x+1]);
+ 231   2                      delay(1);         
+ 232   2          }
+ 233   1      }
+ 234          
+ 235          
+ 236          void External_Interrupt_0() interrupt 0
+ 237          //中断函数：INT0，外部中断
+ 238          {
+ 239   1          if (hang_flag == 0)
+ 240   1                  hang_flag = -1;
+ 241   1          lie_flag = 0;
+C51 COMPILER V9.01   CODE                                                                  06/20/2019 00:00:22 PAGE 5   
+
+ 242   1          hang_flag = -hang_flag;//滚动反向
+ 243   1      }
+ 244          
+ 245          void External_Interrupt_1() interrupt 2
+ 246          //中断函数：INT1，外部中断
+ 247          {
+ 248   1          if (lie_flag == 0)
+ 249   1                  lie_flag = -1;
+ 250   1          hang_flag = 0;
+ 251   1          lie_flag = -lie_flag;//滚动反向
+ 252   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    661    ----
+   CONSTANT SIZE    =    544    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     38      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
