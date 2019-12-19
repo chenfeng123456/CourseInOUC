@@ -1,0 +1,425 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clock_gen:clock_10ms|clk_ms'
+Slack : -3.840
+TNS   : -29.301
+
+Type  : Slow 1200mV 85C Model Setup 'clk_in'
+Slack : -2.639
+TNS   : -36.059
+
+Type  : Slow 1200mV 85C Model Setup 'cnt:cnt1|temp[0]'
+Slack : -1.689
+TNS   : -4.397
+
+Type  : Slow 1200mV 85C Model Setup 'clock_gen:clock_10ms|sig_us'
+Slack : -1.678
+TNS   : -18.227
+
+Type  : Slow 1200mV 85C Model Setup 'clock_gen:clock_10ms|clk_10ms'
+Slack : -1.584
+TNS   : -4.513
+
+Type  : Slow 1200mV 85C Model Setup 'cnt:cnt0|temp[0]'
+Slack : -1.466
+TNS   : -4.108
+
+Type  : Slow 1200mV 85C Model Setup 'clock_gen:clock_10ms|sig_ms'
+Slack : -0.541
+TNS   : -2.142
+
+Type  : Slow 1200mV 85C Model Setup 'cnt:cnt2|temp[0]'
+Slack : -0.443
+TNS   : -1.272
+
+Type  : Slow 1200mV 85C Model Setup 'xd:state|y'
+Slack : 0.114
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cnt:cnt1|temp[0]'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cnt:cnt0|temp[0]'
+Slack : 0.364
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock_gen:clock_10ms|clk_ms'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock_gen:clock_10ms|sig_ms'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cnt:cnt2|temp[0]'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock_gen:clock_10ms|clk_10ms'
+Slack : 0.485
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'xd:state|y'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock_gen:clock_10ms|sig_us'
+Slack : 0.509
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk_in'
+Slack : 0.744
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'cnt:cnt0|temp[0]'
+Slack : -2.842
+TNS   : -11.368
+
+Type  : Slow 1200mV 85C Model Recovery 'cnt:cnt1|temp[0]'
+Slack : -2.595
+TNS   : -10.380
+
+Type  : Slow 1200mV 85C Model Recovery 'clock_gen:clock_10ms|clk_10ms'
+Slack : -2.387
+TNS   : -9.548
+
+Type  : Slow 1200mV 85C Model Recovery 'cnt:cnt2|temp[0]'
+Slack : -0.758
+TNS   : -2.274
+
+Type  : Slow 1200mV 85C Model Removal 'cnt:cnt2|temp[0]'
+Slack : 0.649
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clock_gen:clock_10ms|clk_10ms'
+Slack : 2.426
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'cnt:cnt1|temp[0]'
+Slack : 2.704
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'cnt:cnt0|temp[0]'
+Slack : 2.900
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_in'
+Slack : -3.000
+TNS   : -37.201
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_ms'
+Slack : -1.487
+TNS   : -20.818
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_us'
+Slack : -1.487
+TNS   : -16.357
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_ms'
+Slack : -1.487
+TNS   : -7.435
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_10ms'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cnt:cnt0|temp[0]'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cnt:cnt1|temp[0]'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cnt:cnt2|temp[0]'
+Slack : -1.487
+TNS   : -4.461
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'xd:state|y'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Setup 'clock_gen:clock_10ms|clk_ms'
+Slack : -3.598
+TNS   : -26.745
+
+Type  : Slow 1200mV 0C Model Setup 'clk_in'
+Slack : -2.403
+TNS   : -30.933
+
+Type  : Slow 1200mV 0C Model Setup 'cnt:cnt1|temp[0]'
+Slack : -1.492
+TNS   : -4.035
+
+Type  : Slow 1200mV 0C Model Setup 'clock_gen:clock_10ms|sig_us'
+Slack : -1.458
+TNS   : -15.804
+
+Type  : Slow 1200mV 0C Model Setup 'clock_gen:clock_10ms|clk_10ms'
+Slack : -1.389
+TNS   : -4.117
+
+Type  : Slow 1200mV 0C Model Setup 'cnt:cnt0|temp[0]'
+Slack : -1.291
+TNS   : -3.784
+
+Type  : Slow 1200mV 0C Model Setup 'clock_gen:clock_10ms|sig_ms'
+Slack : -0.430
+TNS   : -1.553
+
+Type  : Slow 1200mV 0C Model Setup 'cnt:cnt2|temp[0]'
+Slack : -0.293
+TNS   : -0.827
+
+Type  : Slow 1200mV 0C Model Setup 'xd:state|y'
+Slack : 0.210
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'cnt:cnt1|temp[0]'
+Slack : 0.211
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'cnt:cnt0|temp[0]'
+Slack : 0.229
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock_gen:clock_10ms|clk_10ms'
+Slack : 0.317
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'cnt:cnt2|temp[0]'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock_gen:clock_10ms|clk_ms'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock_gen:clock_10ms|sig_ms'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'xd:state|y'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock_gen:clock_10ms|sig_us'
+Slack : 0.471
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk_in'
+Slack : 0.691
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'cnt:cnt0|temp[0]'
+Slack : -2.570
+TNS   : -10.280
+
+Type  : Slow 1200mV 0C Model Recovery 'cnt:cnt1|temp[0]'
+Slack : -2.325
+TNS   : -9.300
+
+Type  : Slow 1200mV 0C Model Recovery 'clock_gen:clock_10ms|clk_10ms'
+Slack : -2.133
+TNS   : -8.532
+
+Type  : Slow 1200mV 0C Model Recovery 'cnt:cnt2|temp[0]'
+Slack : -0.641
+TNS   : -1.923
+
+Type  : Slow 1200mV 0C Model Removal 'cnt:cnt2|temp[0]'
+Slack : 0.459
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clock_gen:clock_10ms|clk_10ms'
+Slack : 2.112
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'cnt:cnt1|temp[0]'
+Slack : 2.397
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'cnt:cnt0|temp[0]'
+Slack : 2.567
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_in'
+Slack : -3.000
+TNS   : -37.201
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_ms'
+Slack : -1.487
+TNS   : -20.818
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_us'
+Slack : -1.487
+TNS   : -16.357
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_ms'
+Slack : -1.487
+TNS   : -7.435
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_10ms'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cnt:cnt0|temp[0]'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cnt:cnt1|temp[0]'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cnt:cnt2|temp[0]'
+Slack : -1.487
+TNS   : -4.578
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'xd:state|y'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Fast 1200mV 0C Model Setup 'clock_gen:clock_10ms|clk_ms'
+Slack : -1.363
+TNS   : -9.088
+
+Type  : Fast 1200mV 0C Model Setup 'clk_in'
+Slack : -0.578
+TNS   : -3.125
+
+Type  : Fast 1200mV 0C Model Setup 'clock_gen:clock_10ms|sig_us'
+Slack : -0.115
+TNS   : -1.197
+
+Type  : Fast 1200mV 0C Model Setup 'cnt:cnt1|temp[0]'
+Slack : -0.092
+TNS   : -0.141
+
+Type  : Fast 1200mV 0C Model Setup 'clock_gen:clock_10ms|clk_10ms'
+Slack : -0.045
+TNS   : -0.064
+
+Type  : Fast 1200mV 0C Model Setup 'cnt:cnt0|temp[0]'
+Slack : -0.037
+TNS   : -0.050
+
+Type  : Fast 1200mV 0C Model Setup 'clock_gen:clock_10ms|sig_ms'
+Slack : 0.317
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'cnt:cnt2|temp[0]'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'xd:state|y'
+Slack : 0.624
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock_gen:clock_10ms|clk_ms'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock_gen:clock_10ms|sig_ms'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cnt:cnt2|temp[0]'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock_gen:clock_10ms|clk_10ms'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cnt:cnt0|temp[0]'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cnt:cnt1|temp[0]'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock_gen:clock_10ms|sig_us'
+Slack : 0.205
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'xd:state|y'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_in'
+Slack : 0.243
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'cnt:cnt0|temp[0]'
+Slack : -1.031
+TNS   : -4.124
+
+Type  : Fast 1200mV 0C Model Recovery 'cnt:cnt1|temp[0]'
+Slack : -0.919
+TNS   : -3.676
+
+Type  : Fast 1200mV 0C Model Recovery 'clock_gen:clock_10ms|clk_10ms'
+Slack : -0.838
+TNS   : -3.352
+
+Type  : Fast 1200mV 0C Model Recovery 'cnt:cnt2|temp[0]'
+Slack : -0.051
+TNS   : -0.153
+
+Type  : Fast 1200mV 0C Model Removal 'cnt:cnt2|temp[0]'
+Slack : 0.380
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clock_gen:clock_10ms|clk_10ms'
+Slack : 1.235
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'cnt:cnt1|temp[0]'
+Slack : 1.330
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'cnt:cnt0|temp[0]'
+Slack : 1.430
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_in'
+Slack : -3.000
+TNS   : -27.490
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_ms'
+Slack : -1.000
+TNS   : -14.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_us'
+Slack : -1.000
+TNS   : -11.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|sig_ms'
+Slack : -1.000
+TNS   : -5.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock_gen:clock_10ms|clk_10ms'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cnt:cnt0|temp[0]'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cnt:cnt1|temp[0]'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cnt:cnt2|temp[0]'
+Slack : -1.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'xd:state|y'
+Slack : -1.000
+TNS   : -1.000
+
+------------------------------------------------------------

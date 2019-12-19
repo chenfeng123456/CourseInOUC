@@ -1,0 +1,33 @@
+LIBRARY IEEE;
+USE IEEE.Std_Logic_1164.ALL;
+USE IEEE.Std_Logic_Unsigned.ALL;
+
+ENTITY div_4 IS
+   GENERIC (n: Integer:=4);
+   PORT (
+	      clk，reset_n: IN STD_LOGIC;
+         q: OUT STD_LOGIC
+		   );
+END div_4;
+
+ARCHITECTURE bhv OF div_4 IS
+   VARIABLE count：Integer RANGE n-1 DOWNTO 0；
+BEGIN
+   PROCESS（reset_n，clk）
+	BEGIN
+		IF reset_n = ′0′ THEN
+			q <= ′0′；
+			count := n-1；
+		ELSIF clk′EVENT AND clk = ′1′ AND clk′LAST_VALUE = ′0′ THEN
+			count := count-1;
+			IF count >= (n/2) THEN
+				q <= ′0′;
+			ELSE
+				q <= ′1′;
+			END IF；
+			IF count <= 0 THEN
+				count := n-1;
+			END IF;
+		END IF;
+   END PROCESS;
+END bhv;

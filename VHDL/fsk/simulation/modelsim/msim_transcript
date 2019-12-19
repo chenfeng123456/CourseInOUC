@@ -1,0 +1,102 @@
+# Reading D:/intelFPGA/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do fsk_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/VHDL/fsk/fsk.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:47:44 on Nov 03,2019
+# vcom -reportprogress 300 -93 -work work D:/VHDL/fsk/fsk.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fsk
+# -- Compiling architecture bhv of fsk
+# End time: 23:47:44 on Nov 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/VHDL/fsk/div.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:47:44 on Nov 03,2019
+# vcom -reportprogress 300 -93 -work work D:/VHDL/fsk/div.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity div
+# -- Compiling architecture bhv of div
+# End time: 23:47:44 on Nov 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/VHDL/fsk/div_4.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:47:45 on Nov 03,2019
+# vcom -reportprogress 300 -93 -work work D:/VHDL/fsk/div_4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity div_4
+# -- Compiling architecture bhv of div_4
+# End time: 23:47:45 on Nov 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/VHDL/fsk/sel.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:47:45 on Nov 03,2019
+# vcom -reportprogress 300 -93 -work work D:/VHDL/fsk/sel.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sel
+# -- Compiling architecture bhv of sel
+# End time: 23:47:45 on Nov 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {D:/VHDL/fsk/simulation/modelsim/fsk.vht}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:47:45 on Nov 03,2019
+# vcom -reportprogress 300 -93 -work work D:/VHDL/fsk/simulation/modelsim/fsk.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fsk_vhd_tst
+# -- Compiling architecture fsk_arch of fsk_vhd_tst
+# ** Warning: D:/VHDL/fsk/simulation/modelsim/fsk.vht(60): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/VHDL/fsk/simulation/modelsim/fsk.vht(61): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/VHDL/fsk/simulation/modelsim/fsk.vht(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/VHDL/fsk/simulation/modelsim/fsk.vht(72): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: D:/VHDL/fsk/simulation/modelsim/fsk.vht(73): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# End time: 23:47:45 on Nov 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 5
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  fsk_vhd_tst
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" fsk_vhd_tst 
+# Start time: 23:47:46 on Nov 03,2019
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.fsk_vhd_tst(fsk_arch)
+# Loading work.fsk(bhv)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.div(bhv)
+# Loading work.div_4(bhv)
+# Loading work.sel(bhv)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Break key hit
+# Simulation stop requested.
+# End time: 23:53:38 on Nov 03,2019, Elapsed time: 0:05:52
+# Errors: 0, Warnings: 0

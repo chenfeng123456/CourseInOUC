@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Nov 02 14:40:01 2019
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+Revision Name : task4_serial_scan
+Top-level Entity Name : task4_serial_scan
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 117 / 6,272 ( 2 % )
+    Total combinational functions : 110 / 6,272 ( 2 % )
+    Dedicated logic registers : 68 / 6,272 ( 1 % )
+Total registers : 68
+Total pins : 13 / 92 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

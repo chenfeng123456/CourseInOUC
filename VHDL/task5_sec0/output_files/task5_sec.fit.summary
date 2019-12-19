@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Nov 03 11:58:11 2019
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+Revision Name : task5_sec
+Top-level Entity Name : task5_sec
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 199 / 6,272 ( 3 % )
+    Total combinational functions : 194 / 6,272 ( 3 % )
+    Dedicated logic registers : 70 / 6,272 ( 1 % )
+Total registers : 70
+Total pins : 15 / 92 ( 16 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

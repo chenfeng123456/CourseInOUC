@@ -1,0 +1,90 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY sel_state IS
+   PORT (
+	       rst_n, save_key, inverter_out: IN STD_LOGIC;
+			 reg3_in, reg2_in, reg1_in, in1: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 output: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+			);
+END sel_state;
+
+ARCHITECTURE bhv OF sel_state IS
+
+   TYPE state IS (state0, state1, state2, state3, state4);
+	SIGNAL pr_state, nx_state: state;
+   --SIGNAL cnt: INTEGER RANGE 0 TO 3;
+BEGIN
+------------lower section----------------------
+	PROCESS (save_key, rst_n, inverter_out)
+	   --VARIABLE cnt: 
+	BEGIN
+	   IF rst_n = '0' THEN
+		   pr_state <= state0;
+			--cnt <= 0;
+		ELSIF save_key'EVENT AND save_key = '0' THEN
+		   pr_state <= nx_state;
+--			IF cnt = 3 THEN
+--			   cnt <= 0;
+--			ELSE
+--			   cnt <= cnt + 1;
+--			END IF;
+		ELSE
+		   NULL;
+		END IF;
+	END PROCESS;
+	
+------------upper section----------------------
+	PROCESS (reg3_in, reg2_in, reg1_in, in1, pr_state)
+	BEGIN
+	   CASE pr_state IS
+		   WHEN state0 =>
+			               output <= in1;
+								IF inverter_out = '1' THEN
+									nx_state <= state0;
+								ELSIF inverter_out = '0' THEN
+									nx_state <= state1;
+								ELSE
+								   NULL;
+								END IF;
+			WHEN state1 =>
+			               output <= in1;
+			               IF inverter_out = '1' THEN
+									nx_state <= state0;
+								ELSIF inverter_out = '0' THEN
+									nx_state <= state2;
+								ELSE
+								   NULL;
+								END IF;
+			WHEN state2 =>
+			               output <= reg3_in;
+			               IF inverter_out = '1' THEN
+									nx_state <= state0;
+								ELSIF inverter_out = '0' THEN
+									nx_state <= state3;
+								ELSE
+								   NULL;
+								END IF;
+			WHEN state3 =>
+			               output <= reg2_in;
+			               IF inverter_out = '1' THEN
+									nx_state <= state0;
+								ELSIF inverter_out = '0' THEN
+									nx_state <= state4;
+								ELSE
+								   NULL;
+								END IF;
+			WHEN state4 =>
+			               output <= reg1_in;
+								IF inverter_out = '1' THEN
+								   nx_state <= state0;
+								ELSIF inverter_out = '0' THEN
+								   nx_state <= state1;
+								ELSE
+								   NULL;
+								END IF;
+			WHEN OTHERS => NULL;
+		END CASE;
+	END PROCESS;
+END;

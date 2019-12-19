@@ -1,0 +1,92 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/VHDL/task4_serial_scan/simulation/modelsim
+Etask4_serial_scan
+Z1 w1572673928
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8D:/VHDL/task4_serial_scan/task4_serial_scan.vhd
+Z7 FD:/VHDL/task4_serial_scan/task4_serial_scan.vhd
+l0
+L5
+V86P93S9i:`BA0m24CB8TN2
+!s100 m]3FGM1=6adP_4l:R8GIS1
+Z8 OV;C;10.5b;63
+31
+Z9 !s110 1572673974
+!i10b 1
+Z10 !s108 1572673974.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/task4_serial_scan/task4_serial_scan.vhd|
+Z12 !s107 D:/VHDL/task4_serial_scan/task4_serial_scan.vhd|
+!i113 1
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Abhv
+R2
+R3
+R4
+R5
+DEx4 work 17 task4_serial_scan 0 22 86P93S9i:`BA0m24CB8TN2
+l23
+L15
+VW05zc?3e6LzbcR>`<hf8R3
+!s100 [OiX@:MacVVnT0^CLe^MD1
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Etask4_serial_scan_vhd_tst
+Z15 w1572673554
+R4
+R5
+R0
+Z16 8D:/VHDL/task4_serial_scan/simulation/modelsim/task4_serial_scan.vht
+Z17 FD:/VHDL/task4_serial_scan/simulation/modelsim/task4_serial_scan.vht
+l0
+L30
+V9LhCCkfV;lGCQe4B=7nH?1
+!s100 abaS>^==;SB[6d863TCjX1
+R8
+31
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/task4_serial_scan/simulation/modelsim/task4_serial_scan.vht|
+Z19 !s107 D:/VHDL/task4_serial_scan/simulation/modelsim/task4_serial_scan.vht|
+!i113 1
+R13
+R14
+Atask4_serial_scan_arch
+R4
+R5
+DEx4 work 25 task4_serial_scan_vhd_tst 0 22 9LhCCkfV;lGCQe4B=7nH?1
+l45
+L32
+VZZ]KNS55;OiSMViX>HalB1
+!s100 c4>CHX2OCWKin_ThaR=<R3
+R8
+31
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14

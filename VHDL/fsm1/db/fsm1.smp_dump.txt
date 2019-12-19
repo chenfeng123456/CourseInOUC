@@ -1,0 +1,7 @@
+
+State Machine - |fsm1|pr_state
+Name pr_state.state3 pr_state.state2 pr_state.state1 pr_state.state0 
+pr_state.state0 0 0 0 0 
+pr_state.state1 0 0 1 1 
+pr_state.state2 0 1 0 1 
+pr_state.state3 1 0 0 1 

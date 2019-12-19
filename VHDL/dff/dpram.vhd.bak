@@ -1,0 +1,11 @@
+ENTITY dpram IS
+	  GENERIC（width:integer:=8；
+                        addr:integer:=16）；
+       PORT（clock，wr，rd：IN Std_Logic；
+                   waddress，raddress：
+                      IN Std_Logic_Vector （addr-1 DOWNTO 0）；
+                   datain：
+                      IN Std_Logic_Vector（width-1 DOWNTO 0）；
+                   dataout：
+                      OUT Std_Logic_Vector（width-1 DOWNTO 0））；
+END dpram；

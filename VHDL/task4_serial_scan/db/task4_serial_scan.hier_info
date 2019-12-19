@@ -1,0 +1,98 @@
+|task4_serial_scan
+dataout[7] <= serial_scan:inst4.dataout[7]
+dataout[6] <= serial_scan:inst4.dataout[6]
+dataout[5] <= serial_scan:inst4.dataout[5]
+dataout[4] <= serial_scan:inst4.dataout[4]
+dataout[3] <= serial_scan:inst4.dataout[3]
+dataout[2] <= serial_scan:inst4.dataout[2]
+dataout[1] <= serial_scan:inst4.dataout[1]
+dataout[0] <= serial_scan:inst4.dataout[0]
+clk => clock_gen:inst.clk
+en_out[3] <= serial_scan:inst4.en_out[3]
+en_out[2] <= serial_scan:inst4.en_out[2]
+en_out[1] <= serial_scan:inst4.en_out[1]
+en_out[0] <= serial_scan:inst4.en_out[0]
+
+
+|task4_serial_scan|serial_scan:inst4
+clk => dataout[7]~reg0.CLK
+clk => dataout[6]~reg0.CLK
+clk => dataout[5]~reg0.CLK
+clk => dataout[4]~reg0.CLK
+clk => dataout[3]~reg0.CLK
+clk => dataout[2]~reg0.CLK
+clk => dataout[1]~reg0.CLK
+clk => dataout[0]~reg0.CLK
+clk => en_out[3]~reg0.CLK
+clk => en_out[2]~reg0.CLK
+clk => en_out[1]~reg0.CLK
+clk => en_out[0]~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => CNT[0].CLK
+clk => CNT[1].CLK
+clk => CNT[2].CLK
+clk => CNT[3].CLK
+clk => CNT[4].CLK
+clk => CNT[5].CLK
+clk => CNT[6].CLK
+clk => CNT[7].CLK
+clk => CNT[8].CLK
+clk => CNT[9].CLK
+clk => CNT[10].CLK
+clk => CNT[11].CLK
+clk => CNT[12].CLK
+clk => CNT[13].CLK
+clk => CNT[14].CLK
+clk => CNT[15].CLK
+clk => CNT[16].CLK
+clk => CNT[17].CLK
+clk => CNT[18].CLK
+clk => CNT[19].CLK
+clk => CNT[20].CLK
+clk => CNT[21].CLK
+clk => CNT[22].CLK
+clk => CNT[23].CLK
+clk => CNT[24].CLK
+clk => CNT[25].CLK
+clk => CNT[26].CLK
+clk => CNT[27].CLK
+clk => CNT[28].CLK
+clk => CNT[29].CLK
+clk => CNT[30].CLK
+clk => CNT[31].CLK
+en_out[3] <= en_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out[2] <= en_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out[1] <= en_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+en_out[0] <= en_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[7] <= dataout[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[6] <= dataout[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[5] <= dataout[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[4] <= dataout[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[3] <= dataout[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[2] <= dataout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[1] <= dataout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataout[0] <= dataout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|task4_serial_scan|clock_gen:inst
+clk => sig_us.CLK
+clk => q_1us[0].CLK
+clk => q_1us[1].CLK
+clk => q_1us[2].CLK
+clk => q_1us[3].CLK
+clk => q_1us[4].CLK
+clk => q_1us[5].CLK
+clk => clk_second~reg0.CLK
+clk => clk_100ms~reg0.CLK
+clk => clk_10ms~reg0.CLK
+clk => clk_ms~reg0.CLK
+clk => clk_us~reg0.CLK
+clk_us <= clk_us~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_ms <= clk_ms~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_10ms <= clk_10ms~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_100ms <= clk_100ms~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk_500ms <= comb.DB_MAX_OUTPUT_PORT_TYPE
+clk_second <= clk_second~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

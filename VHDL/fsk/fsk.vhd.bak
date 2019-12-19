@@ -1,0 +1,10 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY fsk IS
+   PORT (
+	       clk, rst_n, code_in: IN STD_LOGIC;
+			 output: OUT STD_LOGIC;
+		  );
+END;
+

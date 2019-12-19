@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/VHDL/fsm2/simulation/modelsim
+Efsm2
+Z1 w1572956403
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8D:/VHDL/fsm2/fsm2.vhd
+Z5 FD:/VHDL/fsm2/fsm2.vhd
+l0
+L4
+V[Fb3lahbc<lXIJGikD>=83
+!s100 [XEX;iXS?FUK2c<ahdc?a0
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1572956670
+!i10b 1
+Z8 !s108 1572956670.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsm2/fsm2.vhd|
+Z10 !s107 D:/VHDL/fsm2/fsm2.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Abhv
+R2
+R3
+DEx4 work 4 fsm2 0 22 [Fb3lahbc<lXIJGikD>=83
+l17
+L13
+VQ];23ld6OFD;WXF@=R_QI3
+!s100 8JPWG;lO`[:26eXjUIC9B0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Efsm2_vhd_tst
+Z13 w1572956657
+R2
+R3
+R0
+Z14 8D:/VHDL/fsm2/simulation/modelsim/fsm2.vht
+Z15 FD:/VHDL/fsm2/simulation/modelsim/fsm2.vht
+l0
+L30
+VVHUKYE>khl4P3FZSAiJC80
+!s100 ]UYfRHYEnR16YZ95M@nP@0
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsm2/simulation/modelsim/fsm2.vht|
+Z17 !s107 D:/VHDL/fsm2/simulation/modelsim/fsm2.vht|
+!i113 1
+R11
+R12
+Afsm2_arch
+R2
+R3
+DEx4 work 12 fsm2_vhd_tst 0 22 VHUKYE>khl4P3FZSAiJC80
+l47
+L32
+VP@j@=[@5?6J`B_BI<4NLH1
+!s100 bP=fSc:EOd]`dgX`ANZVO2
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12

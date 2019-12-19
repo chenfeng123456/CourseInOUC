@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[7]",
+					"strict" : false
+				},
+				{
+					"name" : "a",
+					"strict" : false
+				},
+				{
+					"name" : "b",
+					"strict" : false
+				},
+				{
+					"name" : "c",
+					"strict" : false
+				},
+				{
+					"name" : "d",
+					"strict" : false
+				},
+				{
+					"name" : "e",
+					"strict" : false
+				},
+				{
+					"name" : "f",
+					"strict" : false
+				},
+				{
+					"name" : "g",
+					"strict" : false
+				},
+				{
+					"name" : "Speaker",
+					"strict" : false
+				},
+				{
+					"name" : "Key[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Start",
+					"strict" : false
+				},
+				{
+					"name" : "Key[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Key[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

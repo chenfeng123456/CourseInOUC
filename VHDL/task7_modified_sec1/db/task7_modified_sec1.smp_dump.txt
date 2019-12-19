@@ -1,0 +1,32 @@
+
+State Machine - |task7_modified_sec1|sel_state:sel_state3|pr_state
+Name pr_state.state4 pr_state.state3 pr_state.state2 pr_state.state0 pr_state.state1 
+pr_state.state1 0 0 0 0 0 
+pr_state.state0 0 0 0 1 1 
+pr_state.state2 0 0 1 0 1 
+pr_state.state3 0 1 0 0 1 
+pr_state.state4 1 0 0 0 1 
+
+State Machine - |task7_modified_sec1|sel_state:sel_state2|pr_state
+Name pr_state.state4 pr_state.state3 pr_state.state2 pr_state.state0 pr_state.state1 
+pr_state.state1 0 0 0 0 0 
+pr_state.state0 0 0 0 1 1 
+pr_state.state2 0 0 1 0 1 
+pr_state.state3 0 1 0 0 1 
+pr_state.state4 1 0 0 0 1 
+
+State Machine - |task7_modified_sec1|sel_state:sel_state1|pr_state
+Name pr_state.state4 pr_state.state3 pr_state.state2 pr_state.state0 pr_state.state1 
+pr_state.state1 0 0 0 0 0 
+pr_state.state0 0 0 0 1 1 
+pr_state.state2 0 0 1 0 1 
+pr_state.state3 0 1 0 0 1 
+pr_state.state4 1 0 0 0 1 
+
+State Machine - |task7_modified_sec1|sel_state:sel_state0|pr_state
+Name pr_state.state4 pr_state.state3 pr_state.state2 pr_state.state0 pr_state.state1 
+pr_state.state1 0 0 0 0 0 
+pr_state.state0 0 0 0 1 1 
+pr_state.state2 0 0 1 0 1 
+pr_state.state3 0 1 0 0 1 
+pr_state.state4 1 0 0 0 1 

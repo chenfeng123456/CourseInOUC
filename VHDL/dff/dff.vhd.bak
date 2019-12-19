@@ -1,0 +1,18 @@
+LIBRARY ieee;
+USE ieee.std_logic_1664.all;
+
+ENTITY dff IS
+    PORT (d, clk, rst: IN STD_LOGIC;
+	       q: OUT STD_LOGIC);
+END dff;
+
+ARCHITECTURE behavior OF dff IS
+BEGIN
+    PROCESS (rst, clk)
+	 BEGIN
+	     IF (rst = '1') THEN
+		      q <= '0';
+		  ELSIF (clk'EVENT AND clk = '1') THEN
+		      q <= d;
+	 END PROCESS;
+END behavior;

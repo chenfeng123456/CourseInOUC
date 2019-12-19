@@ -1,0 +1,213 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/VHDL/fsk/simulation/modelsim
+Ediv
+Z1 w1572795828
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8D:/VHDL/fsk/div.vhd
+Z7 FD:/VHDL/fsk/div.vhd
+l0
+L5
+V9IJWe?N3oeYh[m317Te;M0
+!s100 l3RLPhPh7zVWE^i7NoVSe2
+Z8 OV;C;10.5b;63
+31
+Z9 !s110 1572796064
+!i10b 1
+Z10 !s108 1572796064.000000
+Z11 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsk/div.vhd|
+Z12 !s107 D:/VHDL/fsk/div.vhd|
+!i113 1
+Z13 o-93 -work work
+Z14 tExplicit 1 CvgOpt 0
+Abhv
+R2
+R3
+R4
+R5
+DEx4 work 3 div 0 22 9IJWe?N3oeYh[m317Te;M0
+l15
+L13
+VMRf]Cl@PQL?m3nFYfGBnP0
+!s100 aLiANSNQc4@[mfI46h<5o2
+R8
+31
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ediv_4
+Z15 w1572795830
+R2
+R3
+R4
+R5
+R0
+Z16 8D:/VHDL/fsk/div_4.vhd
+Z17 FD:/VHDL/fsk/div_4.vhd
+l0
+L5
+V_T1MfD3l6HZ=GNEe5bTXn3
+!s100 UT:Ji370?18hVkN`ID3QP3
+R8
+31
+Z18 !s110 1572796065
+!i10b 1
+Z19 !s108 1572796065.000000
+Z20 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsk/div_4.vhd|
+Z21 !s107 D:/VHDL/fsk/div_4.vhd|
+!i113 1
+R13
+R14
+Abhv
+R2
+R3
+R4
+R5
+DEx4 work 5 div_4 0 22 _T1MfD3l6HZ=GNEe5bTXn3
+l14
+L13
+V:^Wfg4g9QaW<eSPENbkTO2
+!s100 d4B;GA=CeW4IVzO?4L@Sn2
+R8
+31
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Efsk
+Z22 w1572794661
+R4
+R5
+R0
+Z23 8D:/VHDL/fsk/fsk.vhd
+Z24 FD:/VHDL/fsk/fsk.vhd
+l0
+L4
+VBI8k;N4Khkn9ONWHoO<Sm1
+!s100 2Fd14H_UU<zTaKOEWN91g3
+R8
+31
+R9
+!i10b 1
+R10
+Z25 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsk/fsk.vhd|
+Z26 !s107 D:/VHDL/fsk/fsk.vhd|
+!i113 1
+R13
+R14
+Abhv
+R4
+R5
+DEx4 work 3 fsk 0 22 BI8k;N4Khkn9ONWHoO<Sm1
+l36
+L11
+VdXaL:32bhgPj3Hb7LzD?z1
+!s100 88`6zDSmCajYMFDX]8l4O3
+R8
+31
+R9
+!i10b 1
+R10
+R25
+R26
+!i113 1
+R13
+R14
+Efsk_vhd_tst
+Z27 w1572796036
+R4
+R5
+R0
+Z28 8D:/VHDL/fsk/simulation/modelsim/fsk.vht
+Z29 FD:/VHDL/fsk/simulation/modelsim/fsk.vht
+l0
+L30
+VaLfK8GjQm707<N7d>S2m32
+!s100 58HX;e^4EhG1VRQnoKWNb2
+R8
+31
+R18
+!i10b 1
+R19
+Z30 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsk/simulation/modelsim/fsk.vht|
+Z31 !s107 D:/VHDL/fsk/simulation/modelsim/fsk.vht|
+!i113 1
+R13
+R14
+Afsk_arch
+R4
+R5
+DEx4 work 11 fsk_vhd_tst 0 22 aLfK8GjQm707<N7d>S2m32
+l47
+L32
+V1Kh;k`AXh6d=K0ZNY8hb>3
+!s100 fjhFIH23EbB7Mamm5<clW3
+R8
+31
+R18
+!i10b 1
+R19
+R30
+R31
+!i113 1
+R13
+R14
+Esel
+Z32 w1572793470
+R4
+R5
+R0
+Z33 8D:/VHDL/fsk/sel.vhd
+Z34 FD:/VHDL/fsk/sel.vhd
+l0
+L4
+VNDA91P8^CT`L`7:HdKiUa0
+!s100 zA8d;`AG:1PWM1Ia6k<<@2
+R8
+31
+R18
+!i10b 1
+R19
+Z35 !s90 -reportprogress|300|-93|-work|work|D:/VHDL/fsk/sel.vhd|
+Z36 !s107 D:/VHDL/fsk/sel.vhd|
+!i113 1
+R13
+R14
+Abhv
+R4
+R5
+DEx4 work 3 sel 0 22 NDA91P8^CT`L`7:HdKiUa0
+l13
+L12
+VJ1alfa61Ta^c;k=a`?EPR0
+!s100 o9T@zS3EAHhD2262OY5^J2
+R8
+31
+R18
+!i10b 1
+R19
+R35
+R36
+!i113 1
+R13
+R14

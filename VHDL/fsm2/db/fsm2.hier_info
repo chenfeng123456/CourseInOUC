@@ -1,0 +1,27 @@
+|fsm2
+ina[0] => Equal0.IN1
+ina[0] => Equal1.IN1
+ina[0] => Equal2.IN1
+ina[0] => Equal3.IN0
+ina[1] => process_0.IN1
+ina[1] => Equal0.IN0
+ina[1] => Equal1.IN0
+ina[1] => Equal2.IN0
+ina[1] => process_0.IN1
+ina[1] => Equal3.IN1
+rst => outa[0]~reg0.PRESET
+rst => outa[1]~reg0.ACLR
+rst => outa[2]~reg0.PRESET
+rst => outa[3]~reg0.ACLR
+rst => pr_state~7.DATAIN
+clk => outa[0]~reg0.CLK
+clk => outa[1]~reg0.CLK
+clk => outa[2]~reg0.CLK
+clk => outa[3]~reg0.CLK
+clk => pr_state~5.DATAIN
+outa[0] <= outa[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outa[1] <= outa[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outa[2] <= outa[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outa[3] <= outa[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

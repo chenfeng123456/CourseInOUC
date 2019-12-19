@@ -1,0 +1,868 @@
+Analysis & Synthesis report for task7_modified_sec1
+Sat Nov 23 23:05:26 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |task7_modified_sec1|sel_state:sel_state3|pr_state
+  9. State Machine - |task7_modified_sec1|sel_state:sel_state2|pr_state
+ 10. State Machine - |task7_modified_sec1|sel_state:sel_state1|pr_state
+ 11. State Machine - |task7_modified_sec1|sel_state:sel_state0|pr_state
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: xd:xd_clear
+ 18. Parameter Settings for User Entity Instance: xd:xd_state
+ 19. Parameter Settings for User Entity Instance: xd:xd_save
+ 20. Parameter Settings for User Entity Instance: cnt:cnt0
+ 21. Parameter Settings for User Entity Instance: cnt:cnt1
+ 22. Parameter Settings for User Entity Instance: cnt:cnt2
+ 23. Parameter Settings for User Entity Instance: cnt:cnt3
+ 24. Port Connectivity Checks: "cnt:cnt3"
+ 25. Port Connectivity Checks: "clock_gen:clock_10ms"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Nov 23 23:05:26 2019           ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Standard Edition ;
+; Revision Name                      ; task7_modified_sec1                             ;
+; Top-level Entity Name              ; task7_modified_sec1                             ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 592                                             ;
+;     Total combinational functions  ; 589                                             ;
+;     Dedicated logic registers      ; 193                                             ;
+; Total registers                    ; 193                                             ;
+; Total pins                         ; 18                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                                     ; Setting             ; Default Value       ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                                     ; EP4CE6E22C8         ;                     ;
+; Top-level entity name                                                      ; task7_modified_sec1 ; task7_modified_sec1 ;
+; Family name                                                                ; Cyclone IV E        ; Cyclone V           ;
+; Use smart compilation                                                      ; Off                 ; Off                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                                ; Off                 ; Off                 ;
+; Restructure Multiplexers                                                   ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                                        ; Off                 ; Off                 ;
+; Preserve fewer node names                                                  ; On                  ; On                  ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable              ; Enable              ;
+; Verilog Version                                                            ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                               ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                                   ; Auto                ; Auto                ;
+; Safe State Machine                                                         ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                             ; On                  ; On                  ;
+; Extract VHDL State Machines                                                ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                          ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                                 ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                             ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                                  ; On                  ; On                  ;
+; Parallel Synthesis                                                         ; On                  ; On                  ;
+; DSP Block Balancing                                                        ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                                         ; On                  ; On                  ;
+; Power-Up Don't Care                                                        ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                               ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                                 ; On                  ; On                  ;
+; Ignore CARRY Buffers                                                       ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                                     ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                                      ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                                       ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                                        ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                 ; Off                 ;
+; Optimization Technique                                                     ; Balanced            ; Balanced            ;
+; Carry Chain Length                                                         ; 70                  ; 70                  ;
+; Auto Carry Chains                                                          ; On                  ; On                  ;
+; Auto Open-Drain Pins                                                       ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                 ; Off                 ;
+; Auto ROM Replacement                                                       ; On                  ; On                  ;
+; Auto RAM Replacement                                                       ; On                  ; On                  ;
+; Auto DSP Block Replacement                                                 ; On                  ; On                  ;
+; Auto Shift Register Replacement                                            ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                              ; On                  ; On                  ;
+; Strict RAM Replacement                                                     ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                          ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                                     ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                                   ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                 ; Off                 ;
+; Auto Resource Sharing                                                      ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                              ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                          ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                                    ; On                  ; On                  ;
+; Report Parameter Settings                                                  ; On                  ; On                  ;
+; Report Source Assignments                                                  ; On                  ; On                  ;
+; Report Connectivity Checks                                                 ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                                      ; 2                   ; 2                   ;
+; Power Optimization During Synthesis                                        ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                          ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                            ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                 ; 100                 ;
+; Clock MUX Protection                                                       ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                                ; Off                 ; Off                 ;
+; Block Design Naming                                                        ; Auto                ; Auto                ;
+; SDC constraint protection                                                  ; Off                 ; Off                 ;
+; Synthesis Effort                                                           ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                                         ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                                ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                                     ; On                  ; On                  ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                               ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                        ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
+; switch_delay.vhd                 ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/switch_delay.vhd        ;         ;
+; shift.vhd                        ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/shift.vhd               ;         ;
+; task7_modified_sec1.vhd          ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd ;         ;
+; xd.vhd                           ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/xd.vhd                  ;         ;
+; serial_scan.vhd                  ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/serial_scan.vhd         ;         ;
+; inverter.vhd                     ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/inverter.vhd            ;         ;
+; decoder.vhd                      ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/decoder.vhd             ;         ;
+; cnt.vhd                          ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/cnt.vhd                 ;         ;
+; clock_gen.vhd                    ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/clock_gen.vhd           ;         ;
+; sel_state.vhd                    ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/sel_state.vhd           ;         ;
+; flicker.vhd                      ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/flicker.vhd             ;         ;
+; compare.vhd                      ; yes             ; User VHDL File  ; D:/VHDL/task7_modified_sec1/compare.vhd             ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                           ;
++---------------------------------------------+-------------------------+
+; Resource                                    ; Usage                   ;
++---------------------------------------------+-------------------------+
+; Estimated Total logic elements              ; 592                     ;
+;                                             ;                         ;
+; Total combinational functions               ; 589                     ;
+; Logic element usage by number of LUT inputs ;                         ;
+;     -- 4 input functions                    ; 192                     ;
+;     -- 3 input functions                    ; 160                     ;
+;     -- <=2 input functions                  ; 237                     ;
+;                                             ;                         ;
+; Logic elements by mode                      ;                         ;
+;     -- normal mode                          ; 498                     ;
+;     -- arithmetic mode                      ; 91                      ;
+;                                             ;                         ;
+; Total registers                             ; 193                     ;
+;     -- Dedicated logic registers            ; 193                     ;
+;     -- I/O registers                        ; 0                       ;
+;                                             ;                         ;
+; I/O pins                                    ; 18                      ;
+;                                             ;                         ;
+; Embedded Multiplier 9-bit elements          ; 0                       ;
+;                                             ;                         ;
+; Maximum fan-out node                        ; inverter:inverter0|temp ;
+; Maximum fan-out                             ; 249                     ;
+; Total fan-out                               ; 2305                    ;
+; Average fan-out                             ; 2.82                    ;
++---------------------------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Entity Name         ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+---------------------+--------------+
+; |task7_modified_sec1            ; 589 (17)            ; 193 (0)                   ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |task7_modified_sec1                            ; task7_modified_sec1 ; work         ;
+;    |clock_gen:clock_10ms|       ; 26 (26)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|clock_gen:clock_10ms       ; clock_gen           ; work         ;
+;    |cnt:cnt0|                   ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|cnt:cnt0                   ; cnt                 ; work         ;
+;    |cnt:cnt1|                   ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|cnt:cnt1                   ; cnt                 ; work         ;
+;    |cnt:cnt2|                   ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|cnt:cnt2                   ; cnt                 ; work         ;
+;    |cnt:cnt3|                   ; 3 (3)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|cnt:cnt3                   ; cnt                 ; work         ;
+;    |decoder:decoder0|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|decoder:decoder0           ; decoder             ; work         ;
+;    |decoder:decoder1|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|decoder:decoder1           ; decoder             ; work         ;
+;    |decoder:decoder2|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|decoder:decoder2           ; decoder             ; work         ;
+;    |decoder:decoder3|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|decoder:decoder3           ; decoder             ; work         ;
+;    |flicker:flicker0|           ; 54 (54)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|flicker:flicker0           ; flicker             ; work         ;
+;    |inverter:inverter0|         ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|inverter:inverter0         ; inverter            ; work         ;
+;    |sel_state:sel_state0|       ; 14 (14)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|sel_state:sel_state0       ; sel_state           ; work         ;
+;    |sel_state:sel_state1|       ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|sel_state:sel_state1       ; sel_state           ; work         ;
+;    |sel_state:sel_state2|       ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|sel_state:sel_state2       ; sel_state           ; work         ;
+;    |sel_state:sel_state3|       ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|sel_state:sel_state3       ; sel_state           ; work         ;
+;    |serial_scan:serial_scan0|   ; 21 (21)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|serial_scan:serial_scan0   ; serial_scan         ; work         ;
+;    |shift:shift0|               ; 288 (288)           ; 48 (48)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|shift:shift0               ; shift               ; work         ;
+;    |switch_delay:switch_delay0| ; 49 (49)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|switch_delay:switch_delay0 ; switch_delay        ; work         ;
+;    |xd:xd_clear|                ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|xd:xd_clear                ; xd                  ; work         ;
+;    |xd:xd_save|                 ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|xd:xd_save                 ; xd                  ; work         ;
+;    |xd:xd_state|                ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |task7_modified_sec1|xd:xd_state                ; xd                  ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |task7_modified_sec1|sel_state:sel_state3|pr_state                                        ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; pr_state.state4 ; pr_state.state3 ; pr_state.state2 ; pr_state.state0 ; pr_state.state1 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; pr_state.state1 ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; pr_state.state0 ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; pr_state.state2 ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; pr_state.state3 ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; pr_state.state4 ; 1               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |task7_modified_sec1|sel_state:sel_state2|pr_state                                        ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; pr_state.state4 ; pr_state.state3 ; pr_state.state2 ; pr_state.state0 ; pr_state.state1 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; pr_state.state1 ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; pr_state.state0 ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; pr_state.state2 ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; pr_state.state3 ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; pr_state.state4 ; 1               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |task7_modified_sec1|sel_state:sel_state1|pr_state                                        ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; pr_state.state4 ; pr_state.state3 ; pr_state.state2 ; pr_state.state0 ; pr_state.state1 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; pr_state.state1 ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; pr_state.state0 ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; pr_state.state2 ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; pr_state.state3 ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; pr_state.state4 ; 1               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------+
+; State Machine - |task7_modified_sec1|sel_state:sel_state0|pr_state                                        ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; pr_state.state4 ; pr_state.state3 ; pr_state.state2 ; pr_state.state0 ; pr_state.state1 ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; pr_state.state1 ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; pr_state.state0 ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; pr_state.state2 ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; pr_state.state3 ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; pr_state.state4 ; 1               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal       ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------+------------------------+
+; shift:shift0|reg3_out0[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out0[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out0[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out0[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out0[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out0[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out0[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out0[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out0[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out0[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out0[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out0[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out1[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out1[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out1[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out1[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out1[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out1[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out1[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out1[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out1[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out1[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out1[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out1[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out2[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out2[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out2[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out2[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out2[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out2[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out2[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out2[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out2[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out2[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out2[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out2[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out3[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out3[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out3[0]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out3[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out3[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out3[1]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out3[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out3[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out3[2]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg2_out3[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg3_out3[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; shift:shift0|reg1_out3[3]                           ; shift:shift0|reg3_out0[3] ; yes                    ;
+; Number of user-specified and inferred latches = 48  ;                           ;                        ;
++-----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++----------------------------------------+--------------------------------------------------+
+; Register name                          ; Reason for Removal                               ;
++----------------------------------------+--------------------------------------------------+
+; serial_scan:serial_scan0|CNT[31]       ; Stuck at GND due to stuck port data_in           ;
+; serial_scan:serial_scan0|CNT[0..30]    ; Lost fanout                                      ;
+; sel_state:sel_state1|pr_state.state4   ; Merged with sel_state:sel_state0|pr_state.state4 ;
+; sel_state:sel_state2|pr_state.state4   ; Merged with sel_state:sel_state0|pr_state.state4 ;
+; sel_state:sel_state3|pr_state.state4   ; Merged with sel_state:sel_state0|pr_state.state4 ;
+; sel_state:sel_state1|pr_state.state2   ; Merged with sel_state:sel_state0|pr_state.state2 ;
+; sel_state:sel_state2|pr_state.state2   ; Merged with sel_state:sel_state0|pr_state.state2 ;
+; sel_state:sel_state3|pr_state.state2   ; Merged with sel_state:sel_state0|pr_state.state2 ;
+; sel_state:sel_state1|pr_state.state3   ; Merged with sel_state:sel_state0|pr_state.state3 ;
+; sel_state:sel_state2|pr_state.state3   ; Merged with sel_state:sel_state0|pr_state.state3 ;
+; sel_state:sel_state3|pr_state.state3   ; Merged with sel_state:sel_state0|pr_state.state3 ;
+; sel_state:sel_state1|pr_state.state1   ; Merged with sel_state:sel_state0|pr_state.state1 ;
+; sel_state:sel_state2|pr_state.state1   ; Merged with sel_state:sel_state0|pr_state.state1 ;
+; sel_state:sel_state3|pr_state.state1   ; Merged with sel_state:sel_state0|pr_state.state1 ;
+; sel_state:sel_state1|pr_state.state0   ; Merged with sel_state:sel_state0|pr_state.state0 ;
+; sel_state:sel_state2|pr_state.state0   ; Merged with sel_state:sel_state0|pr_state.state0 ;
+; sel_state:sel_state3|pr_state.state0   ; Merged with sel_state:sel_state0|pr_state.state0 ;
+; sel_state:sel_state0|pr_state.state0   ; Stuck at GND due to stuck port data_in           ;
+; cnt:cnt3|temp[3]                       ; Stuck at GND due to stuck port data_in           ;
+; Total Number of Removed Registers = 49 ;                                                  ;
++----------------------------------------+--------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 193   ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 132   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; switch_delay:switch_delay0|cnt[4]      ; 2       ;
+; switch_delay:switch_delay0|cnt[3]      ; 2       ;
+; switch_delay:switch_delay0|cnt[2]      ; 2       ;
+; switch_delay:switch_delay0|cnt[1]      ; 2       ;
+; flicker:flicker0|temp                  ; 5       ;
+; xd:xd_clear|sum[0]                     ; 2       ;
+; xd:xd_save|sum[0]                      ; 2       ;
+; xd:xd_state|sum[0]                     ; 2       ;
+; Total number of inverted registers = 8 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |task7_modified_sec1|serial_scan:serial_scan0|dataout[5] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |task7_modified_sec1|sel_state:sel_state3|Selector5      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |task7_modified_sec1|sel_state:sel_state2|Selector7      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |task7_modified_sec1|sel_state:sel_state1|Selector7      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |task7_modified_sec1|sel_state:sel_state0|Selector6      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: xd:xd_clear ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 50    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: xd:xd_state ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 50    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: xd:xd_save ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; n              ; 50    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt0 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 9     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt1 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 9     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt2 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 9     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt3 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 5     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cnt:cnt3"                                                                           ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "clock_gen:clock_10ms"                                                                     ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; clk_us     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; clk_100ms  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; clk_500ms  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; clk_second ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 18                          ;
+; cycloneiii_ff         ; 193                         ;
+;     CLR               ; 100                         ;
+;     ENA CLR           ; 32                          ;
+;     SCLR              ; 16                          ;
+;     plain             ; 45                          ;
+; cycloneiii_lcell_comb ; 589                         ;
+;     arith             ; 91                          ;
+;         2 data inputs ; 91                          ;
+;     normal            ; 498                         ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 132                         ;
+;         3 data inputs ; 160                         ;
+;         4 data inputs ; 192                         ;
+;                       ;                             ;
+; Max LUT depth         ; 8.30                        ;
+; Average LUT depth     ; 3.09                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Standard Edition
+    Info: Processing started: Sat Nov 23 23:05:08 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off task7_modified_sec1 -c task7_modified_sec1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file switch_delay.vhd
+    Info (12022): Found design unit 1: switch_delay-bhv File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 13
+    Info (12023): Found entity 1: switch_delay File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file shift.vhd
+    Info (12022): Found design unit 1: shift-bhv File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 14
+    Info (12023): Found entity 1: shift File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file task7_modified_sec1.vhd
+    Info (12022): Found design unit 1: task7_modified_sec1-bhv File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 18
+    Info (12023): Found entity 1: task7_modified_sec1 File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file xd.vhd
+    Info (12022): Found design unit 1: xd-a File: D:/VHDL/task7_modified_sec1/xd.vhd Line: 11
+    Info (12023): Found entity 1: xd File: D:/VHDL/task7_modified_sec1/xd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file serial_scan.vhd
+    Info (12022): Found design unit 1: serial_scan-bhv File: D:/VHDL/task7_modified_sec1/serial_scan.vhd Line: 18
+    Info (12023): Found entity 1: serial_scan File: D:/VHDL/task7_modified_sec1/serial_scan.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file inverter.vhd
+    Info (12022): Found design unit 1: inverter-bhv File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 11
+    Info (12023): Found entity 1: inverter File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: decoder-bhv File: D:/VHDL/task7_modified_sec1/decoder.vhd Line: 13
+    Info (12023): Found entity 1: decoder File: D:/VHDL/task7_modified_sec1/decoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file cnt.vhd
+    Info (12022): Found design unit 1: cnt-bhv File: D:/VHDL/task7_modified_sec1/cnt.vhd Line: 13
+    Info (12023): Found entity 1: cnt File: D:/VHDL/task7_modified_sec1/cnt.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file clock_gen.vhd
+    Info (12022): Found design unit 1: clock_gen-behav File: D:/VHDL/task7_modified_sec1/clock_gen.vhd Line: 21
+    Info (12023): Found entity 1: clock_gen File: D:/VHDL/task7_modified_sec1/clock_gen.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file sel_state.vhd
+    Info (12022): Found design unit 1: sel_state-bhv File: D:/VHDL/task7_modified_sec1/sel_state.vhd Line: 13
+    Info (12023): Found entity 1: sel_state File: D:/VHDL/task7_modified_sec1/sel_state.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file flicker.vhd
+    Info (12022): Found design unit 1: flicker-bhv File: D:/VHDL/task7_modified_sec1/flicker.vhd Line: 13
+    Info (12023): Found entity 1: flicker File: D:/VHDL/task7_modified_sec1/flicker.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file compare.vhd
+    Info (12022): Found design unit 1: compare-bhv File: D:/VHDL/task7_modified_sec1/compare.vhd Line: 12
+    Info (12023): Found entity 1: compare File: D:/VHDL/task7_modified_sec1/compare.vhd Line: 5
+Info (12127): Elaborating entity "task7_modified_sec1" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at task7_modified_sec1.vhd(163): object "cout3" assigned a value but never read File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 163
+Info (12128): Elaborating entity "xd" for hierarchy "xd:xd_clear" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 187
+Info (12128): Elaborating entity "inverter" for hierarchy "inverter:inverter0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 191
+Info (12128): Elaborating entity "clock_gen" for hierarchy "clock_gen:clock_10ms" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 197
+Warning (10541): VHDL Signal Declaration warning at clock_gen.vhd(15): used implicit default value for signal "clk_500ms" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/VHDL/task7_modified_sec1/clock_gen.vhd Line: 15
+Info (12128): Elaborating entity "cnt" for hierarchy "cnt:cnt0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 204
+Info (12128): Elaborating entity "cnt" for hierarchy "cnt:cnt3" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 222
+Info (12128): Elaborating entity "shift" for hierarchy "shift:shift0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 231
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg3_out0", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg3_out1", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg3_out2", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg3_out3", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg2_out0", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg2_out1", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg2_out2", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg2_out3", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg1_out0", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg1_out1", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg1_out2", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Warning (10631): VHDL Process Statement warning at shift.vhd(18): inferring latch(es) for signal or variable "reg1_out3", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out3[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out3[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out3[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out3[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out2[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out2[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out2[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out2[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out1[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out1[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out1[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out1[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out0[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out0[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out0[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg1_out0[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out3[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out3[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out3[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out3[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out2[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out2[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out2[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out2[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out1[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out1[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out1[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out1[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out0[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out0[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out0[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg2_out0[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out3[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out3[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out3[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out3[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out2[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out2[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out2[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out2[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out1[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out1[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out1[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out1[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out0[0]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out0[1]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out0[2]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (10041): Inferred latch for "reg3_out0[3]" at shift.vhd(18) File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+Info (12128): Elaborating entity "sel_state" for hierarchy "sel_state:sel_state0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 255
+Info (12128): Elaborating entity "compare" for hierarchy "compare:compare0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 297
+Info (12128): Elaborating entity "flicker" for hierarchy "flicker:flicker0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 320
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 327
+Info (12128): Elaborating entity "serial_scan" for hierarchy "serial_scan:serial_scan0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 346
+Info (12128): Elaborating entity "switch_delay" for hierarchy "switch_delay:switch_delay0" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 359
+Warning (10631): VHDL Process Statement warning at switch_delay.vhd(17): inferring latch(es) for signal or variable "temp", which holds its previous value in one or more paths through the process File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out0[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out0[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out0[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out0[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out0[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out0[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out0[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out0[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out0[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out0[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out0[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out0[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out1[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out1[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out1[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out1[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out1[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out1[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out1[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out1[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out1[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out1[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out1[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out1[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out2[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out2[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out2[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out2[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out2[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out2[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out2[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out2[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out2[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out2[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out2[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out2[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out3[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out3[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out3[0] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out3[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out3[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out3[1] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out3[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out3[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out3[2] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg2_out3[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg3_out3[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Warning (13012): Latch shift:shift0|reg1_out3[3] has unsafe behavior File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 18
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal inverter:inverter0|temp File: D:/VHDL/task7_modified_sec1/inverter.vhd Line: 17
+Info (13000): Registers with preset signals will power-up high File: D:/VHDL/task7_modified_sec1/flicker.vhd Line: 19
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "shift:shift0|reg3[12]" is converted into an equivalent circuit using register "shift:shift0|reg3[12]~_emulated" and latch "shift:shift0|reg3[12]~1" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[12]" is converted into an equivalent circuit using register "shift:shift0|reg2[12]~_emulated" and latch "shift:shift0|reg2[12]~1" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[12]" is converted into an equivalent circuit using register "shift:shift0|reg1[12]~_emulated" and latch "shift:shift0|reg1[12]~1" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[13]" is converted into an equivalent circuit using register "shift:shift0|reg2[13]~_emulated" and latch "shift:shift0|reg2[13]~5" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[13]" is converted into an equivalent circuit using register "shift:shift0|reg3[13]~_emulated" and latch "shift:shift0|reg3[13]~5" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[13]" is converted into an equivalent circuit using register "shift:shift0|reg1[13]~_emulated" and latch "shift:shift0|reg1[13]~5" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[14]" is converted into an equivalent circuit using register "shift:shift0|reg3[14]~_emulated" and latch "shift:shift0|reg3[14]~9" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[14]" is converted into an equivalent circuit using register "shift:shift0|reg2[14]~_emulated" and latch "shift:shift0|reg2[14]~9" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[14]" is converted into an equivalent circuit using register "shift:shift0|reg1[14]~_emulated" and latch "shift:shift0|reg1[14]~9" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[15]" is converted into an equivalent circuit using register "shift:shift0|reg2[15]~_emulated" and latch "shift:shift0|reg2[15]~13" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[15]" is converted into an equivalent circuit using register "shift:shift0|reg3[15]~_emulated" and latch "shift:shift0|reg3[15]~13" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[15]" is converted into an equivalent circuit using register "shift:shift0|reg1[15]~_emulated" and latch "shift:shift0|reg1[15]~13" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[8]" is converted into an equivalent circuit using register "shift:shift0|reg3[8]~_emulated" and latch "shift:shift0|reg3[8]~17" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[8]" is converted into an equivalent circuit using register "shift:shift0|reg2[8]~_emulated" and latch "shift:shift0|reg2[8]~17" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[8]" is converted into an equivalent circuit using register "shift:shift0|reg1[8]~_emulated" and latch "shift:shift0|reg1[8]~17" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[9]" is converted into an equivalent circuit using register "shift:shift0|reg2[9]~_emulated" and latch "shift:shift0|reg2[9]~21" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[9]" is converted into an equivalent circuit using register "shift:shift0|reg3[9]~_emulated" and latch "shift:shift0|reg3[9]~21" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[9]" is converted into an equivalent circuit using register "shift:shift0|reg1[9]~_emulated" and latch "shift:shift0|reg1[9]~21" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[10]" is converted into an equivalent circuit using register "shift:shift0|reg3[10]~_emulated" and latch "shift:shift0|reg3[10]~25" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[10]" is converted into an equivalent circuit using register "shift:shift0|reg2[10]~_emulated" and latch "shift:shift0|reg2[10]~25" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[10]" is converted into an equivalent circuit using register "shift:shift0|reg1[10]~_emulated" and latch "shift:shift0|reg1[10]~25" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[11]" is converted into an equivalent circuit using register "shift:shift0|reg2[11]~_emulated" and latch "shift:shift0|reg2[11]~29" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[11]" is converted into an equivalent circuit using register "shift:shift0|reg3[11]~_emulated" and latch "shift:shift0|reg3[11]~29" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[11]" is converted into an equivalent circuit using register "shift:shift0|reg1[11]~_emulated" and latch "shift:shift0|reg1[11]~29" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[4]" is converted into an equivalent circuit using register "shift:shift0|reg3[4]~_emulated" and latch "shift:shift0|reg3[4]~33" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[4]" is converted into an equivalent circuit using register "shift:shift0|reg2[4]~_emulated" and latch "shift:shift0|reg2[4]~33" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[4]" is converted into an equivalent circuit using register "shift:shift0|reg1[4]~_emulated" and latch "shift:shift0|reg1[4]~33" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[5]" is converted into an equivalent circuit using register "shift:shift0|reg2[5]~_emulated" and latch "shift:shift0|reg2[5]~37" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[5]" is converted into an equivalent circuit using register "shift:shift0|reg3[5]~_emulated" and latch "shift:shift0|reg3[5]~37" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[5]" is converted into an equivalent circuit using register "shift:shift0|reg1[5]~_emulated" and latch "shift:shift0|reg1[5]~37" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[6]" is converted into an equivalent circuit using register "shift:shift0|reg3[6]~_emulated" and latch "shift:shift0|reg3[6]~41" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[6]" is converted into an equivalent circuit using register "shift:shift0|reg2[6]~_emulated" and latch "shift:shift0|reg2[6]~41" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[6]" is converted into an equivalent circuit using register "shift:shift0|reg1[6]~_emulated" and latch "shift:shift0|reg1[6]~41" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[7]" is converted into an equivalent circuit using register "shift:shift0|reg2[7]~_emulated" and latch "shift:shift0|reg2[7]~45" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[7]" is converted into an equivalent circuit using register "shift:shift0|reg3[7]~_emulated" and latch "shift:shift0|reg3[7]~45" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[7]" is converted into an equivalent circuit using register "shift:shift0|reg1[7]~_emulated" and latch "shift:shift0|reg1[7]~45" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[0]" is converted into an equivalent circuit using register "shift:shift0|reg3[0]~_emulated" and latch "shift:shift0|reg3[0]~49" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[0]" is converted into an equivalent circuit using register "shift:shift0|reg2[0]~_emulated" and latch "shift:shift0|reg2[0]~49" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[0]" is converted into an equivalent circuit using register "shift:shift0|reg1[0]~_emulated" and latch "shift:shift0|reg1[0]~49" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[1]" is converted into an equivalent circuit using register "shift:shift0|reg2[1]~_emulated" and latch "shift:shift0|reg2[1]~53" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[1]" is converted into an equivalent circuit using register "shift:shift0|reg3[1]~_emulated" and latch "shift:shift0|reg3[1]~53" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[1]" is converted into an equivalent circuit using register "shift:shift0|reg1[1]~_emulated" and latch "shift:shift0|reg1[1]~53" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[2]" is converted into an equivalent circuit using register "shift:shift0|reg3[2]~_emulated" and latch "shift:shift0|reg3[2]~57" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[2]" is converted into an equivalent circuit using register "shift:shift0|reg2[2]~_emulated" and latch "shift:shift0|reg2[2]~57" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[2]" is converted into an equivalent circuit using register "shift:shift0|reg1[2]~_emulated" and latch "shift:shift0|reg1[2]~57" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg2[3]" is converted into an equivalent circuit using register "shift:shift0|reg2[3]~_emulated" and latch "shift:shift0|reg2[3]~61" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg3[3]" is converted into an equivalent circuit using register "shift:shift0|reg3[3]~_emulated" and latch "shift:shift0|reg3[3]~61" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+    Warning (13310): Register "shift:shift0|reg1[3]" is converted into an equivalent circuit using register "shift:shift0|reg1[3]~_emulated" and latch "shift:shift0|reg1[3]~61" File: D:/VHDL/task7_modified_sec1/shift.vhd Line: 50
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register switch_delay:switch_delay0|cnt[4] will power up to High File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 25
+    Critical Warning (18010): Register switch_delay:switch_delay0|cnt[3] will power up to High File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 25
+    Critical Warning (18010): Register switch_delay:switch_delay0|cnt[2] will power up to High File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 25
+    Critical Warning (18010): Register switch_delay:switch_delay0|cnt[1] will power up to High File: D:/VHDL/task7_modified_sec1/switch_delay.vhd Line: 25
+Info (17049): 31 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "en_key" File: D:/VHDL/task7_modified_sec1/task7_modified_sec1.vhd Line: 11
+Info (21057): Implemented 643 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 625 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 168 warnings
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Sat Nov 23 23:05:26 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:32
+
+

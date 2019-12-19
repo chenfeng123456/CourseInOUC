@@ -1,0 +1,38 @@
+|fsk
+clk => div:U1.clk
+clk => div_4:U2.clk
+rst_n => div:U1.reset_n
+rst_n => div_4:U2.reset_n
+code_in => sel:U3.code
+output << sel:U3.output
+
+
+|fsk|div:U1
+clk => q~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+reset_n => q~reg0.ACLR
+reset_n => count[0].ACLR
+reset_n => count[1].PRESET
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fsk|div_4:U2
+clk => q~reg0.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+reset_n => q~reg0.ACLR
+reset_n => count[0].ACLR
+reset_n => count[1].ACLR
+reset_n => count[2].PRESET
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fsk|sel:U3
+input1 => output.DATAB
+input2 => output.DATAA
+code => output.OUTPUTSELECT
+output <= output.DB_MAX_OUTPUT_PORT_TYPE
+
+

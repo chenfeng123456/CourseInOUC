@@ -1,0 +1,41 @@
+|my8259
+D[0] <> <UNC>
+D[1] <> <UNC>
+D[2] <> <UNC>
+D[3] <> <UNC>
+D[4] <> <UNC>
+D[5] <> <UNC>
+D[6] <> <UNC>
+D[7] <> <UNC>
+CAS[0] <> <UNC>
+CAS[1] <> <UNC>
+CAS[2] <> <UNC>
+CAS[3] <> <UNC>
+CAS[4] <> <UNC>
+CAS[5] <> <UNC>
+CAS[6] <> <UNC>
+CAS[7] <> <UNC>
+nSP_nEN[0] <> <UNC>
+nSP_nEN[1] <> <UNC>
+nSP_nEN[2] <> <UNC>
+nSP_nEN[3] <> <UNC>
+nSP_nEN[4] <> <UNC>
+nSP_nEN[5] <> <UNC>
+nSP_nEN[6] <> <UNC>
+nSP_nEN[7] <> <UNC>
+nRD => ~NO_FANOUT~
+nWR => ~NO_FANOUT~
+A0 => ~NO_FANOUT~
+nCS => ~NO_FANOUT~
+nINTA => ~NO_FANOUT~
+IR[0] => ~NO_FANOUT~
+IR[1] => ~NO_FANOUT~
+IR[2] => ~NO_FANOUT~
+IR[3] => ~NO_FANOUT~
+IR[4] => ~NO_FANOUT~
+IR[5] => ~NO_FANOUT~
+IR[6] => ~NO_FANOUT~
+IR[7] => ~NO_FANOUT~
+INT <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+

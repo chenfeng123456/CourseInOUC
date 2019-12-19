@@ -1,0 +1,81 @@
+LIBRARY IEEE;
+USE IEEE.Std_logic_1164.ALL;
+ENTITY Responder IS                                            -- 实体声明
+  PORT(Clock,Start:IN Std_logic;               -- 端口声明
+                 Key:IN Std_logic_Vector(7 DOWNTO 1);
+                 Led:OUT Std_logic_Vector(7 DOWNTO 1);
+                 a,b,c,d,e,f,g,Speaker:OUT Std_logic);     
+ END Responder;
+ 
+ ARCHITECTURE behave OF Responder IS        -- 结构体声明
+      SIGNAL mask_off:Std_logic;                      -- 信号声明
+      SIGNAL Key_Keep, q:Std_logic_Vector(7 DOWNTO 1);
+      COMPONENT freq_div                                    -- 元件声明
+          GENERIC(n: Integer :=20000);
+          PORT(Clock,Reset:IN Std_Logic;
+                                               clk:OUT Std_Logic);
+      END COMPONENT;
+BEGIN
+    U1:freq_div GENERIC MAP(n => 76445)                 -- fq = 261.6Hz 哆
+                           PORT MAP(Clock => Clock,Reset => Start,clk => q (1));
+    U2:freq_div GENERIC MAP(n => 68105)                 -- fq = 293.7Hz 来
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (2));
+    U3:freq_div GENERIC MAP(n => 60675)                 -- fq = 329.6Hz 咪
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (3));
+    U4:freq_div GENERIC MAP(n => 57269)                 -- fq = 349.2Hz 发
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (4));
+    U5:freq_div GENERIC MAP(n => 51021)                 -- fq = 392.0Hz 唆
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (5));
+    U6:freq_div GENERIC MAP(n => 45455)                 -- fq = 440.0Hz 啦
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (6));
+    U7:freq_div GENERIC MAP(n => 40495)                 -- fq = 493.9Hz 西
+                          PORT MAP(Clock => Clock,Reset => Start, clk => q (7));
+								  
+p1: PROCESS(Start,Key)                -- 进程语句
+  BEGIN
+     IF Start = '0' THEN                               -- 行为描述
+        mask_off  <= '0';
+     ELSIF (Key = "1111110" OR Key = "1111101" OR Key = "1111011" OR 
+                   Key = "1110111" OR Key = "1101111" OR Key = "1011111" OR 
+                   Key = "0111111")
+          THEN
+                   mask_off  <= '1';
+     END IF;
+END PROCESS;
+
+p2: PROCESS(Start,mask_off)              -- 进程语句
+  BEGIN
+     IF Start = '0' THEN                               -- 行为描述
+         Key_Keep <=(OTHERS => '0');
+     ELSIF Rising_Edge (mask_off) THEN
+         Key_Keep <= NOT Key;
+     END IF;
+   END PROCESS;
+
+   Led <= Key_Keep ;
+	
+p3: PROCESS (start,key, Key_Keep, q)
+    VARIABLE Seg: Std_logic_Vector(7 DOWNTO 1);-- 变量声明
+  BEGIN
+    if start = '0' then 
+        Speaker <= '0' ;
+     CASE Key_Keep IS
+	    WHEN "0000000" => Seg := "0000000";               -- 熄灭
+	    WHEN "1000000" => Seg := "0100111"; Speaker <= q (7); -- "7”
+	    WHEN "0100000" => Seg := "1111101"; Speaker <= q (6); -- "6”
+	    WHEN "0010000" => Seg := "1101101"; Speaker <= q (5); -- "5”
+	    WHEN "0001000" => Seg := "1100110"; Speaker <= q (4); -- "4”
+	    WHEN "0000100" => Seg := "1001111"; Speaker <= q (3); -- "3”
+	    WHEN "0000010" => Seg := "1011011"; Speaker <= q (2); -- "2”
+	    WHEN "0000001" => Seg := "0000110"; Speaker <= q (1); -- "1”
+	    WHEN OTHERS => NULL;
+	 END CASE;
+     if  Key = "1111111"  then  
+	     Speaker <= '0' ;
+	  end if;
+     a <= Seg (1);b <= Seg (2);c <= Seg (3);d <= Seg (4);
+     e <= Seg (5);f <= Seg (6);g <= Seg (7);
+	  
+	 end if;
+   END PROCESS;
+END behave ;

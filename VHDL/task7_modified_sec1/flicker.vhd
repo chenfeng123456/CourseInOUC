@@ -1,0 +1,42 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY flicker IS
+   PORT(
+	      en_n: IN STD_LOGIC;
+			CLK:  IN STD_LOGIC;
+			output: OUT STD_LOGIC
+		);
+END flicker;
+
+ARCHITECTURE bhv OF flicker IS
+
+BEGIN 
+   
+	PROCESS(en_n, clk)
+	   VARIABLE cnt: INTEGER := 0;
+		VARIABLE temp: STD_LOGIC;
+	BEGIN
+	   IF en_n = '1' THEN
+		   cnt := 0;
+			temp := '1';
+		ELSE
+		   IF clk'EVENT AND clk = '1' THEN
+			   cnt := cnt + 1;
+				IF cnt >= 0 AND cnt <= 100 THEN
+				   temp := '1';
+				ELSIF cnt > 100 AND cnt < 200 THEN
+				   temp := '0';
+				ELSIF cnt = 200 THEN
+				   temp := '0';
+					cnt := 0;
+				ELSE
+				   NULL;
+				END IF;
+			END IF;
+		END IF;
+		
+		output <= not temp;
+	END PROCESS;
+END;
