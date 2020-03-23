@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+
+\bibitem{Casper1988Perceptrons}
+M.~Casper, M.~Mengel, C.~Fuhrmann, E.~Herrmann, M.~Reichert, B.~Appenrodt,
+  F.~Grünhage, and F.~Lammert.
+\newblock Perceptrons: An introduction to computational geometry.
+\newblock 75(3):3356--62, 1988.
+
+\bibitem{Rosenblatt1958Two}
+Rosenblatt F.
+\newblock Two theorems of statistical separability in the perceptron.
+\newblock 1958.
+
+\bibitem{Goodfellow2014Generative}
+Ian~J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David
+  Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
+\newblock Generative adversarial nets.
+\newblock In {\em International Conference on Neural Information Processing
+  Systems}, 2014.
+
+\bibitem{Hinton2006Reducing}
+G.~E. Hinton and R.~R. Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em Science}, 313(5786):504--507, 2006.
+
+\bibitem{huang2018munit}
+Xun Huang, Ming-Yu Liu, Serge Belongie, and Jan Kautz.
+\newblock Multimodal unsupervised image-to-image translation.
+\newblock In {\em ECCV}, 2018.
+
+\bibitem{Rumelhart1986Learning}
+David~E. Rumelhart, Geoffrey~E. Hinton, and Ronald~J. Williams.
+\newblock Learning representations by back-propagating errors.
+\newblock 323(6088):399--421, 1986.
+
+\bibitem{Warren1943A}
+Walter~Pitts Warren S.~McCulloch.
+\newblock A logical calculus of the ideas immanent in nervous activity.
+\newblock {\em The Bulletin of Mathematical Biophysics}, 1943.
+
+\bibitem{付文博2018深度学习原理及应用综述}
+付文博, 孙涛, 梁藉, 闫宝伟, and 范福新.
+\newblock 深度学习原理及应用综述.
+\newblock {\em 计算机科学}, (s1), 2018.
+
+\bibitem{yukai}
+余凯, 贾磊, 陈雨强, and 徐伟.
+\newblock 深度学习的昨天、今天和明天.
+\newblock {\em 计算机研究与发展}, 50(9):1799--1804, 2013.
+
+\end{thebibliography}

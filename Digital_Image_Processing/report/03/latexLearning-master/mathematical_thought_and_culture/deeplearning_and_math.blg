@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: deeplearning_and_math.aux
+The style file: plain.bst
+Database file #1: ref.bib.bib
+Warning--empty journal in Casper1988Perceptrons
+Warning--empty journal in Rosenblatt1958Two
+Warning--empty journal in Rumelhart1986Learning
+Warning--there's a number but no volume in 付文博2018深度学习原理及应用综述
+You've used 9 entries,
+            2118 wiz_defined-function locations,
+            556 strings with 5574 characters,
+and the built_in function-call counts, 3152 in all, are:
+= -- 277
+> -- 205
+< -- 0
++ -- 82
+- -- 72
+* -- 249
+:= -- 558
+add.period$ -- 27
+call.type$ -- 9
+change.case$ -- 63
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 102
+empty$ -- 219
+format.name$ -- 72
+if$ -- 624
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 48
+num.names$ -- 18
+pop$ -- 68
+preamble$ -- 1
+purify$ -- 54
+quote$ -- 0
+skip$ -- 63
+stack$ -- 0
+substring$ -- 136
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 4
+while$ -- 22
+width$ -- 10
+write$ -- 94
+(There were 4 warnings)
