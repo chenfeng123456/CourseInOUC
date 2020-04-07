@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{cooley1965algorithm}
+James~W Cooley and John~W Tukey.
+\newblock An algorithm for the machine calculation of complex fourier series.
+\newblock {\em Mathematics of computation}, 19(90):297--301, 1965.
+
+\bibitem{digit_image_Gonzalez}
+Rafael C. Gonzalez，Richard~E. Woods.
+\newblock {\em 数字图像处理（第三版）}.
+\newblock 电子工业出版社, 2011.6.
+
+\bibitem{signal_and_system}
+Alan V. Oppenheim，Ronald W.~Schafer，刘树棠\ 译.
+\newblock {\em 信号与系统（第二版）}.
+\newblock 电子工业出版社, 2013.01.
+
+\bibitem{discrete-time_signal_processing}
+Alan V. Oppenheim，Ronald W. Schafer，黄建国\ 刘树棠~张国梅\ 译.
+\newblock {\em 离散时间信号处理（第三版）}.
+\newblock 电子工业出版社, 2015.01.
+
+\end{thebibliography}
