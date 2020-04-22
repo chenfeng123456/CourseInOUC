@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{huang2017wavelet}
+Huaibo Huang, Ran He, Zhenan Sun, and Tieniu Tan.
+\newblock Wavelet-srnet: A wavelet-based cnn for multi-scale face super
+  resolution.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision(ICCV)}, pages 1689--1697, 2017.
+
+\bibitem{xu2020learning}
+Kai Xu, Minghai Qin, Fei Sun, Yuhao Wang, Yen-Kuang Chen, and Fengbo Ren.
+\newblock Learning in the frequency domain, 2020.
+
+\end{thebibliography}
