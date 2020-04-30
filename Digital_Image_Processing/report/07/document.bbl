@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{he2010single}
+Kaiming He, Jian Sun, and Xiaoou Tang.
+\newblock Single image haze removal using dark channel prior.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  33(12):2341--2353, 2010.
+
+\bibitem{digit_image_Gonzalez}
+Rafael C. Gonzalez，Richard~E. Woods.
+\newblock {\em 数字图像处理（第三版）}.
+\newblock 电子工业出版社, 2011.6.
+
+\bibitem{song2017基于HSI}
+宋瑞霞，李达，王小春.
+\newblock 基于hsi色彩空间的低照度图像增强算法.
+\newblock {\em 图学学报}, 2017.
+
+\bibitem{lin2020水下图像处理技术}
+林明星，代成刚，董雪，张东，管志光.
+\newblock 水下图像处理技术研究综述.
+\newblock {\em 测控技术:1-14}, 2020.
+
+\bibitem{lin2020基于优势特征图像融合的水下光学图像增强}
+林森，迟凯晨，李文涛，唐延东.
+\newblock 基于优势特征图像融合的水下光学图像增强.
+\newblock {\em 光子学报}, 49(3), 2020.
+
+\bibitem{zou2020非均匀光照}
+邹立，卢俊彦，胡易，赵猛，高正中，程学珍.
+\newblock 非均匀光照条件下的水下图像增强算法.
+\newblock {\em 山东科技大学学报（自然科学版）}, 39(02), 2020.
+
+\end{thebibliography}
