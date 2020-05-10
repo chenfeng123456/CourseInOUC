@@ -1,0 +1,7 @@
+f=imread('windmill_noise.png');
+imshow(f);
+[c,s]=wavefast(f,l,'haar');
+[c,s]=wavefast(f,1,'haar');
+figrue; wave2gray(c,s,-6);
+[nc,y]=wavecut('a',c,s);
+fig

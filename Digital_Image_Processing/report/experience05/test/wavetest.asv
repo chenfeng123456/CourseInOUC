@@ -1,0 +1,8 @@
+f=rgb2gray(imread('laoshan.jpg')); % 读取图像
+figure,imshow(f); % 显示原图 
+[c,s]=wavefast(f,1,'haar'); % 进行二维哈尔小波变换
+figure; wave2gray(c,s,-6); % 显示小波系数
+[nc,y]=wavecut('d',c,s); % 消除指定分量
+figure, wave2gray(nc,s,-6); % 显示消除分量后的小波系数
+edge=abs(waveback(nc,s,'sym4')); % 
+figure,imshow(mat2gray(edge));

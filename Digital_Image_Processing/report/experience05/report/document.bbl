@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{digit_image_Gonzalez}
+Rafael C. Gonzalez，Richard~E. Woods.
+\newblock {\em 数字图像处理（第三版）}.
+\newblock 电子工业出版社, 2011.6.
+
+\bibitem{digit_image_Gonzalez_matlab}
+（美）冈萨雷斯等著，阮秋琦译.
+\newblock {\em 数字图像处理的MATLAB实现（第2版）}.
+\newblock 清华大学出版社, 2013.4.
+
+\end{thebibliography}
