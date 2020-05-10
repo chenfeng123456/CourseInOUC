@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{deng2019wavelet}
+Xin Deng, Ren Yang, Mai Xu, and Pier~Luigi Dragotti.
+\newblock Wavelet domain style transfer for an effective perception-distortion
+  tradeoff in single image super-resolution.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision}, pages 3076--3085, 2019.
+
+\bibitem{gao2016hybrid}
+Xing Gao and Hongkai Xiong.
+\newblock A hybrid wavelet convolution network with sparse-coding for image
+  super-resolution.
+\newblock In {\em 2016 IEEE International Conference on Image Processing
+  (ICIP)}, pages 1439--1443. IEEE, 2016.
+
+\bibitem{huang2017wavelet}
+Huaibo Huang, Ran He, Zhenan Sun, and Tieniu Tan.
+\newblock Wavelet-srnet: A wavelet-based cnn for multi-scale face super
+  resolution.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision(ICCV)}, pages 1689--1697, 2017.
+
+\bibitem{zhong2018joint}
+Zhisheng Zhong, Tiancheng Shen, Yibo Yang, Zhouchen Lin, and Chao Zhang.
+\newblock Joint sub-bands learning with clique structures for wavelet domain
+  super-resolution.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  165--175, 2018.
+
+\end{thebibliography}
