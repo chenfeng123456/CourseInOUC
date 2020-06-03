@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{digit_image_Gonzalez}
+Rafael C. Gonzalez，Richard~E. Woods.
+\newblock {\em 数字图像处理（第三版）}.
+\newblock 电子工业出版社, 2011.6.
+
+\bibitem{冯桂2000灰度图像边缘检测中的形态学方法}
+冯桂，桂预风，林宗坚.
+\newblock 灰度图像边缘检测中的形态学方法.
+\newblock {\em 遥感信息}, (3):10--14, 2000.
+
+\bibitem{zhang2005图像工程}
+章毓晋.
+\newblock {\em 图像工程}.
+\newblock 清华大学出版社有限公司, 2005.
+
+\end{thebibliography}
