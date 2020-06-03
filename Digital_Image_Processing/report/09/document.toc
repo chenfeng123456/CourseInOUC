@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}题目描述}{2}{section.1}
+\contentsline {section}{\numberline {2}$JPEG2000$}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}原理简述}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}优势}{2}{subsection.2.2}
+\contentsline {section}{\numberline {3}基于深度学习的图像压缩}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}$2019$年研究进展：$CVPR$与$ICCV$}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}各文献概述}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}总结}{4}{section.4}

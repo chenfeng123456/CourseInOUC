@@ -1,0 +1,111 @@
+\begin{thebibliography}{10}
+
+\bibitem{Agustsson_2019_ICCV}
+Eirikur Agustsson, Michael Tschannen, Fabian Mentzer, Radu Timofte, and Luc~Van
+  Gool.
+\newblock Generative adversarial networks for extreme learned image
+  compression.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{camposeco2019hybrid}
+Federico Camposeco, Andrea Cohen, Marc Pollefeys, and Torsten Sattler.
+\newblock Hybrid scene compression for visual localization.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 7653--7662, 2019.
+
+\bibitem{cheng2019learning}
+Zhengxue Cheng, Heming Sun, Masaru Takeuchi, and Jiro Katto.
+\newblock Learning image and video compression through spatial-temporal energy
+  compaction.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 10071--10080, 2019.
+
+\bibitem{Choi_2019_ICCV}
+Yoojin Choi, Mostafa El-Khamy, and Jungwon Lee.
+\newblock Variable rate deep image compression with a conditional autoencoder.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{Djelouah_2019_ICCV}
+Abdelaziz Djelouah, Joaquim Campos, Simone Schaub-Meyer, and Christopher
+  Schroers.
+\newblock Neural inter-frame compression for video coding.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{Fu_2019_ICCV}
+Xueyang Fu, Zheng-Jun Zha, Feng Wu, Xinghao Ding, and John Paisley.
+\newblock Jpeg artifacts reduction via deep convolutional sparse coding.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{Habibian_2019_ICCV}
+Amirhossein Habibian, Ties~van Rozendaal, Jakub~M. Tomczak, and Taco~S. Cohen.
+\newblock Video compression with rate-distortion autoencoders.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{Liu_2019_ICCV}
+Jerry Liu, Shenlong Wang, and Raquel Urtasun.
+\newblock Dsic: Deep stereo image compression.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{liu2019feature}
+Zihao Liu, Qi~Liu, Tao Liu, Nuo Xu, Xue Lin, Yanzhi Wang, and Wujie Wen.
+\newblock Feature distillation: Dnn-oriented jpeg compression against
+  adversarial examples.
+\newblock In {\em 2019 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 860--868. IEEE, 2019.
+
+\bibitem{liu2019machine}
+Zihao Liu, Xiaowei Xu, Tao Liu, Qi~Liu, Yanzhi Wang, Yiyu Shi, Wujie Wen,
+  Meiping Huang, Haiyun Yuan, and Jian Zhuang.
+\newblock Machine vision guided 3d medical image compression for efficient
+  transmission and accurate segmentation in the clouds.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 12687--12696, 2019.
+
+\bibitem{lu2019dvc}
+Guo Lu, Wanli Ouyang, Dong Xu, Xiaoyun Zhang, Chunlei Cai, and Zhiyong Gao.
+\newblock Dvc: An end-to-end deep video compression framework.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 11006--11015, 2019.
+
+\bibitem{mentzer2019practical}
+Fabian Mentzer, Eirikur Agustsson, Michael Tschannen, Radu Timofte, and Luc~Van
+  Gool.
+\newblock Practical full resolution learned lossless image compression.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 10629--10638, 2019.
+
+\bibitem{Rippel_2019_ICCV}
+Oren Rippel, Sanjay Nair, Carissa Lew, Steve Branson, Alexander~G. Anderson,
+  and Lubomir Bourdev.
+\newblock Learned video compression.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{digit_image_Gonzalez}
+Rafael C. Gonzalez，Richard~E. Woods.
+\newblock {\em 数字图像处理（第三版）}.
+\newblock 电子工业出版社, 2011.6.
+
+\bibitem{Xu_2019_ICCV}
+Yi~Xu, Longwen Gao, Kai Tian, Shuigeng Zhou, and Huyang Sun.
+\newblock Non-local convlstm for video compression artifact reduction.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  October 2019.
+
+\bibitem{liufangmin2002JPEG2000}
+刘方敏，吴永辉，俞建新.
+\newblock Jpeg2000图像压缩过程及原理概述.
+\newblock {\em 计算机辅助设计与图形学学报}, 14(10):905--911, 2002.
+
+\bibitem{王伊洛EBCOT}
+王伊洛.
+\newblock {\em EBCOT中T2编码器的VLSI设计}.
+\newblock PhD thesis, 西安电子科技大学.
+
+\end{thebibliography}

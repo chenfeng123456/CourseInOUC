@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: document.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Warning--empty year in 王伊洛EBCOT
+You've used 17 entries,
+            2118 wiz_defined-function locations,
+            578 strings with 7081 characters,
+and the built_in function-call counts, 7309 in all, are:
+= -- 670
+> -- 418
+< -- 6
++ -- 165
+- -- 148
+* -- 511
+:= -- 1150
+add.period$ -- 52
+call.type$ -- 17
+change.case$ -- 123
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 300
+empty$ -- 561
+format.name$ -- 148
+if$ -- 1563
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 17
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 178
+preamble$ -- 1
+purify$ -- 108
+quote$ -- 0
+skip$ -- 218
+stack$ -- 0
+substring$ -- 370
+swap$ -- 103
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 1
+while$ -- 53
+width$ -- 19
+write$ -- 180
+(There was 1 warning)
